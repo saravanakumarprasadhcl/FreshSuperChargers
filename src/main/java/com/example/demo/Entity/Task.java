@@ -8,8 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-//import com.mastercard.dxp.entity.User_credential;
-
 
 @Entity
 @Table(name = "Task")
@@ -21,10 +19,6 @@ public class Task {
 	
 	private long taskId;
     
-	/*@ManyToOne()
-    @JoinColumn(name = "userId", referencedColumnName = "userId")
-    //private User_credential userCredential;*/
-	
 	@Column(name="userId")
 	private long userId;
 	
