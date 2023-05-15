@@ -68,8 +68,7 @@ public class TaskService {
 	{
 	  try 
 	  {
-		System.out.println(st.getUserId()+" "+st.getTask());
-		tr.save(st);
+		  tr.save(st);
 	  }
 	  catch(Exception e)
 	  {
@@ -77,4 +76,29 @@ public class TaskService {
 	  }
 	}
 	
+
+	public void add(Task t)
+	{
+		tr.save(t);
+	}
+
+
+	public void setcmplt(Task task) {
+		List<Task> t=tr.getByuserId(task.getUserId());
+		long n = 0;
+		for(Task tr: t)
+		{
+			if(tr.getTaskId()==task.getTaskId()) {
+			  n=tr.getId();
+			}
+		}
+		Task t1=tr.getById(n);
+		System.out.println(task.getStatus());
+		t1.setStatus(task.getStatus());
+		tr.save(t1);
+	}
+	
+	public List<Task> getbyuserid(long id){
+		return tr.getByuserId(id);
+	}
 }

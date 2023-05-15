@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+//import com.mastercard.dxp.entity.User_credential;
+
 
 @Entity
 @Table(name = "Task")
@@ -19,6 +21,11 @@ public class Task {
 	
 	private long taskId;
     
+	/*@ManyToOne()
+    @JoinColumn(name = "userId", referencedColumnName = "userId")
+    //private User_credential userCredential;*/
+	
+	@Column(name="userId")
 	private long userId;
 	
 	
@@ -30,7 +37,17 @@ public class Task {
 	
 	@Column(name = "duedate")
 	private LocalDate duedate;
+
 	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
 	public long getTaskId() {
 		return taskId;
 	}
@@ -38,17 +55,17 @@ public class Task {
 	public void setTaskId(long taskId) {
 		this.taskId = taskId;
 	}
-	
+
+	public String getTask() {
+		return task;
+	}
+
 	public long getUserId() {
 		return userId;
 	}
 
 	public void setUserId(long userId) {
 		this.userId = userId;
-	}
-
-	public String getTask() {
-		return task;
 	}
 
 	public void setTask(String task) {
