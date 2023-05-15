@@ -1,0 +1,60 @@
+package com.foobat;
+import com.example.demo.Entity.Task;
+import java.time.LocalDate;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.*;
+import com.example.demo.Entity.category;
+global com.example.demo.Entity.Task t1;
+global  java.util.Map tasks;
+global String A;
+dialect "mvel"
+
+
+
+rule "Adding Values to the Map"
+    when
+    then
+    System.out.println("==========Adding==================");
+    tasks.put("group1",Arrays.asList("NEW_HIRE","FUNDAMENTALS","DATABASE", "DB_EXAM", "JAVA"));
+    tasks.put("group2",Arrays.asList("FUNDAMENTALS","DATABASE", "DB_EXAM", "JAVA","SPRINGBOOT","JAVA_EXAM"));
+    tasks.put("group3",Arrays.asList("DATABASE", "DB_EXAM", "JAVA","SPRINGBOOT","JAVA_EXAM","JENKINS","AWS"));
+    tasks.put("group4",Arrays.asList("DATABASE", "DB_EXAM", "JAVA","SPRINGBOOT","JAVA_EXAM","JENKINS","AWS","SPLUNK"));
+    System.out.println(tasks);
+end
+
+
+rule "Checking catagory and tasks values are not null"
+   when
+     $task : Task(task!="NULL") && $category : category(category!="NULL")
+   then
+     System.out.println("Task and Category Values are Not Null!!!!!");  
+end
+
+
+
+rule "Checking the next task value is not null and updating to the next task"
+     when
+       $category : category();
+       $task :Task();
+     then 
+        t1.setTask(A);  
+end
+
+rule "Updating the Duedate,status,taskid based on userid"
+     when 
+    	$category : category();
+    	$task :Task();
+     then
+     	t1.setTaskId($task.getTaskId()+1);
+        t1.setUserId($task.getUserId());
+        $task.setStatus("Completed");
+        t1.setStatus("InProgress");  
+        LocalDate datePlus1 = $task.getDuedate().plusDays(10); 
+        t1.setDuedate(datePlus1);
+end
+  
+
