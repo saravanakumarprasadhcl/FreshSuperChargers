@@ -1,0 +1,8 @@
+/******************************/
+
+Drools Implementation
+
+Manually add data to the category table-UserId,category(group1,group2,group3,group4) 
+By using api /add we can add data to the task table
+By using api /get we can update the status of task to complete and create a new task.
+
