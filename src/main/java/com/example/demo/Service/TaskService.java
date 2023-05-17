@@ -22,6 +22,8 @@ public class TaskService {
 	 
 	 @Autowired
 	 private TaskRepo tr;
+	 
+	 String status="Completed";
 
 	public Task getStatus(Task task,category category) {
 		Map<String,List<String>> tasks=new HashMap<>();
@@ -31,12 +33,14 @@ public class TaskService {
 	    tasks.put("group4",Arrays.asList("DATABASE", "DB_EXAM", "JAVA","SPRINGBOOT","JAVA_EXAM","JENKINS","AWS","SPLUNK"));
 	    List<String> a=new ArrayList<>();
 	    String s="null";
+	    String last="null";
 	    System.out.println(tasks);
 	    for(Map.Entry<String,List<String>> key : tasks.entrySet())
 	    {
 	    	if(key.getKey().equals(category.getCategory()))
 	    	{
 	    		a=key.getValue();
+	    		System.out.println("Arraylist size:"+a.size());
 	    		for(int i=0;i<a.size();i++)
 	    		{
 	    			if(i<a.size()-1 && a.get(i).equals(task.getTask()))
@@ -48,11 +52,17 @@ public class TaskService {
 	    		{
 	    			s=a.get(a.size()-1);
 	    		}
+	    		if(task.getTaskId()==a.size())
+	    		{
+                   last="last";
+	    		}
 	    	}
 	    }
-		Task t1=new Task();
+	    System.out.println(last);
 		System.out.println(category.getCategory()+" "+category.getUserId());
+		if(last!="last") {
 		KieSession kieSession =kieContainer.newKieSession();
+		Task t1=new Task();
 		kieSession.setGlobal("t1",t1);
 		kieSession.setGlobal("tasks",tasks);
 		kieSession.setGlobal("A",s);
@@ -61,28 +71,41 @@ public class TaskService {
 		kieSession.fireAllRules();
 		kieSession.dispose();
 		return t1;
+		}
+		else {
+			task.setStatus(status);
+			return task;
+		}
 	}
 
-	
+	//to save new record details 
 	public void save(Task st) 
 	{
 	  try 
 	  {
-		  tr.save(st);
+		  System.out.println(st.getStatus());
+		  if(st.getStatus()!="Completed")
+		  {
+			  tr.save(st);
+		  }
+		  else {
+			  //tr.save(st);
+		  }
 	  }
 	  catch(Exception e)
 	  {
 		  System.out.println(e);
 	  }
 	}
-	
+
 
 	public void add(Task t)
 	{
 		tr.save(t);
 	}
-
-
+	
+	
+	//to update status of current task 
 	public void setcmplt(Task task) {
 		List<Task> t=tr.getByuserId(task.getUserId());
 		long n = 0;
