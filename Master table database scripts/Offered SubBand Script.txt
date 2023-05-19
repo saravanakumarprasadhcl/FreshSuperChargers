@@ -1,0 +1,16 @@
+CREATE TABLE OfferedSubBand 
+(
+    UID	int not null auto_increment unique,
+    OFFEREDSUBBANDKEY	VARCHAR(20) not null,
+    OFFEREDSUBBANDVALUE	VARCHAR(20) not null,
+    primary key(OFFEREDSUBBANDKEY)
+);
+
+desc OfferedSubBand;
+
+INSERT INTO OfferedSubBand (UID, OFFEREDSUBBANDKEY, OFFEREDSUBBANDVALUE) VALUES
+	('1', 'E1.1', 'E1.1'),
+	('2', 'E1.2', 'E1.2'),
+	('3', 'YTD', 'Yet To Deliver');
+    
+select * from OfferedSubBand;

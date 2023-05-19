@@ -1,0 +1,21 @@
+CREATE TABLE UGDegree 
+(
+    UID	int not null auto_increment unique,
+    UGDEGREEKEY	VARCHAR(50) not null,
+    UGDEGREEVALUE VARCHAR(50) not null,
+    primary key(UGDEGREEKEY)
+);
+
+desc UGDegree;
+
+INSERT INTO UGDegree (UID, UGDEGREEKEY, UGDEGREEVALUE) VALUES
+	('1', 'B.TECH/B.E', 'B.Tech/B.E'),
+	('2', 'B.E.', 'Bachelor of Engineering '),
+	('3', 'B.D.', 'Bachelor Of Divinity'),
+	('4', 'B.DES.', 'Bachelor Of Design '),
+	('5', 'B.SC.', 'Bachelor Of Science'),
+	('6', 'B.PHARM', 'Bachelor Of Pharmacy'),
+	('7', 'BME', 'Biomedical engineering'),
+	('8', 'MBA  ', 'MBA Integrated  Degree');
+    
+select * from UGDegree;

@@ -1,0 +1,47 @@
+use fsc;
+create table UG_specialization(
+    UID	int not null auto_increment unique,
+    SPECIALIZATIONKEY VARCHAR(50) not null,
+    SPECIALIZATIONVALUE VARCHAR(50) not null,
+    primary key(SPECIALIZATIONKEY)
+);
+desc UG_specialization;
+INSERT INTO UG_Specialization(UID, SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('1', 'AERO', 'Aerospace Engineering');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('AEI', 'Applied Electronics and Instrumentation');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('AUTO', 'Automobile Engineering');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('CSEorCS', 'Computer Science Engineering');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('CIVIL', 'Civil Engineering');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('ECEorEC', 'Electronics and Communication Enineering');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('EEE', 'Electrical and Electronics Engineering');
+
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('EE', 'Electronics and Embedded Systems');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('ETCorETE', 'Electronics and Telecommunication Engineering');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('ISE', 'Industrial and Systems Engineering');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('MECH', 'Mechanical Engineering');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('IT', 'Information Technology');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('RA', 'Robotics and Automation');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('SE', 'Software Engineering');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('CERAMIC', 'Ceramic Engineering');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('BE', 'Biomedical Engineering');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('FPE', 'Food Processing Engineering');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('MI', 'Moving Images');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('AGRI.', 'Agricultural Engineering');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('MSE', 'Materials Science and Engineering');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('ARCHIT.', 'Architectural Design');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('BIOTECH', 'Biotechnology Engineering');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('MECHATRONICS ', 'Mechatronics Engineering');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('NAOE', 'Naval Architecture and Ocean Engineering');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('MME', 'Metallurgical and Materials Engineering');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('ME', 'Mining Engineering ');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('PIE', 'Production and Industrial Engineering');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('MD', 'Machine Design');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('GD', 'Graphic Design ');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('PSE', 'Physical Science Engineering');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('TD', 'Textile Design');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('IEE', 'Instrumentation and Electronics Engineering');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('ELECTRICAM', 'Electricam');
+INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('CHEM. ENG ', 'Chemical Engineering');
+
+select* from UG_specialization;
+
+truncate UG_specialization;

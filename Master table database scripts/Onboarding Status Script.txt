@@ -1,0 +1,14 @@
+CREATE TABLE OnboardingStatus 
+(
+    UID	int not null auto_increment unique,
+    ONBORADINGSTATUSKEY	VARCHAR(30) not null,
+    ONBOARDINGSTATUSVALUE	VARCHAR(30) not null,
+    primary key(ONBORADINGSTATUSKEY)
+);
+
+desc OnboardingStatus;
+INSERT INTO OnboardingStatus (UID, ONBORADINGSTATUSKEY, ONBOARDINGSTATUSVALUE) VALUES
+	('1', 'JOINED', 'Joined'),
+	('2', 'PENDING', 'Pending for Joining');
+    
+select * from OnboardingStatus;

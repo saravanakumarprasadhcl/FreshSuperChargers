@@ -1,0 +1,16 @@
+CREATE TABLE CollegeTiering 
+(
+    UID	int not null auto_increment unique,
+    COLLEGETIERINGKEY	VARCHAR(20) not null,
+    COLLEGETIERINGVALUE	VARCHAR(20) not null,
+    primary key(COLLEGETIERINGKEY)
+);
+
+desc CollegeTiering;
+
+INSERT INTO CollegeTiering(UID, COLLEGETIERINGKEY, COLLEGETIERINGVALUE) VALUES
+	('1', 'TIER 1', 'Tier-1'),
+	('2', 'TIER 2', 'Tier-2'),
+	('3', 'TIER 3', 'Tier-3');
+    
+select * from CollegeTiering;    

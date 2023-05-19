@@ -1,0 +1,21 @@
+CREATE TABLE L1 
+(
+    UID	int not null auto_increment unique,
+    L1KEY VARCHAR(30) not null,
+    L1VALUE VARCHAR(30) not null,
+    primary key(L1KEY)
+);
+
+desc L1;
+
+INSERT INTO L1 (UID, L1KEY, L1VALUE) VALUES
+	('1', 'ERS', 'ERS'),
+	('2', 'ERS MMT', 'ERS MMT'),
+	('3', 'ERS Research', 'ERS Research'),
+	('4', 'ERS EBT', 'ERS EBT'),
+	('5', 'ERS T&S _SIE', 'ERS T&S _SIE'),
+	('6', 'ERS MMT-DIGITAL TECH', 'ERS MMT-DIGITAL TECH'),
+	('7', 'ERS MMT-MEDICAL', 'ERS MMT-MEDICAL'),
+	('8', 'Unmapped', 'Unmapped');
+    
+    select * from L1;

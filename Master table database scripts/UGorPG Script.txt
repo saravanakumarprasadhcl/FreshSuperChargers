@@ -1,0 +1,14 @@
+CREATE TABLE UGorPG
+(
+    UID	int not null auto_increment unique,
+    UGorPGKEY VARCHAR(20) not null,
+    UGorPGVALUE VARCHAR(20) not null,
+    primary key(UGorPGKEY)
+);
+desc UGorPG;
+
+
+INSERT INTO UGorPG(UID, UGorPGKEY, UGorPGVALUE) VALUES ('1', 'UG', 'Undergraduation');
+INSERT INTO UGorPG(UGorPGKEY, UGorPGVALUE) VALUES ('PG', 'Postgraduation');
+
+select * from UGorPG;

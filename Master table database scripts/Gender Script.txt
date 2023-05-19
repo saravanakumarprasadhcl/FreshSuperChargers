@@ -1,0 +1,14 @@
+create database FSC;
+use FSC;
+create table Gender(
+	UID int not null auto_increment unique,
+    GENDERKEY varchar(20) not null,
+    GENDERVALUE varchar(20) not null,
+    primary key(GENDERKEY)
+);
+desc Gender;
+
+insert into Gender(UID,GENDERKEY,GENDERVALUE) values (1,"MALE","Male");
+insert into Gender(GENDERKEY,GENDERVALUE) values ("FEMALE","female");
+insert into Gender(GENDERKEY,GENDERVALUE) values("TRANSGENDER","Others");
+select * from gender;

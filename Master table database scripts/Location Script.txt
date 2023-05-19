@@ -1,0 +1,18 @@
+CREATE TABLE Location 
+(
+    UID	int not null auto_increment unique,
+    LOCATIONKEY	VARCHAR(30) not null,
+    LOCATIONVALUE	VARCHAR(30) not null,
+    primary key(LOCATIONKEY)
+);
+
+desc Location;
+
+INSERT INTO Location (UID, LOCATIONKEY, LOCATIONVALUE) VALUES
+	('1', 'HUBLI', 'Hubli'),
+	('2', 'KOLKATA', 'Kolkata'),
+	('3', 'CHENNAI', 'Chennai'),
+	('4', 'BANGALORE', 'Bangalore'),
+	('5', 'KOCHI', 'Kochi');
+    
+select* from Location;
