@@ -1,14 +1,11 @@
-CREATE TABLE UGorPG
+CREATE TABLE MASTER_UG_PG
 (
     UID	int not null auto_increment unique,
     UGorPGKEY VARCHAR(20) not null,
     UGorPGVALUE VARCHAR(20) not null,
     primary key(UGorPGKEY)
 );
-desc UGorPG;
 
 
-INSERT INTO UGorPG(UID, UGorPGKEY, UGorPGVALUE) VALUES ('1', 'UG', 'Undergraduation');
-INSERT INTO UGorPG(UGorPGKEY, UGorPGVALUE) VALUES ('PG', 'Postgraduation');
-
-select * from UGorPG;
+INSERT INTO MASTER_UG_PG(UID, UGorPGKEY, UGorPGVALUE) VALUES ('1', 'UG', 'Undergraduation');
+INSERT INTO MASTER_UG_PG(UGorPGKEY, UGorPGVALUE) VALUES ('PG', 'Postgraduation');

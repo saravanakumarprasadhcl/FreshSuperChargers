@@ -1,4 +1,4 @@
-CREATE TABLE OfferedSubBand 
+CREATE TABLE MASTER_OFFERED_SUB_BAND
 (
     UID	int not null auto_increment unique,
     OFFEREDSUBBANDKEY	VARCHAR(20) not null,
@@ -6,11 +6,10 @@ CREATE TABLE OfferedSubBand
     primary key(OFFEREDSUBBANDKEY)
 );
 
-desc OfferedSubBand;
 
-INSERT INTO OfferedSubBand (UID, OFFEREDSUBBANDKEY, OFFEREDSUBBANDVALUE) VALUES
+INSERT INTO MASTER_OFFERED_SUB_BAND(UID, OFFEREDSUBBANDKEY, OFFEREDSUBBANDVALUE) VALUES
 	('1', 'E1.1', 'E1.1'),
 	('2', 'E1.2', 'E1.2'),
 	('3', 'YTD', 'Yet To Deliver');
     
-select * from OfferedSubBand;
+S

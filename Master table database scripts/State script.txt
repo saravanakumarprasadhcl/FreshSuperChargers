@@ -1,4 +1,4 @@
-CREATE TABLE State 
+CREATE TABLE MASTER_STATE
 (
     UID	int not null auto_increment unique,
     STATEKEY VARCHAR(30) not null,
@@ -6,9 +6,8 @@ CREATE TABLE State
     primary key(STATEKEY)
 );
 
-desc State;
 
-INSERT INTO State (UID, STATEKEY, STATEVALUE) VALUES
+INSERT INTO MASTER_STATE(UID, STATEKEY, STATEVALUE) VALUES
 	('1', 'IN-AP', 'Andhra Pradesh'),
 	('2', 'IN-AR', 'Arunachal Pradesh'),
 	('3', 'IN-AS', 'Assam'),
@@ -38,4 +37,4 @@ INSERT INTO State (UID, STATEKEY, STATEVALUE) VALUES
 	('27', 'IN-UT', 'Uttarakhand'),
 	('28', 'IN-WB', 'West Bengal');
     
-    select * from State;
+  

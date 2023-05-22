@@ -1,4 +1,4 @@
-CREATE TABLE L3 
+CREATE TABLE MASTER_L3 
 (
     UID	int not null auto_increment unique,
     L3KEY	VARCHAR(50) not null,
@@ -6,9 +6,7 @@ CREATE TABLE L3
     primary key(L3KEY)
 );
 
-desc L3;
-
-INSERT INTO L3 (UID, L3KEY, L3VALUE) VALUES
+INSERT INTO  MASTER_L3(UID, L3KEY, L3VALUE) VALUES
 	('1', 'ERS-ERS-Microsoft', 'ERS-ERS-Microsoft'),
 	('2', 'ERS-CET-System Eng', 'ERS-CET-System Eng'),
 	('3', 'ERS-T&S-DCSS', 'ERS-T&S-DCSS'),
@@ -63,4 +61,3 @@ INSERT INTO L3 (UID, L3KEY, L3VALUE) VALUES
 	('52', 'ERS MMT-MEDICAL-RMPL COE-PACKAGING', 'ERS MMT-MEDICAL-RMPL COE-PACKAGING'),
 	('53', 'Unmapped', 'Unmapped');
     
-select * from L3;

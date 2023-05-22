@@ -1,4 +1,4 @@
-CREATE TABLE LOB 
+CREATE TABLE MASTER_LOB 
 (
     UID	int not null auto_increment unique,
     LOBKEY VARCHAR(20) not null,
@@ -6,9 +6,6 @@ CREATE TABLE LOB
     primary key(LOBKEY)
 );
 
-desc LOB;
+INSERT INTO MASTER_LOB(UID, LOBKEY, LOBVALUE) VALUES ('1', 'ERS', 'ERS');
 
-INSERT INTO LOB (UID, LOBKEY, LOBVALUE) VALUES ('1', 'ERS', 'ERS');
-
-select * from LOB;
 

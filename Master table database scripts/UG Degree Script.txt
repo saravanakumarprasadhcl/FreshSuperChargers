@@ -1,4 +1,4 @@
-CREATE TABLE UGDegree 
+CREATE TABLE MASTER_UG_DEGREE
 (
     UID	int not null auto_increment unique,
     UGDEGREEKEY	VARCHAR(50) not null,
@@ -6,9 +6,8 @@ CREATE TABLE UGDegree
     primary key(UGDEGREEKEY)
 );
 
-desc UGDegree;
 
-INSERT INTO UGDegree (UID, UGDEGREEKEY, UGDEGREEVALUE) VALUES
+INSERT INTO MASTER_UG_DEGREE(UID, UGDEGREEKEY, UGDEGREEVALUE) VALUES
 	('1', 'B.TECH/B.E', 'B.Tech/B.E'),
 	('2', 'B.E.', 'Bachelor of Engineering '),
 	('3', 'B.D.', 'Bachelor Of Divinity'),
@@ -18,4 +17,3 @@ INSERT INTO UGDegree (UID, UGDEGREEKEY, UGDEGREEVALUE) VALUES
 	('7', 'BME', 'Biomedical engineering'),
 	('8', 'MBA  ', 'MBA Integrated  Degree');
     
-select * from UGDegree;

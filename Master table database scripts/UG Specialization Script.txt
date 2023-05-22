@@ -1,47 +1,43 @@
-use fsc;
-create table UG_specialization(
-    UID	int not null auto_increment unique,
-    SPECIALIZATIONKEY VARCHAR(50) not null,
-    SPECIALIZATIONVALUE VARCHAR(50) not null,
-    primary key(SPECIALIZATIONKEY)
+CREATE TABLE MASTER_UG_SPECIALIZATION 
+(
+    UID	INT,
+    SPECIALISATIONKEY	VARCHAR(512),
+    SPECIALISATIONVALUE	VARCHAR(512)
 );
-desc UG_specialization;
-INSERT INTO UG_Specialization(UID, SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('1', 'AERO', 'Aerospace Engineering');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('AEI', 'Applied Electronics and Instrumentation');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('AUTO', 'Automobile Engineering');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('CSEorCS', 'Computer Science Engineering');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('CIVIL', 'Civil Engineering');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('ECEorEC', 'Electronics and Communication Enineering');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('EEE', 'Electrical and Electronics Engineering');
 
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('EE', 'Electronics and Embedded Systems');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('ETCorETE', 'Electronics and Telecommunication Engineering');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('ISE', 'Industrial and Systems Engineering');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('MECH', 'Mechanical Engineering');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('IT', 'Information Technology');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('RA', 'Robotics and Automation');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('SE', 'Software Engineering');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('CERAMIC', 'Ceramic Engineering');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('BE', 'Biomedical Engineering');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('FPE', 'Food Processing Engineering');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('MI', 'Moving Images');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('AGRI.', 'Agricultural Engineering');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('MSE', 'Materials Science and Engineering');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('ARCHIT.', 'Architectural Design');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('BIOTECH', 'Biotechnology Engineering');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('MECHATRONICS ', 'Mechatronics Engineering');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('NAOE', 'Naval Architecture and Ocean Engineering');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('MME', 'Metallurgical and Materials Engineering');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('ME', 'Mining Engineering ');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('PIE', 'Production and Industrial Engineering');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('MD', 'Machine Design');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('GD', 'Graphic Design ');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('PSE', 'Physical Science Engineering');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('TD', 'Textile Design');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('IEE', 'Instrumentation and Electronics Engineering');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('ELECTRICAM', 'Electricam');
-INSERT INTO UG_Specialization(SPECIALIZATIONKEY, SPECIALIZATIONVALUE) VALUES ('CHEM. ENG ', 'Chemical Engineering');
-
-select* from UG_specialization;
-
-truncate UG_specialization;
+INSERT INTO MASTER_UG_SPECIALIZATION(UID, SPECIALISATIONKEY, SPECIALISATIONVALUE) VALUES
+	('1', 'AERO', 'Aerospace engineering'),
+	('2', 'AEI', 'Applied Electronics and Instrumentation'),
+	('3', 'AUTO', 'Automobile engineering'),
+	('4', 'CSEorCS', 'Computer Science Engineering'),
+	('5', 'CIVIL', 'Civil Engineering'),
+	('6', 'ECorECE', 'Electronics and communication Engineering'),
+	('7', 'EEE', 'Electrical and Electronics Engineering'),
+	('8', 'EIE', 'Electronics and Instrumentation Engineering'),
+	('9', 'EE', 'Electronics and Embedded Systems'),
+	('10', 'ETCorETE', 'Electronics and Telecommunication Engineer'),
+	('11', 'ISE', 'Industrial and Systems Engineering'),
+	('12', 'MECH', 'Mechanical Enginering'),
+	('13', 'IT', 'Information Technology'),
+	('14', 'RA', 'Robotics and Automation'),
+	('15', 'SE', 'Software Engineering'),
+	('16', 'CERAMIC', 'Ceramic Engineering'),
+	('17', 'BE', 'Biomedical Engineering'),
+	('18', 'FPE', 'Food Processing Engineering'),
+	('19', 'MI', 'Moving Images'),
+	('20', 'AGRI.', 'Agricultural Engineering'),
+	('21', 'MSE', 'Materials Science and Engineering'),
+	('22', 'ARCHIT.', 'Architectural Design'),
+	('23', 'BIOTECH', 'Biotechnology Engineering'),
+	('24', 'MECHATRONICS ', 'Mechatronics Engineering'),
+	('25', 'NAOE', 'Naval Architecture and Ocean Engineering'),
+	('26', 'MME', 'Metallurgical and Materials Engineering'),
+	('27', 'ME', 'Mining Engineering '),
+	('28', 'PIE', 'Production and Industrial Engineering'),
+	('29', 'MD', 'Machine Design'),
+	('30', 'GD', 'Graphic Design '),
+	('31', 'PSE', 'Physical Sience Engineering'),
+	('32', 'TD', 'Textile Design'),
+	('33', 'IEE', 'Instrumentation and Electronics Engineering'),
+	('34', 'ELECTRICAM', 'Electricam'),
+	('35', 'CHEM. ENG ', 'Chemical Engineering');

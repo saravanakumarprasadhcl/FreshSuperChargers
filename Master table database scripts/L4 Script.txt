@@ -1,4 +1,4 @@
-CREATE TABLE L4 
+CREATE TABLE MASTER_L4 
 (
     UID	int not null auto_increment unique,
     L4KEY VARCHAR(50) not null,
@@ -6,9 +6,8 @@ CREATE TABLE L4
     primary key(L4KEY)
 );
 
-desc L4;
 
-INSERT INTO L4 (UID, L4KEY, L4VALUE) VALUES
+INSERT INTO  MASTER_L4(UID, L4KEY, L4VALUE) VALUES
 	('1', 'ERS-ERS-Microsoft', 'ERS-ERS-Microsoft'),
 	('2', 'ERS-CET-System Eng', 'ERS-CET-System Eng'),
 	('3', 'ERS-T&S-DCSS-DELL_DP&MGMT', 'ERS-T&S-DCSS-DELL_DP&MGMT'),
@@ -78,4 +77,3 @@ INSERT INTO L4 (UID, L4KEY, L4VALUE) VALUES
 	('67', 'ERS-T&S-SiPs-DV', 'ERS-T&S-SiPs-DV'),
 	('68', 'ERS-CET-TECH EXCELLENCE-EPL', 'ERS-CET-TECH EXCELLENCE-EPL');
     
-select * from L4;

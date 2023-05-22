@@ -1,4 +1,4 @@
-CREATE TABLE OnboardingStatus 
+CREATE TABLE MASTER_ONBOARDING_STATUS
 (
     UID	int not null auto_increment unique,
     ONBORADINGSTATUSKEY	VARCHAR(30) not null,
@@ -6,9 +6,8 @@ CREATE TABLE OnboardingStatus
     primary key(ONBORADINGSTATUSKEY)
 );
 
-desc OnboardingStatus;
-INSERT INTO OnboardingStatus (UID, ONBORADINGSTATUSKEY, ONBOARDINGSTATUSVALUE) VALUES
+INSERT INTO MASTER_ONBOARDING_STATUS(UID, ONBORADINGSTATUSKEY, ONBOARDINGSTATUSVALUE) VALUES
 	('1', 'JOINED', 'Joined'),
 	('2', 'PENDING', 'Pending for Joining');
     
-select * from OnboardingStatus;
+

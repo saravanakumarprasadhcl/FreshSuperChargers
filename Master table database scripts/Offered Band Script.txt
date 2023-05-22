@@ -1,15 +1,13 @@
-CREATE TABLE OfferedBand 
+CREATE TABLE MASTER_OFFERED_BAND
 (
     UID	int not null auto_increment unique,
-    OFFEREDBANDKEY	VARCHAR(20) not null,
-    OFFEREDBANDVALUE	VARCHAR(20) not null,
+    OFFEREDBANDKEY VARCHAR(20) not null,
+    OFFEREDBANDVALUE VARCHAR(20) not null,
     primary key(OFFEREDBANDKEY)
 );
 
-desc OfferedBand;
 
-INSERT INTO OfferedBand (UID, OFFEREDBANDKEY, OFFEREDBANDVALUE) VALUES
+INSERT INTO MASTER_OFFERED_BAND(UID, OFFEREDBANDKEY, OFFEREDBANDVALUE) VALUES
 	('1', 'E1', 'E1'),
 	('2', 'YTD', 'Yet To Deliver');
     
-select * from OfferedBand;

@@ -1,4 +1,4 @@
-CREATE TABLE L1 
+CREATE TABLE MASTER_L1 
 (
     UID	int not null auto_increment unique,
     L1KEY VARCHAR(30) not null,
@@ -6,9 +6,7 @@ CREATE TABLE L1
     primary key(L1KEY)
 );
 
-desc L1;
-
-INSERT INTO L1 (UID, L1KEY, L1VALUE) VALUES
+INSERT INTO  MASTER_L1(UID, L1KEY, L1VALUE) VALUES
 	('1', 'ERS', 'ERS'),
 	('2', 'ERS MMT', 'ERS MMT'),
 	('3', 'ERS Research', 'ERS Research'),
@@ -17,5 +15,3 @@ INSERT INTO L1 (UID, L1KEY, L1VALUE) VALUES
 	('6', 'ERS MMT-DIGITAL TECH', 'ERS MMT-DIGITAL TECH'),
 	('7', 'ERS MMT-MEDICAL', 'ERS MMT-MEDICAL'),
 	('8', 'Unmapped', 'Unmapped');
-    
-    select * from L1;
