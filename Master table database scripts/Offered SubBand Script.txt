@@ -1,0 +1,15 @@
+CREATE TABLE MASTER_OFFERED_SUB_BAND
+(
+    UID	int not null auto_increment unique,
+    OFFEREDSUBBANDKEY	VARCHAR(20) not null,
+    OFFEREDSUBBANDVALUE	VARCHAR(20) not null,
+    primary key(OFFEREDSUBBANDKEY)
+);
+
+
+INSERT INTO MASTER_OFFERED_SUB_BAND(UID, OFFEREDSUBBANDKEY, OFFEREDSUBBANDVALUE) VALUES
+	('1', 'E1.1', 'E1.1'),
+	('2', 'E1.2', 'E1.2'),
+	('3', 'YTD', 'Yet To Deliver');
+    
+S

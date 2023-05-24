@@ -1,0 +1,15 @@
+CREATE TABLE MASTER_REGION 
+(
+    UID	int not null auto_increment unique,
+    REGIONKEY VARCHAR(20) not null,
+    REGIONVALUE	VARCHAR(20) not null,
+    primary key(REGIONKEY)
+);
+
+
+INSERT INTO MASTER_REGION(UID, REGIONKEY, REGIONVALUE) VALUES
+	('1', 'NORTH', 'North'),
+	('2', 'SOUTH', 'South'),
+	('3', 'EAST', 'East'),
+	('4', 'WEST', 'West');
+    

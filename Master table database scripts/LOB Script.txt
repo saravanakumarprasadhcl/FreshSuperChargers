@@ -1,0 +1,11 @@
+CREATE TABLE MASTER_LOB 
+(
+    UID	int not null auto_increment unique,
+    LOBKEY VARCHAR(20) not null,
+    LOBVALUE VARCHAR(20) not null,
+    primary key(LOBKEY)
+);
+
+INSERT INTO MASTER_LOB(UID, LOBKEY, LOBVALUE) VALUES ('1', 'ERS', 'ERS');
+
+
