@@ -7,15 +7,15 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.hcl.fsc.entities.CDAC;
-import com.hcl.fsc.excel.vivo.EmployeeDetails;
-import com.hcl.fsc.excel.vivo.EmployeeEducationalDetails;
-import com.hcl.fsc.excel.vivo.EmployeeOnboardingDetails;
-import com.hcl.fsc.excel.vivo.EmployeeRecruitmentDetails;
+import com.hcl.fsc.entities.EmployeeDetails;
+import com.hcl.fsc.entities.EmployeeEducationalDetails;
+import com.hcl.fsc.entities.EmployeeOnboardingDetails;
+import com.hcl.fsc.entities.EmployeeRecruitmentDetails;
+import com.hcl.fsc.excel.vivo.CDAC;
 import com.hcl.fsc.helpers.EmployeeHelper;
 import com.hcl.fsc.mastertables.Gender;
 import com.hcl.fsc.repositories.EmployeeDetailsRepository;
-import com.hcl.fsc.repositories.EmployeeEducationDetailsRepository;
+import com.hcl.fsc.repositories.EmployeeEducationalDetailsRepository;
 import com.hcl.fsc.repositories.EmployeeOnboardingRepository;
 import com.hcl.fsc.repositories.EmployeeRecruitmentDetailsRepository;
 import com.hcl.fsc.repositories.GenderRepository;
@@ -25,7 +25,7 @@ public class EmployeeCDACServiceImpl {
     private EmployeeDetailsRepository employeeDetailsRepository;
     
     @Autowired
-    private EmployeeEducationDetailsRepository employeeEducationDetailsRepository;
+    private EmployeeEducationalDetailsRepository employeeEducationDetailsRepository;
     
     @Autowired
     private EmployeeOnboardingRepository employeeOnboardingRepository;
@@ -44,7 +44,7 @@ public class EmployeeCDACServiceImpl {
 		try {
 			List<CDAC> employeeCDACList = EmployeeHelper.convertExcelToListOfCDAC(file.getInputStream());
 			System.out.println(employeeCDACList.size()+"size of list");
-			//employeeNonTier1Repository.saveAll(employeeNonTier1List);	
+				
 			
 			
 			List<EmployeeDetails> employeeDetailsList=employeeCDACList.stream()
@@ -80,9 +80,6 @@ public class EmployeeCDACServiceImpl {
 	public List<EmployeeDetails> getAllEmployees(){
 		return this.employeeDetailsRepository.findAll();
 	}
-//	public List<NonTier_1> getAllNonTier1Employees() {		
-//		return this.employeeNonTier1Repository.findAll();
-//	} 
 	public List<Gender> getAllGender(){
 		return this.genderRepository.findAll();
 	}

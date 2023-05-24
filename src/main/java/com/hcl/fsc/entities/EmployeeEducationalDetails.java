@@ -1,4 +1,4 @@
-package com.hcl.fsc.excel.vivo;
+package com.hcl.fsc.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

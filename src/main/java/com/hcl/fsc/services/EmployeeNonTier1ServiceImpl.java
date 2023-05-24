@@ -7,15 +7,14 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import com.hcl.fsc.entities.NonTier_1;
-import com.hcl.fsc.excel.vivo.EmployeeDetails;
-import com.hcl.fsc.excel.vivo.EmployeeEducationalDetails;
-import com.hcl.fsc.excel.vivo.EmployeeOnboardingDetails;
-import com.hcl.fsc.excel.vivo.EmployeeRecruitmentDetails;
+import com.hcl.fsc.entities.EmployeeDetails;
+import com.hcl.fsc.entities.EmployeeEducationalDetails;
+import com.hcl.fsc.entities.EmployeeOnboardingDetails;
+import com.hcl.fsc.entities.EmployeeRecruitmentDetails;
+import com.hcl.fsc.excel.vivo.NonTier1;
 import com.hcl.fsc.helpers.EmployeeHelper;
 import com.hcl.fsc.mastertables.Gender;
-import com.hcl.fsc.repositories.EmployeeEducationDetailsRepository;
-import com.hcl.fsc.repositories.EmployeeNonTier1Repository;
+import com.hcl.fsc.repositories.EmployeeEducationalDetailsRepository;
 import com.hcl.fsc.repositories.EmployeeOnboardingRepository;
 import com.hcl.fsc.repositories.EmployeeRecruitmentDetailsRepository;
 import com.hcl.fsc.repositories.GenderRepository;
@@ -23,13 +22,13 @@ import com.hcl.fsc.repositories.EmployeeDetailsRepository;
 
 
 @Service
-public class EmployeeNonTier_1ServiceImpl {
+public class EmployeeNonTier1ServiceImpl {
 	
     @Autowired
     private EmployeeDetailsRepository employeeDetailsRepository;
     
     @Autowired
-    private EmployeeEducationDetailsRepository employeeEducationDetailsRepository;
+    private EmployeeEducationalDetailsRepository employeeEducationDetailsRepository;
     
     @Autowired
     private EmployeeOnboardingRepository employeeOnboardingRepository;
@@ -37,8 +36,6 @@ public class EmployeeNonTier_1ServiceImpl {
     @Autowired
     private EmployeeRecruitmentDetailsRepository employeeRecruitmentDetailsRepository;
     
-    @Autowired
-    private EmployeeNonTier1Repository employeeNonTier1Repository;
     
     @Autowired
 	private ModelMapper modelMapper;
@@ -49,10 +46,8 @@ public class EmployeeNonTier_1ServiceImpl {
 	public int employeeNonTier1ListSave(MultipartFile file) {
 		int res=0;
 		try {
-			List<NonTier_1> employeeNonTier1List = EmployeeHelper.convertExcelToListOfNonTier1(file.getInputStream());
+			List<NonTier1> employeeNonTier1List = EmployeeHelper.convertExcelToListOfNonTier1(file.getInputStream());
 			System.out.println(employeeNonTier1List.size()+"size of list");
-			employeeNonTier1Repository.saveAll(employeeNonTier1List);	
-			
 			
 			List<EmployeeDetails> employeeDetailsList=employeeNonTier1List.stream()
 					.map(employeeDetails-> modelMapper.map(employeeDetails,EmployeeDetails.class))
@@ -86,9 +81,6 @@ public class EmployeeNonTier_1ServiceImpl {
 
 	public List<EmployeeDetails> getAllEmployees(){
 		return this.employeeDetailsRepository.findAll();
-	}
-	public List<NonTier_1> getAllNonTier1Employees() {		
-		return this.employeeNonTier1Repository.findAll();
 	} 
 	public List<Gender> getAllGender(){
 		return this.genderRepository.findAll();
@@ -96,5 +88,10 @@ public class EmployeeNonTier_1ServiceImpl {
 	public Gender addGender(Gender gender) {
 		return this.genderRepository.save(gender);
 		
+	}
+
+	public void deleteGender(String genderkey) {
+		Gender gender=this.genderRepository.getByGenderKey(genderkey);
+		this.genderRepository.delete(gender);
 	}
 }

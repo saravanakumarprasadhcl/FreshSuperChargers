@@ -1,4 +1,4 @@
-package com.hcl.fsc.excel.vivo;
+package com.hcl.fsc.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -14,7 +14,9 @@ import lombok.ToString;
 @ToString
 @Entity
 public class EmployeeOnboardingDetails {
+	
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Integer id;
 	private Integer sapId;
 	private String onbaordingDetails;

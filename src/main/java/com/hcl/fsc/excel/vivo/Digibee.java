@@ -1,28 +1,15 @@
-package com.hcl.fsc.entities;
+package com.hcl.fsc.excel.vivo;
 
 import com.poiji.annotation.ExcelCellName;
-import jakarta.persistence.Entity;
+import com.poiji.annotation.ExcelSheet;
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
-@Entity
-@Table(name="Non_Tier1_Employees_Details")
-public class NonTier_1 {
-	
-	
+@ExcelSheet("DigiBee")
+public class Digibee {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
@@ -47,6 +34,8 @@ public class NonTier_1 {
     private String highSchoolPassingYear;
 	@ExcelCellName("12th Passing Year")
 	private String  intermediatePassingYear;
+	@ExcelCellName("12th Percantage")
+	private String  intermediatePercentage;
     @ExcelCellName("Graduation College")
 	private String  graduationCollege;
     @ExcelCellName("Graduation Specialization")
@@ -113,7 +102,4 @@ public class NonTier_1 {
 	private String finalStatus;
 	@ExcelCellName("Demand Owner")
 	private String demandOwner;
-
-
-	
 }

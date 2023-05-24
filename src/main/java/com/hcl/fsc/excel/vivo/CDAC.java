@@ -1,4 +1,4 @@
-package com.hcl.fsc.entities;
+package com.hcl.fsc.excel.vivo;
 
 import com.poiji.annotation.ExcelCellName;
 import com.poiji.annotation.ExcelSheet;

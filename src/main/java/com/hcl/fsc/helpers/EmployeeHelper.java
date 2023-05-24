@@ -6,9 +6,9 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import com.hcl.fsc.entities.CDAC;
-import com.hcl.fsc.entities.Digibee;
-import com.hcl.fsc.entities.NonTier_1;
+import com.hcl.fsc.excel.vivo.CDAC;
+import com.hcl.fsc.excel.vivo.Digibee;
+import com.hcl.fsc.excel.vivo.NonTier1;
 import com.poiji.bind.Poiji;
 import com.poiji.exception.PoijiExcelType;
 
@@ -21,12 +21,12 @@ public class EmployeeHelper {
 			return false;
 	}
 
-	public static List<NonTier_1> convertExcelToListOfNonTier1(InputStream inputStream) {
+	public static List<NonTier1> convertExcelToListOfNonTier1(InputStream inputStream) {
 		
-		List<NonTier_1> employeeNonTier1List= new ArrayList<>();
+		List<NonTier1> employeeNonTier1List= new ArrayList<>();
 			PoijiExcelType excelType = PoijiExcelType.XLSX;
-			employeeNonTier1List=Poiji.fromExcel(inputStream, excelType, NonTier_1.class);
-			System.out.println(employeeNonTier1List);
+			employeeNonTier1List=Poiji.fromExcel(inputStream, excelType, NonTier1.class);
+			
 		return employeeNonTier1List;
 
    }

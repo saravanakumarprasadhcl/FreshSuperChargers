@@ -1,4 +1,4 @@
-package com.hcl.fsc.entities;
+package com.hcl.fsc.excel.vivo;
 
 import com.poiji.annotation.ExcelCellName;
 import com.poiji.annotation.ExcelSheet;
@@ -6,14 +6,21 @@ import com.poiji.annotation.ExcelSheet;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 
-@ExcelSheet("DigiBee")
-public class Digibee {
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-	private Integer id;  
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@ExcelSheet("Non-Tier1")
+public class NonTier1 {
+	 
 	@ExcelCellName("SAP")
 	private Integer sapId;	
 	@ExcelCellName("Student Name")
@@ -34,8 +41,6 @@ public class Digibee {
     private String highSchoolPassingYear;
 	@ExcelCellName("12th Passing Year")
 	private String  intermediatePassingYear;
-	@ExcelCellName("12th Percantage")
-	private String  intermediatePercentage;
     @ExcelCellName("Graduation College")
 	private String  graduationCollege;
     @ExcelCellName("Graduation Specialization")
@@ -102,4 +107,7 @@ public class Digibee {
 	private String finalStatus;
 	@ExcelCellName("Demand Owner")
 	private String demandOwner;
+
+
+	
 }

@@ -1,19 +1,14 @@
-package com.hcl.fsc.excel.vivo;
+package com.hcl.fsc.entities;
 
 
-import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.hcl.fsc.mastertables.Gender;
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
-import jakarta.persistence.PrimaryKeyJoinColumn;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
