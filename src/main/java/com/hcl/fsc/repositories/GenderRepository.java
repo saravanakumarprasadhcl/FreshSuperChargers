@@ -5,7 +5,10 @@ import org.springframework.stereotype.Repository;
 import com.hcl.fsc.mastertables.Gender;
 
 
-@Repository
-public interface GenderRepository extends JpaRepository<Gender, Integer>{
+ 
+public interface GenderRepository extends JpaRepository<Gender, String>{
+	
+	public Gender findByGENDERKEY(String genderkey);
+	
 
 }

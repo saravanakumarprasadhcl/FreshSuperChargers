@@ -64,7 +64,40 @@ public class EmployeeServiceImpl {
 		return this.genderRepository.findAll();
     }
     public Gender addGender(Gender gender) {
-		return this.genderRepository.save(gender);
+		return genderRepository.save(gender);
 
     }
+	public void updateGender(String genderkey, Gender gender) {
+//		Gender g=genderRepository.getById(genderkey);
+		
+//        	System.out.println(g+"---"+gender);
+//		long val = g.getUID();
+////		System.out.println(g+"new one");
+//		gender.setUID(val);
+//		System.out.println("-----------------------------------");
+//		System.out.println(g.getGENDERKEY());
+//		System.out.println(g.getGENDERVALUE());
+//		System.out.println(g.getUID());
+//		System.out.println("-----------------------------------");
+//        g.setGENDERVALUE(gender.getGENDERVALUE());
+//		g.setGENDERKEY(gender.getGENDERKEY());
+//		g.setUID(gender.getUID());
+//		g.setUID(g.getUID());
+//		System.out.println("-----------------------------------");
+//		System.out.println(g.getGENDERKEY());
+//		System.out.println(g.getGENDERVALUE());
+//		System.out.println(g.getUID());
+//		System.out.println("-----------------------------------");
+//		return genderRepository.save(gender);
+		
+		Gender g = genderRepository.getById(genderkey);
+		genderRepository.deleteById(g.getGENDERKEY());
+		g.setUID(g.getUID());
+		Gender gen = new Gender(g.getUID(), gender.getGENDERKEY(), gender.getGENDERVALUE());
+		genderRepository.save(gen);
+	}
+	public void deleteGender(String genderkey) {
+//		Gender g=genderRepository.findByGENDERKEY(genderkey);
+		genderRepository.deleteById(genderkey);
+	}
 }
