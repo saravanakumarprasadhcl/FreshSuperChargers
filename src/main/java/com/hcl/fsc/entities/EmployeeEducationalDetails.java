@@ -14,7 +14,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Entity
-public class CandidateEducationalDetails {
+public class EmployeeEducationalDetails {
 
 	
     @Id

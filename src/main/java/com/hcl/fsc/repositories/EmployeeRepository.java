@@ -4,11 +4,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import com.hcl.fsc.entities.Candidate;
+import com.hcl.fsc.entities.Employee;
 
 
 
 @Repository
-public interface CandidateRepository extends JpaRepository<Candidate, Long>{
+public interface EmployeeRepository extends JpaRepository<Employee, Long>{
 	
 }

@@ -13,7 +13,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Entity
-public class CandidateOnboardingDetails {
+public class EmployeeOnboardingDetails {
 	@Id
 	private Long id;
 	private Long sapId;

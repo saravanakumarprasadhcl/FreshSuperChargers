@@ -19,7 +19,7 @@ import lombok.ToString;
 @ToString
 @Entity
 @Table(name="Candidates")
-public class Candidate {
+public class Employee {
    	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
