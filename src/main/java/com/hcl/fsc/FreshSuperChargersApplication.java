@@ -16,12 +16,6 @@ public class FreshSuperChargersApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(FreshSuperChargersApplication.class, args);
 	}
-<<<<<<< HEAD
-
-=======
-	
-	
-	
->>>>>>> d983546a9268f414af402c828823695dc5dfb2c3
+ 
 
 }

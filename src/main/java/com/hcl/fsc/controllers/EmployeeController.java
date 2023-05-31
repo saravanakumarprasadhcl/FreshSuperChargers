@@ -44,8 +44,8 @@ public class EmployeeController {
 	else
 		    return ResponseEntity.ok(Map.of("message", file.length-count+"File is not uploaded maybe some values are null"));
 	}
-	@GetMapping("/candidatesList")
-	public List<Employee> getAllProduct(){
-		return this.candidateService.getAllCandidates();
-	}
+//	@GetMapping("/candidatesList")
+//	public List<Employee> getAllProduct(){
+//		return this.candidateService.getAllEmployees();
+//	}
 }
