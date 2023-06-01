@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import com.hcl.fsc.entities.Candidate;
-import com.hcl.fsc.helpers.CandidateHelper;
+import com.hcl.fsc.entities.Employee;
+import com.hcl.fsc.helpers.EmployeeHelper;
 import com.hcl.fsc.services.EmployeeServiceImpl;
 
 @RestController
-public class CandidateController {
+public class EmployeeController {
 	
 	
     @Autowired
@@ -26,7 +26,7 @@ public class CandidateController {
 		System.out.println(file.length+"no. of files");
 		int count=0;
 		for(int i=0; i<file.length; i++) {
-		if (CandidateHelper.checkExcelFormate(file[i])) {
+		if (EmployeeHelper.checkExcelFormate(file[i])) {
 			int res=this.candidateService.save(file[i]);
 			if(res==1) {
 				count++;
@@ -44,8 +44,8 @@ public class CandidateController {
 	else
 		    return ResponseEntity.ok(Map.of("message", file.length-count+"File is not uploaded maybe some values are null"));
 	}
-	@GetMapping("/candidatesList")
-	public List<Candidate> getAllProduct(){
-		return this.candidateService.getAllCandidates();
-	}
+//	@GetMapping("/candidatesList")
+//	public List<Employee> getAllProduct(){
+//		return this.candidateService.getAllEmployees();
+//	}
 }

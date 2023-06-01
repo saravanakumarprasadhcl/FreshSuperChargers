@@ -11,10 +11,10 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.hcl.fsc.entities.Candidate;
+import com.hcl.fsc.entities.Employee;
 
 
-public class CandidateHelper {
+public class EmployeeHelper {
 	public static boolean checkExcelFormate(MultipartFile file) {
 		String contentType = file.getContentType();
 		if (contentType.equals("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"))
