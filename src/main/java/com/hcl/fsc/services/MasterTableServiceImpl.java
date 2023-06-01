@@ -47,7 +47,7 @@ import com.hcl.fsc.repositories.UgSpecializationRepository;
 
 
 @Service
-public class EmployeeServiceImpl {
+public class MasterTableServiceImpl {
 	
     @Autowired
     private EmployeeRepository employeeRepository;
@@ -111,7 +111,9 @@ public class EmployeeServiceImpl {
     }
     
     public JpaRepository repo(String mastertable) {
-    	
+    //	int res=0;
+    	mastertable=mastertable.toLowerCase();
+    	//if(mastertable!=null && mastertable!="") {
     	
     	if(mastertable.equals("gender")) 
     	{
@@ -191,13 +193,13 @@ public class EmployeeServiceImpl {
     		return this.onboardingStatusRepository;
     	}
 
-    	else
-    		return this.collegeTieringRepository;
+    	return this.collegeTieringRepository;
+    	
+	   //return res;
     }
     
-    
     public Optional getRecordbyKey(String mastertable,String key) {
-    	return repo(mastertable).findById(key);
+    	return repo(mastertable.toLowerCase()).findById(key.toUpperCase());
     	
 	}	
 
@@ -209,6 +211,8 @@ public class EmployeeServiceImpl {
 //    
     public int createData(MasterTables master,String str) {
     	int res=0;
+    	str=str.toLowerCase();
+    	if(master.getKey()!=null && master.getKey()!="") {
     	if(str.equals("gender")) {
 
 //		Gender obj1=new Gender();
@@ -217,81 +221,101 @@ public class EmployeeServiceImpl {
 //		genderRepository.save(obj1);
 //    	Gender obj = new Gender(master.getKey(), master.getValue());
 //   	genderRepository.save(new Gender(master.getKey(), master.getValue()));
-    		if(master.getKey()!=null && master.getKey()!="") {
+    		
     	genderRepository.save(new Gender(0,master.getKey(), master.getValue()));
-    	res++;
-    		}
-    			
-        }
+
+    	}
     	
     	else if(str.equals("lob")){
+    		
+    			lobRepository.save(new Lob(0, master.getKey(), master.getValue()));
 
-    		lobRepository.save(new Lob(0, master.getKey(), master.getValue()));
     	}
 
     	else if(str.equals("location")){
 
     		locationRepository.save(new Location(0, master.getKey(), master.getValue()));
-    	}
-
+ 	    }
     	else if(str.equals("region")){
+    		
 
     		regionRepository.save(new Region(0, master.getKey(), master.getValue()));
-    	}
 
+    	}
     	else if(str.equals("collegetiering")){
-
+    		
     		collegeTieringRepository.save(new CollegeTiering(0, master.getKey(), master.getValue()));
+
     	}
-    	
-    	else if(str.equals("state")){
+    	else if(str.equals("state")) {
 
     		stateRepository.save(new State(0, master.getKey(), master.getValue()));
-    	}
+
+    		}
     	else if(str.equals("l1")){
 
     		l1Repository.save(new L1(0, master.getKey(), master.getValue()));
-    	}
+ 
+    		 }
     	else if(str.equals("l2")){
-
+    		 
     		l2Repository.save(new L2(0, master.getKey(), master.getValue()));
+    	  
     	}
     	else if(str.equals("l3")){
-
+    		
     		l3Repository.save(new L3(0, master.getKey(), master.getValue()));
-    	}
+
+    		}
     	else if(str.equals("l4")){
+    		 
 
     		l4Repository.save(new L4(0, master.getKey(), master.getValue()));
+
     	}
     	else if(str.equals("ugdegree")){
+    		 
 
     		ugDegreeRepository.save(new UgDegree(0, master.getKey(), master.getValue()));
-    	}
+     	}
     	else if(str.equals("ugpg")){
+    		 
 
     		ugPgRepository.save(new UgPg(0, master.getKey(), master.getValue()));
-    	}
+
+    		}
     	else if(str.equals("ugspecialization")){
+    		
 
     		ugSpecializationRepository.save(new UgSpecialization(0, master.getKey(), master.getValue()));
-    	}
+
+    		}
     	else if(str.equals("offeredband")){
+    		
 
     		offeredBandRepository.save(new OfferedBand(0, master.getKey(), master.getValue()));
-    	}
+
+    		}
     	else if(str.equals("offeredsubband")){
+    		
 
     		offeredSubBandRepository.save(new OfferedSubBand(0, master.getKey(), master.getValue()));
-    	}
+
+    		}
     	else if(str.equals("offereddesignation")){
+    		 
 
     		offeredDesignationRepository.save(new OfferedDesignation(0, master.getKey(), master.getValue()));
-    	}
+
+    		}
     	else if(str.equals("onboardingstatus")){
     		
+    		
     		onboardingStatusRepository.save(new OnboardingStatus(0, master.getKey(), master.getValue()));
+
     	}
+    	res++;
+    }
     	return res;
     	
     }
@@ -331,7 +355,11 @@ public class EmployeeServiceImpl {
 //		genderRepository.deleteById(genderkey);
 //	}
 
-	public void updateRecord(String key, MasterTables master, String str) {
+	public int updateRecord(String key, MasterTables master, String str) {
+		int res=0;
+    	str=str.toLowerCase();
+    	key=key.toUpperCase();
+    	if(master.getValue()!=null && master.getValue()!="") {
 		if(str.equals("gender")) {
 
 			Gender obj1=genderRepository.getOne(key);
@@ -423,10 +451,15 @@ public class EmployeeServiceImpl {
     		obj17.setONBOARDINGSTATUSVALUE(master.getValue());
     		onboardingStatusRepository.save(obj17);
     	}
-		
+		res++;
+        }
+		return res;
 	}
 
 	public void deleteRecord(String key, String str) {
+    	str=str.toLowerCase();
+    	key=key.toUpperCase();
+    	{
 		if(str.equals("gender")) {
 //			Gender obj1=genderRepository.deleteById(str);
 			Optional<Gender> obj1=genderRepository.findById(key);
@@ -508,7 +541,7 @@ public class EmployeeServiceImpl {
     		Optional<OnboardingStatus> obj17=onboardingStatusRepository.findById(key);
     		onboardingStatusRepository.deleteById(obj17.get().getONBOARDINGSTATUSKEY());
     	    }
-		
+    	}
 	}
 	
 }

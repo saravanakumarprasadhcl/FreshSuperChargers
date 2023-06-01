@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import com.hcl.fsc.entities.Employee;
 import com.hcl.fsc.helpers.EmployeeHelper;
-import com.hcl.fsc.services.EmployeeServiceImpl;
+import com.hcl.fsc.services.MasterTableServiceImpl;
 
 @RestController
 public class EmployeeController {
 	
 	
     @Autowired
-    private EmployeeServiceImpl candidateService;
+    private MasterTableServiceImpl candidateService;
     @PostMapping("candidatesList/upload")
 	public ResponseEntity<?> upload(@RequestParam("file") MultipartFile[] file) {
 		System.out.println(file.length+"no. of files");
