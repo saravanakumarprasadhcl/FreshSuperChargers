@@ -105,7 +105,7 @@ public class EmployeeServiceImpl {
     private OfferedDesignationRepository offeredDesignationRepository;
     
     
-    public List getTable(String mastertable) {
+    public List getRecord(String mastertable) {
 		return repo(mastertable).findAll();
 		
     }
@@ -207,8 +207,8 @@ public class EmployeeServiceImpl {
 //		
 //    }
 //    
-    public void createData(MasterTables master,String str) {
-    	
+    public int createData(MasterTables master,String str) {
+    	int res=0;
     	if(str.equals("gender")) {
 
 //		Gender obj1=new Gender();
@@ -217,7 +217,11 @@ public class EmployeeServiceImpl {
 //		genderRepository.save(obj1);
 //    	Gender obj = new Gender(master.getKey(), master.getValue());
 //   	genderRepository.save(new Gender(master.getKey(), master.getValue()));
+    		if(master.getKey()!=null && master.getKey()!="") {
     	genderRepository.save(new Gender(0,master.getKey(), master.getValue()));
+    	res++;
+    		}
+    			
         }
     	
     	else if(str.equals("lob")){
@@ -288,6 +292,7 @@ public class EmployeeServiceImpl {
     		
     		onboardingStatusRepository.save(new OnboardingStatus(0, master.getKey(), master.getValue()));
     	}
+    	return res;
     	
     }
 

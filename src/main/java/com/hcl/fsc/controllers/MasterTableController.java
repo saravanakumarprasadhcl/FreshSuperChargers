@@ -97,7 +97,7 @@ public class MasterTableController {
 	@GetMapping("master/{mastertable}")
 	public List getTable(@PathVariable String mastertable) {
 		
-		return employeeService.getTable(mastertable);
+		return employeeService.getRecord(mastertable.toLowerCase());
 		
 	}
 	
@@ -107,8 +107,7 @@ public class MasterTableController {
 	{
 //		return employeeService.getRecordbyKey(mastertable,key);
 		
-//		List<MasterTables> str=
-		return new ResponseEntity<>(employeeService.getRecordbyKey(mastertable, key), HttpStatus.OK);
+		return new ResponseEntity<>(employeeService.getRecordbyKey(mastertable.toLowerCase(), key.toLowerCase()), HttpStatus.OK);
 		
 		
 	}
@@ -120,24 +119,26 @@ public class MasterTableController {
 
 	
 	@PostMapping("/master/{str}")
-	public  ResponseEntity<String> getTable1(@RequestBody MasterTables master,@PathVariable String str) {
+	public  ResponseEntity<String> CreateRecord(@RequestBody MasterTables master,@PathVariable String str) {
 		
-		employeeService.createData(master,str);
-		
+		int res=employeeService.createData(master,str);
+		if(res==1)
 		return ResponseEntity.ok("Data saved successfully!");
+		else
+			return  ResponseEntity.ok("KEY is null or empty");
 		
 	}
 	
 	@PutMapping("master/{str}/{key}")
-	public ResponseEntity<String> updateGender(@PathVariable String key ,@PathVariable String str,@RequestBody MasterTables master) {
-		 employeeService.updateRecord(key,master, str);
+	public ResponseEntity<String> updateRecord(@PathVariable String key ,@PathVariable String str,@RequestBody MasterTables master) {
+		 employeeService.updateRecord(key.toUpperCase(),master, str);
 		 return  ResponseEntity.ok("Data Updated successfully!");
 
 	}
 	
 	@DeleteMapping("master/{str}/{key}")
 	public ResponseEntity<String> deleteRecord(@PathVariable String key ,@PathVariable String str) {
-		employeeService.deleteRecord(key, str);
+		employeeService.deleteRecord(key.toUpperCase(), str);
 		return  ResponseEntity.ok("Data Deleted successfully!");
 	}
 	

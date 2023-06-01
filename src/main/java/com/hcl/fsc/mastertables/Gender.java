@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,6 +36,7 @@ public class Gender {
 			private Integer UID;
 			@Id
 			@Column(name="GENDERKEY")
+			@NotNull
 			private String GENDERKEY;
 			@Column(name="GENDERVALUE")
 			private String GENDERVALUE;
