@@ -1,12 +1,12 @@
 CREATE TABLE MASTER_OFFERED_DESIGNATION 
 (
     UID	int not null auto_increment unique,
-    OFFEREDDESIGNATIONKEY	VARCHAR(50) not null,
-    OFFEREDDESIGNATIONVALUE	VARCHAR(50) not null,
-    primary key(OFFEREDDESIGNATIONKEY)
+    'KEY' VARCHAR(50) not null,
+    VALUE VARCHAR(50) not null,
+    primary key('KEY')
 );
 
-INSERT INTO MASTER_OFFERED_DESIGNATION (UID, OFFEREDDESIGNATIONKEY, OFFEREDDESIGNATIONVALUE) VALUES
+INSERT INTO MASTER_OFFERED_DESIGNATION (UID,'KEY',VALUE) VALUES
 	('1', 'SE', 'Software Engineer'),
 	('2', 'SSE', 'Senior Software Engineer'),
 	('3', 'GET', 'Graduate Engineer Trainee'),
