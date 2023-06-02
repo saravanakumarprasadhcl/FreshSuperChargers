@@ -1,11 +1,12 @@
 CREATE TABLE MASTER_UG_SPECIALIZATION 
 (
-    UID	INT,
-    SPECIALISATIONKEY	VARCHAR(512),
-    SPECIALISATIONVALUE	VARCHAR(512)
+    UID	INT not null auto_increment unique,
+    'KEY' VARCHAR(50),
+    VALUE VARCHAR(50),
+	primary key('KEY')
 );
 
-INSERT INTO MASTER_UG_SPECIALIZATION(UID, SPECIALISATIONKEY, SPECIALISATIONVALUE) VALUES
+INSERT INTO MASTER_UG_SPECIALIZATION(UID,'KEY',VALUE) VALUES
 	('1', 'AERO', 'Aerospace engineering'),
 	('2', 'AEI', 'Applied Electronics and Instrumentation'),
 	('3', 'AUTO', 'Automobile engineering'),
@@ -13,7 +14,7 @@ INSERT INTO MASTER_UG_SPECIALIZATION(UID, SPECIALISATIONKEY, SPECIALISATIONVALUE
 	('5', 'CIVIL', 'Civil Engineering'),
 	('6', 'ECorECE', 'Electronics and communication Engineering'),
 	('7', 'EEE', 'Electrical and Electronics Engineering'),
-	('8', 'EIE', 'Electronics and Instrumentation Engineering'),
+	('8', 'EIE', 'Electronics and Instrumentation Engineering'),
 	('9', 'EE', 'Electronics and Embedded Systems'),
 	('10', 'ETCorETE', 'Electronics and Telecommunication Engineer'),
 	('11', 'ISE', 'Industrial and Systems Engineering'),

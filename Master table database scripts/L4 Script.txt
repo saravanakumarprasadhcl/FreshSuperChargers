@@ -1,13 +1,13 @@
 CREATE TABLE MASTER_L4 
 (
     UID	int not null auto_increment unique,
-    L4KEY VARCHAR(50) not null,
-    L4VALUE	VARCHAR(50) not null,
-    primary key(L4KEY)
+    'KEY' VARCHAR(50) not null,
+    VALUE	VARCHAR(50) not null,
+    primary key('KEY')
 );
 
 
-INSERT INTO  MASTER_L4(UID, L4KEY, L4VALUE) VALUES
+INSERT INTO  MASTER_L4(UID, 'KEY',VALUE) VALUES
 	('1', 'ERS-ERS-Microsoft', 'ERS-ERS-Microsoft'),
 	('2', 'ERS-CET-System Eng', 'ERS-CET-System Eng'),
 	('3', 'ERS-T&S-DCSS-DELL_DP&MGMT', 'ERS-T&S-DCSS-DELL_DP&MGMT'),
