@@ -32,14 +32,14 @@ import com.hcl.fsc.repositories.StateRepository;
 import com.hcl.fsc.repositories.UgDegreeRepository;
 import com.hcl.fsc.repositories.UgPgRepository;
 import com.hcl.fsc.repositories.UgSpecializationRepository;
-import com.hcl.fsc.services.EmployeeServiceImpl;
+import com.hcl.fsc.services.MasterTableServiceImpl;
 
 
 @RestController
 public class MasterTableController {
 	 
 	@Autowired
-	private EmployeeServiceImpl employeeService;
+	private MasterTableServiceImpl employeeService;
 	
 	@Autowired
 	private GenderRepository genderrepository;
@@ -97,7 +97,7 @@ public class MasterTableController {
 	@GetMapping("master/{mastertable}")
 	public List getTable(@PathVariable String mastertable) {
 		
-		return employeeService.getRecord(mastertable.toLowerCase());
+		return employeeService.getRecord(mastertable);
 		
 	}
 	
@@ -107,7 +107,7 @@ public class MasterTableController {
 	{
 //		return employeeService.getRecordbyKey(mastertable,key);
 		
-		return new ResponseEntity<>(employeeService.getRecordbyKey(mastertable.toLowerCase(), key.toLowerCase()), HttpStatus.OK);
+		return new ResponseEntity<>(employeeService.getRecordbyKey(mastertable, key), HttpStatus.OK);
 		
 		
 	}
@@ -131,14 +131,20 @@ public class MasterTableController {
 	
 	@PutMapping("master/{str}/{key}")
 	public ResponseEntity<String> updateRecord(@PathVariable String key ,@PathVariable String str,@RequestBody MasterTables master) {
-		 employeeService.updateRecord(key.toUpperCase(),master, str);
+		// employeeService.updateRecord(key.toUpperCase(),master, str);
+		
+        int res=employeeService.updateRecord(key,master,str);
+		 if(res==1)
 		 return  ResponseEntity.ok("Data Updated successfully!");
+		 else
+			 return  ResponseEntity.ok("VALUE is null or empty");
+			 
 
 	}
 	
 	@DeleteMapping("master/{str}/{key}")
 	public ResponseEntity<String> deleteRecord(@PathVariable String key ,@PathVariable String str) {
-		employeeService.deleteRecord(key.toUpperCase(), str);
+		employeeService.deleteRecord(key, str);
 		return  ResponseEntity.ok("Data Deleted successfully!");
 	}
 	
