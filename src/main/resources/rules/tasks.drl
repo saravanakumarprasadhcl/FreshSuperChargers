@@ -1,5 +1,5 @@
 package com.foobat;
-import com.example.demo.Entity.Task;
+import com.example.entity.Task;
 import java.time.LocalDate;
 import java.util.Map;
 import java.util.ArrayList;
@@ -7,8 +7,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.*;
-import com.example.demo.Entity.category;
-global com.example.demo.Entity.Task t1;
+import com.example.entity.category;
+global com.example.entity.Task t1;
 global  java.util.Map tasks;
 global String A;
 global String last;
@@ -53,10 +53,11 @@ rule "updating values"
        $category:category();
        $task :Task();
      then
-     		System.out.println(last);
+     		System.out.println($task.getApprover());
      		t1.setTaskId($task.getTaskId()+1);
      		t1.setUserId($task.getUserId());
      		$task.setStatus("Completed");
+     		$task.setApprover($task.getApprover());
      		t1.setStatus("InProgress");  
      		LocalDate datePlus1 = $task.getDuedate().plusDays(10); 
      		t1.setDuedate(datePlus1);

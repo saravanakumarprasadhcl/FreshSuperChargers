@@ -8,6 +8,9 @@ import org.kie.api.runtime.KieContainer;
 import org.kie.internal.io.ResourceFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import com.example.demo.Exceptions.DroolsEngineException;
+import com.example.demo.Exceptions.kafkareceiverexception;
  
 @Configuration
 public class Config {
@@ -16,7 +19,9 @@ public class Config {
     private static final KieServices kieServices = KieServices.Factory.get();
  
     @Bean
-    public KieContainer kieContainer() {
+    public KieContainer kieContainer() throws DroolsEngineException
+    {
+    	try {
         KieFileSystem kieFileSystem = kieServices.newKieFileSystem();
         kieFileSystem.write(ResourceFactory.newClassPathResource(RULES_CUSTOMER_RULES_DRL));
         KieBuilder kb = kieServices.newKieBuilder(kieFileSystem);
@@ -24,5 +29,11 @@ public class Config {
         KieModule kieModule = kb.getKieModule();
         KieContainer kieContainer = kieServices.newKieContainer(kieModule.getReleaseId());
         return kieContainer;
-    }
+    	}
+    	catch(Exception e)
+    	{
+    		System.out.println("Caught the Drools Exception");
+    		throw new DroolsEngineException("Unable to perform the Drools Task,Because of drl file", e);
+    	}
+  }
 }

@@ -1,4 +1,4 @@
-package com.example.demo.Entity;
+package com.example.entity;
 
 import java.time.LocalDate;
 import javax.persistence.Column;
@@ -8,9 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-//import com.mastercard.dxp.entity.User_credential;
+import lombok.Data;
 
 
+@Data
 @Entity
 @Table(name = "Task")
 public class Task {
@@ -20,10 +21,6 @@ public class Task {
 	private long id;
 	
 	private long taskId;
-    
-	/*@ManyToOne()
-    @JoinColumn(name = "userId", referencedColumnName = "userId")
-    //private User_credential userCredential;*/
 	
 	@Column(name="userId")
 	private long userId;
@@ -37,6 +34,17 @@ public class Task {
 	
 	@Column(name = "duedate")
 	private LocalDate duedate;
+	
+	public String getApprover() {
+		return approver;
+	}
+
+	public void setApprover(String approver) {
+		this.approver = approver;
+	}
+
+	@Column(name="approver")
+	private String approver;
 
 	
 	public long getId() {

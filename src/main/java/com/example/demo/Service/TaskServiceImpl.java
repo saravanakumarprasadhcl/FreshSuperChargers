@@ -8,14 +8,18 @@ import java.util.Map;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
-import com.example.demo.Entity.Task;
-import com.example.demo.Entity.category;
+
+import com.example.demo.Controller.TaskController;
+import com.example.demo.Exceptions.DroolsEngineException;
 import com.example.demo.Repo.TaskRepo;
+import com.example.entity.Task;
+import com.example.entity.category;
 
 
 @Service
-public class TaskService {
+public class TaskServiceImpl {
 	
 	 @Autowired
 	 private KieContainer kieContainer;
@@ -24,8 +28,10 @@ public class TaskService {
 	 private TaskRepo tr;
 	 
 	 String status="Completed";
+	 
 
-	public Task getStatus(Task task,category category) {
+	public Task getStatus(Task task,category category) throws DroolsEngineException{
+	try {
 		Map<String,List<String>> tasks=new HashMap<>();
 		tasks.put("group1",Arrays.asList("NEW_HIRE","FUNDAMENTALS","DATABASE", "DB_EXAM", "JAVA"));
 	    tasks.put("group2",Arrays.asList("FUNDAMENTALS","DATABASE", "DB_EXAM", "JAVA","SPRINGBOOT","JAVA_EXAM"));
@@ -75,7 +81,12 @@ public class TaskService {
 		else {
 			task.setStatus(status);
 			return task;
-		}
+		}}
+	catch(Exception e)
+	{
+		System.out.println("Caught the Drools Exception");
+		throw new DroolsEngineException("Unable to perform the Drools Task,Because of drl file", e);	
+	}
 	}
 
 	//to save new record details 
@@ -94,19 +105,22 @@ public class TaskService {
 	  }
 	  catch(Exception e)
 	  {
-		  System.out.println(e);
+		  System.out.println("Unable to add new task details "+e);
 	  }
 	}
 
 
 	public void add(Task t)
 	{
+		System.out.println(t.getStatus()+" "+t.getId());
+		//t.setStatus("Error");
 		tr.save(t);
 	}
 	
 	
 	//to update status of current task 
 	public void setcmplt(Task task) {
+	try {
 		List<Task> t=tr.getByuserId(task.getUserId());
 		long n = 0;
 		for(Task tr: t)
@@ -118,10 +132,23 @@ public class TaskService {
 		Task t1=tr.getById(n);
 		System.out.println(task.getStatus());
 		t1.setStatus(task.getStatus());
+		System.out.println("Approver Name "+task.getApprover());
+		t1.setApprover(task.getApprover());
 		tr.save(t1);
+	  }catch(Exception e)
+		{
+		  System.out.println("Exception occured, Unable to update the status of current task "+e);
+		}
 	}
+
 	
-	public List<Task> getbyuserid(long id){
+	public List<Task> getbyuserid(long id) throws Exception{
+	  try {
 		return tr.getByuserId(id);
+	  }
+	  catch(Exception e)
+	  {
+		  throw new Exception(e);
+	  }
 	}
 }
