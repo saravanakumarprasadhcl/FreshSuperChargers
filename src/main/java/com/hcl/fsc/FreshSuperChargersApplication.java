@@ -16,7 +16,6 @@ public class FreshSuperChargersApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(FreshSuperChargersApplication.class, args);
 	}
-	
-	
-	
+ 
+
 }
