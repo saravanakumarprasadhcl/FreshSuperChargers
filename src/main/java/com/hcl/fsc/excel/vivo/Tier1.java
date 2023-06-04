@@ -1,4 +1,4 @@
-package com.hcl.fcs.poijo;
+package com.hcl.fsc.excel.vivo;
 
 import com.poiji.annotation.ExcelCell;
 import com.poiji.annotation.ExcelCellName;
@@ -22,7 +22,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @Data
 @ExcelSheet("Tier-1")
-public class Tier_1 {
+public class Tier1 {
 	
 	private Long id;
 	

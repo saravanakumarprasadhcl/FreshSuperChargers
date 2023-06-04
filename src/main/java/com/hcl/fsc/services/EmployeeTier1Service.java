@@ -9,27 +9,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.hcl.fcs.poijo.SkilledHiring;
 import com.hcl.fsc.entities.EmployeeDetails;
-import com.hcl.fsc.entities.EmployeeEducationDetails;
+import com.hcl.fsc.entities.EmployeeEducationalDetails;
 import com.hcl.fsc.entities.EmployeeOnboardingDetails;
 import com.hcl.fsc.entities.EmployeeRecruitmentDetails;
-import com.hcl.fsc.helpers.Helper;
+import com.hcl.fsc.excel.vivo.Tier1;
+import com.hcl.fsc.helpers.EmployeeHelper;
 import com.hcl.fsc.repositories.EmployeeDetailsRepository;
-import com.hcl.fsc.repositories.EmployeeEducationDetailsRepository;
+import com.hcl.fsc.repositories.EmployeeEducationalDetailsRepository;
 import com.hcl.fsc.repositories.EmployeeOnboardingDetailsRepository;
 import com.hcl.fsc.repositories.EmployeeRecruitmentDetailsRepository;
 
-
 @Service
-public class SkilledHiringService {
-	
+public class EmployeeTier1Service {
 
 	@Autowired
 	private EmployeeDetailsRepository employeeDetailsRepository;
 
 	@Autowired
-	private EmployeeEducationDetailsRepository employeeEducationDetailsRepository;
+	private EmployeeEducationalDetailsRepository employeeEducationDetailsRepository;
 
 	@Autowired
 	private EmployeeOnboardingDetailsRepository employeeOnboardingDetailsRepository;
@@ -42,8 +40,8 @@ public class SkilledHiringService {
 
 	public void save(MultipartFile file) {
 		try {
-			List<SkilledHiring> list = Helper.convertExcelToSkilledHiring(file.getInputStream());
-			System.out.println(list.size());
+			List<Tier1> list = EmployeeHelper.convertExcelToTier1(file.getInputStream());
+			
 			modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 			
 			List<EmployeeDetails> employeeDetailsList = list.stream()
@@ -51,9 +49,9 @@ public class SkilledHiringService {
 					.collect(Collectors.toList());
 			employeeDetailsRepository.saveAll(employeeDetailsList);
 
-			List<EmployeeEducationDetails> employeeducationDetailsList = list.stream()
+			List<EmployeeEducationalDetails> employeeducationDetailsList = list.stream()
 					.map(employeeEducationDetails -> modelMapper.map(employeeEducationDetails,
-							EmployeeEducationDetails.class))
+							EmployeeEducationalDetails.class))
 					.collect(Collectors.toList());
 			employeeEducationDetailsRepository.saveAll(employeeducationDetailsList);
 
@@ -66,12 +64,10 @@ public class SkilledHiringService {
 					.map(employee -> modelMapper.map(employee, EmployeeRecruitmentDetails.class))
 					.collect(Collectors.toList());
 			employeeRecruitmentDetailsRepository.saveAll(recruitmentDetailsList);
-			 
+
 		} catch (Exception e) {
 			e.getStackTrace();
 		}
 
 	}
-
-
 }
