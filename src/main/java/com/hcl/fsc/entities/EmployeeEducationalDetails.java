@@ -1,8 +1,10 @@
 package com.hcl.fsc.entities;
 
+
 import com.hcl.fsc.mastertables.GraduationSpecialization;
-import com.hcl.fsc.mastertables.UGDegree;
 import com.hcl.fsc.mastertables.UGOrPG;
+import com.hcl.fsc.mastertables.UgDegree;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,7 +27,7 @@ public class EmployeeEducationalDetails {
 	
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE)
-    private Integer id;
+    private Long id;
     private Long sapId;
     private String batch;
     private String highSchoolPassingYear;
@@ -34,7 +36,7 @@ public class EmployeeEducationalDetails {
 	private String graduationCollege;
 	//master table 
 	@OneToOne
-	private UGDegree ugDegree;
+	private UgDegree ugDegree;
 	//master table
 	@OneToOne
 	private GraduationSpecialization graduationSpecialization;
@@ -47,6 +49,7 @@ public class EmployeeEducationalDetails {
 	private String pgCollegeName;
 	//master table
 	@OneToOne
-	private UGOrPG ugOrPg;
+	private UGOrPG ugOrPg;	
+
 
 }

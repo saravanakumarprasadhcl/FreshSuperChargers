@@ -1,8 +1,6 @@
 package com.hcl.fsc.entities;
 
 
-
-
 import com.hcl.fsc.mastertables.Gender;
 import com.hcl.fsc.mastertables.Region;
 import com.hcl.fsc.mastertables.State;
@@ -13,43 +11,51 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.Table;
 import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
 
 
-@Getter
-@Setter
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
 @Data
 @Entity
+@Table(name = "employee_details")
 public class EmployeeDetails {
-   	
+	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-	private Integer id;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private Long id;
+	
+	@Column(name = "SAP_ID")
 	private Long sapId;
-	private String name;
+	
+	@Column(name = "StudentName")
+	private String studentName;
+	
+	
+	@Column(name = "Email")
+	private String email;
+	
+	@Column(name = "Contact")
+	private String contact;
+	
+	@Column(name = "AlternativeMobileNumber")
+	private String alternateContactNo;
+	
+	@Column(name = "CompletePermanentAddress")
+	private String address;
+	
+	@Column(name = "StateName")
+	private String stateName;
+	
 	
 	@OneToOne
 	private Gender gender;
 	
-	private String email;
-	private Long contactNo;
-	private Long alternateContactNo;
-	private String address;
 	
 	@OneToOne
 	private State state;	
 	
 	@OneToOne
 	private Region region;
-	
 	
 }

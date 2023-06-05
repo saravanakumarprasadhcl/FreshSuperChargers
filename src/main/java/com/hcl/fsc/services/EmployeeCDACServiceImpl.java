@@ -2,7 +2,6 @@ package com.hcl.fsc.services;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ import com.hcl.fsc.mastertables.Gender;
 import com.hcl.fsc.repositories.CollegeTieringRepository;
 import com.hcl.fsc.repositories.EmployeeDetailsRepository;
 import com.hcl.fsc.repositories.EmployeeEducationalDetailsRepository;
-import com.hcl.fsc.repositories.EmployeeOnboardingRepository;
+import com.hcl.fsc.repositories.EmployeeOnboardingDetailsRepository;
 import com.hcl.fsc.repositories.EmployeeRecruitmentDetailsRepository;
 import com.hcl.fsc.repositories.GenderRepository;
 import com.hcl.fsc.repositories.GraduationSpecializationRepository;
@@ -27,15 +26,15 @@ import com.hcl.fsc.repositories.L1Repository;
 import com.hcl.fsc.repositories.L2Repository;
 import com.hcl.fsc.repositories.L3Repository;
 import com.hcl.fsc.repositories.L4Repository;
-import com.hcl.fsc.repositories.LOBRepository;
+import com.hcl.fsc.repositories.LobRepository;
 import com.hcl.fsc.repositories.LocationRepository;
 import com.hcl.fsc.repositories.OfferedBandRepository;
 import com.hcl.fsc.repositories.OfferedDesignationRepository;
 import com.hcl.fsc.repositories.OfferedSubBandRepository;
 import com.hcl.fsc.repositories.RegionRepository;
 import com.hcl.fsc.repositories.StateRepository;
-import com.hcl.fsc.repositories.UGDegreeRepository;
 import com.hcl.fsc.repositories.UGOrPGRepository;
+import com.hcl.fsc.repositories.UgDegreeRepository;
 
 @Service
 public class EmployeeCDACServiceImpl {
@@ -46,7 +45,7 @@ public class EmployeeCDACServiceImpl {
     private EmployeeEducationalDetailsRepository employeeEducationDetailsRepository;
     
     @Autowired
-    private EmployeeOnboardingRepository employeeOnboardingRepository;
+    private EmployeeOnboardingDetailsRepository employeeOnboardingRepository;
     
     @Autowired
     private EmployeeRecruitmentDetailsRepository employeeRecruitmentDetailsRepository;    
@@ -67,7 +66,7 @@ public class EmployeeCDACServiceImpl {
 	private UGOrPGRepository ugOrPGRepository;
 	
 	@Autowired
-	private UGDegreeRepository ugDegreeRepository;
+	private UgDegreeRepository ugDegreeRepository;
 	
 	@Autowired
 	private GraduationSpecializationRepository graduationSpecializationRepository;
@@ -88,7 +87,7 @@ public class EmployeeCDACServiceImpl {
 	private L4Repository l4Repository;
 	
 	@Autowired
-	private LOBRepository lobRepository;
+	private LobRepository lobRepository;
     
 	@Autowired
 	private OfferedDesignationRepository offeredDesignationRepository;

@@ -13,9 +13,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name="master_region")
+@Table(name = "master_region")
 public class Region {
-	
+
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer uid;
 	@Id

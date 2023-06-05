@@ -1,5 +1,6 @@
 package com.hcl.fsc.controllers;
 
+
 import java.util.List;
 import java.util.Map;
 
@@ -11,17 +12,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+
 import com.hcl.fsc.entities.EmployeeDetails;
 import com.hcl.fsc.helpers.EmployeeHelper;
 import com.hcl.fsc.services.EmployeeCDACServiceImpl;
 import com.hcl.fsc.services.EmployeeDigiBeeServiceImpl;
 import com.hcl.fsc.services.EmployeeNonTier1ServiceImpl;
+import com.hcl.fsc.services.MasterTableServiceImpl;
 
 @RestController
 public class EmployeeController {
 	
 	
     @Autowired
+
     private EmployeeNonTier1ServiceImpl employeeNonTier1Service;
     
     @Autowired
@@ -39,6 +43,17 @@ public class EmployeeController {
 			int res2=this.employeeDigiBeeService.employeeDigiBeeListSave(file[i]);
 			int res3=this.employeeCDACService.employeeCDACListSave(file[i]);
 			if(res1==1 && res2==1 && res3==1) {
+
+    private MasterTableServiceImpl candidateService;
+    @PostMapping("candidatesList/upload")
+	public ResponseEntity<?> upload(@RequestParam("file") MultipartFile[] file) {
+		System.out.println(file.length+"no. of files");
+		int count=0;
+		for(int i=0; i<file.length; i++) {
+		if (EmployeeHelper.checkExcelFormate(file[i])) {
+			int res=this.candidateService.save(file[i]);
+			if(res==1) {
+
 				count++;
 			}
 		}
@@ -47,6 +62,7 @@ public class EmployeeController {
 	}
 		if(count==file.length)
 	         return ResponseEntity.ok(Map.of("message", "All files are uploaded"));
+
 	else
 		    return ResponseEntity.ok(Map.of("message", file.length-count+"File is not uploaded maybe some values are null"));
 	}
@@ -55,4 +71,11 @@ public class EmployeeController {
 		return this.employeeNonTier1Service.getAllEmployees();
 	}
 	
+
+//	else if(res==-1) {
+//		    int count=this.productService.getStatus();
+//			return ResponseEntity.ok(Map.of("message", "File is uploaded partially "+count+" row in excel sheet have some improper data"));
+//	}
+
+
 }

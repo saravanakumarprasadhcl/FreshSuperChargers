@@ -1,10 +1,12 @@
 package com.hcl.fsc.entities;
 
-import com.hcl.fsc.mastertables.LOB;
+
 import com.hcl.fsc.mastertables.L1;
 import com.hcl.fsc.mastertables.L2;
 import com.hcl.fsc.mastertables.L3;
 import com.hcl.fsc.mastertables.L4;
+import com.hcl.fsc.mastertables.Lob;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,13 +14,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 
-@Getter
-@Setter
+
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -32,7 +32,7 @@ public class EmployeeRecruitmentDetails {
 	private String projectSkills;
 	//master table
 	@OneToOne
-	private LOB lob;
+	private Lob lob;
 	private String team_Rdu;
 	private String hrPanel;
 	//master table
@@ -56,4 +56,7 @@ public class EmployeeRecruitmentDetails {
 	private String remappedLocation;
 	private String srNumber;
 	private String remarks;
+
+
+
 }

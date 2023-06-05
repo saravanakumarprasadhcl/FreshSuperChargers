@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.hcl.fsc.entities.EmployeeDetails;
 
 @Repository
-public interface EmployeeDetailsRepository extends JpaRepository<EmployeeDetails, Integer>{
-	
+
+public interface EmployeeDetailsRepository extends JpaRepository<EmployeeDetails, Long> {
+
 }

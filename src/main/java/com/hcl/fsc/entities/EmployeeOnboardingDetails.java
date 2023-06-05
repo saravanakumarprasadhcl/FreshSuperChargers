@@ -1,5 +1,6 @@
 package com.hcl.fsc.entities;
 
+
 import com.hcl.fsc.mastertables.CollegeTiering;
 import com.hcl.fsc.mastertables.Location;
 import com.hcl.fsc.mastertables.OfferedBand;
@@ -8,22 +9,35 @@ import com.hcl.fsc.mastertables.OfferedSubBand;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+
+import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@Data
 @Entity
 public class EmployeeOnboardingDetails {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-	private Integer id;
+	private Long id;
 	private Long sapId;
 	private String onbaordingDetails;
 	private String onboardingStatus;
@@ -62,8 +76,13 @@ public class EmployeeOnboardingDetails {
 	private String tpSap;
 	//private String finalStatus;
 	//private String ownership;
-
-
+		
+//	@Column(name="DriveDate")
+//	@JsonFormat(pattern="dd-MM-yyyy")
+//	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+//	@JsonFormat(pattern = "dd/mm/yyyy")
+//	private LocalDate driveDate;
+	
 
 
 }

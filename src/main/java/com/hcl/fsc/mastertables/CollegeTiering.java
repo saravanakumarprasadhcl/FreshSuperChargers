@@ -13,11 +13,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name="Master_College_Tiering")
+@Table(name = "Master_College_Tiering")
 public class CollegeTiering {
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer uid;
 	@Id
 	private String key;
 	private String value;
+
+//	@GenericGenerator(name = "wikiSequenceGenerator5", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
+//
+//			@Parameter(name = "sequence_name", value = "master_college_tiering_seq"),
+//			@Parameter(name = "initial_value", value = "6"), @Parameter(name = "increment_size", value = "1") })
+
 }
