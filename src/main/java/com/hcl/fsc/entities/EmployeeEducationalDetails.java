@@ -1,5 +1,6 @@
 package com.hcl.fsc.entities;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -35,5 +36,6 @@ public class EmployeeEducationalDetails {
 	private String postGraduationPercentage;
 	private String PGCollegeName;
  	private String ug_pg;
+
 
 }

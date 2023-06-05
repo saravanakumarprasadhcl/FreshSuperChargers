@@ -1,5 +1,11 @@
-package com.hcl.fcs.poijo;
+package com.hcl.fsc.excel.vivo;
 
+import java.sql.Date;
+import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.poiji.annotation.ExcelCellName;
 import com.poiji.annotation.ExcelSheet;
 
@@ -71,7 +77,9 @@ public class MoU {
 	private String driveCollege;
 	
 	@ExcelCellName("Drive Date")
-	private String driveDate;
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+	@JsonFormat(pattern = "dd/mm/yyyy")
+	private LocalDate driveDate;
 	
 	@ExcelCellName("SR")
 	private String srMapping;
