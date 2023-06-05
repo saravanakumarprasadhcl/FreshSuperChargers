@@ -34,7 +34,6 @@ import com.hcl.fsc.repositories.UgPgRepository;
 import com.hcl.fsc.repositories.UgSpecializationRepository;
 import com.hcl.fsc.services.MasterTableServiceImpl;
 
-
 @RestController
 public class MasterTableController {
 	 
@@ -93,6 +92,27 @@ public class MasterTableController {
 	@Autowired
     private OfferedDesignationRepository offeredDesignationRepository;
     
+	@Autowired
+	private MasterTableServiceImpl masterTableService;
+	
+	@GetMapping("master/{masterTable}")
+	public List getMasterTableDetails(@PathVariable String masterTable) {
+		
+		return masterTableService.getAllMaster(masterTable.toLowerCase());
+		
+	}
+	
+	@PostMapping("master/gender")
+	public Gender addGender(@RequestBody Gender gender) {
+		return this.masterTableService.addGender(gender);
+		
+	}
+	
+//	@DeleteMapping("master/gender/{genderKey}")
+//	public String deleteGender(@PathVariable String genderkey) {
+//		this.masterTableService.deleteGender(genderkey);
+//		return "gender deleted";
+//	}
 
 	@GetMapping("master/{mastertable}")
 	public List getTable(@PathVariable String mastertable) {
@@ -155,3 +175,4 @@ public class MasterTableController {
 //	}
 	
 }
+

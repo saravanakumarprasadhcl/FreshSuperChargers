@@ -5,7 +5,9 @@ import org.springframework.stereotype.Repository;
 
 import com.hcl.fsc.mastertables.OnboardingStatus;
 
+@Repository
+public interface OnboardingStatusRepository extends JpaRepository<OnboardingStatus, String> {
+	public OnboardingStatus getByKey(String key);
 
-public interface OnboardingStatusRepository extends JpaRepository<OnboardingStatus, String>{
-
+	public OnboardingStatus findByValue(String value);
 }

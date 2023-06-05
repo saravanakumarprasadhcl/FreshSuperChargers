@@ -13,14 +13,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name = "master_state")
-public class State {
-
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+@Table(name="Master_LOB")
+public class LOB {
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Integer uid;
-
 	@Id
 	private String key;
 	private String value;
-
 }
