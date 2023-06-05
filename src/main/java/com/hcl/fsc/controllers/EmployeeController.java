@@ -18,7 +18,7 @@ import com.hcl.fsc.helpers.EmployeeHelper;
 import com.hcl.fsc.services.EmployeeCDACServiceImpl;
 import com.hcl.fsc.services.EmployeeDigiBeeServiceImpl;
 import com.hcl.fsc.services.EmployeeNonTier1ServiceImpl;
-import com.hcl.fsc.services.MasterTableServiceImpl;
+//import com.hcl.fsc.services.MasterTableServiceImpl;
 
 @RestController
 public class EmployeeController {
@@ -43,29 +43,20 @@ public class EmployeeController {
 			int res2=this.employeeDigiBeeService.employeeDigiBeeListSave(file[i]);
 			int res3=this.employeeCDACService.employeeCDACListSave(file[i]);
 			if(res1==1 && res2==1 && res3==1) {
-
-    private MasterTableServiceImpl candidateService;
-    @PostMapping("candidatesList/upload")
-	public ResponseEntity<?> upload(@RequestParam("file") MultipartFile[] file) {
-		System.out.println(file.length+"no. of files");
-		int count=0;
-		for(int i=0; i<file.length; i++) {
-		if (EmployeeHelper.checkExcelFormate(file[i])) {
-			int res=this.candidateService.save(file[i]);
-			if(res==1) {
-
-				count++;
+			  count++;
 			}
 		}
 		else
-		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Please upload Excel sheet Only");
-	}
-		if(count==file.length)
-	         return ResponseEntity.ok(Map.of("message", "All files are uploaded"));
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Please upload Excel sheet Only");
+		}
+			if(count==file.length)
+		         return ResponseEntity.ok(Map.of("message", "All files are uploaded"));
 
-	else
-		    return ResponseEntity.ok(Map.of("message", file.length-count+"File is not uploaded maybe some values are null"));
-	}
+		else
+			    return ResponseEntity.ok(Map.of("message", file.length-count+"File is not uploaded maybe some values are null"));
+		}
+
+   
 	@GetMapping("/employeesList")
 	public List<EmployeeDetails> getAllEmployeesDetails(){
 		return this.employeeNonTier1Service.getAllEmployees();

@@ -15,7 +15,7 @@ import com.hcl.fsc.services.EmployeeSkilledHiringService;
 import com.hcl.fsc.services.EmployeeTier1Service;
 
 @RestController
-@CrossOrigin("*")
+//@CrossOrigin("*")
 public class Controller {
 
 	@Autowired
@@ -27,7 +27,7 @@ public class Controller {
 	@Autowired
 	private EmployeeMoUService mouService;
 
-	@PostMapping("fsc/upload")
+	@PostMapping("fsc/uploads")
 	public ResponseEntity<?> upload(@RequestParam("file") MultipartFile file) {
 		if (EmployeeHelper.checkExcelFormate(file)) {
 			this.tier_1Service.save(file);
