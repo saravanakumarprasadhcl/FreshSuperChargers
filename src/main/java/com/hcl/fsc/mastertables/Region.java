@@ -19,7 +19,7 @@ public class Region {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer uid;
 	@Id
-	private String regionKey;
-	private String regionValue;
+	private String key;
+	private String value;
 
 }

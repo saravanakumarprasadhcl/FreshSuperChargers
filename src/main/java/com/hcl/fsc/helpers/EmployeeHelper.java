@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.hcl.fsc.excel.vivo.CDAC;
-import com.hcl.fsc.excel.vivo.Digibee;
+import com.hcl.fsc.excel.vivo.DigiBee;
 import com.hcl.fsc.excel.vivo.NonTier1;
 import com.poiji.bind.Poiji;
 import com.poiji.exception.PoijiExcelType;
@@ -30,11 +30,11 @@ public class EmployeeHelper {
 		return employeeNonTier1List;
 
    }
-public static List<Digibee> convertExcelToListOfDigibee(InputStream inputStream) {
+public static List<DigiBee> convertExcelToListOfDigibee(InputStream inputStream) {
 		
-		List<Digibee> employeeDigibeeList= new ArrayList<>();
+		List<DigiBee> employeeDigibeeList= new ArrayList<>();
 			PoijiExcelType excelType = PoijiExcelType.XLSX;
-			employeeDigibeeList=Poiji.fromExcel(inputStream, excelType, Digibee.class);
+			employeeDigibeeList=Poiji.fromExcel(inputStream, excelType, DigiBee.class);
 		return employeeDigibeeList;
 
    }

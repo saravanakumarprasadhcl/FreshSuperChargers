@@ -6,7 +6,9 @@ import com.hcl.fsc.mastertables.Gender;
 
 @Repository
 public interface GenderRepository extends JpaRepository<Gender, String>{
-	    public Gender findByGenderValue(String genderValue);
+	    
+	public Gender findByValue(String value);
 
-		public Gender getByGenderKey(String genderKey);
+	public Gender getByKey(String key);
+		
 }

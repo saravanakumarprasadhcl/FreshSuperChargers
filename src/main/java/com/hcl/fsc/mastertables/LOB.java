@@ -13,13 +13,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name="Master_Gender")
-public class Gender {
-	
+@Table(name="Master_LOB")
+public class LOB {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Integer uid;
 	@Id
 	private String key;
 	private String value;
-	
 }

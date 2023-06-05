@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import com.hcl.fsc.entities.EmployeeDetails;
 import com.hcl.fsc.helpers.EmployeeHelper;
+import com.hcl.fsc.services.EmployeeCDACServiceImpl;
+import com.hcl.fsc.services.EmployeeDigiBeeServiceImpl;
 import com.hcl.fsc.services.EmployeeNonTier1ServiceImpl;
 
 @RestController
@@ -21,14 +23,22 @@ public class EmployeeController {
 	
     @Autowired
     private EmployeeNonTier1ServiceImpl employeeNonTier1Service;
+    
+    @Autowired
+    private EmployeeCDACServiceImpl employeeCDACService;
+    
+    @Autowired
+    private EmployeeDigiBeeServiceImpl employeeDigiBeeService;
 
     @PostMapping("fsc/upload")
 	public ResponseEntity<?> employeeNonTier1Uplaod(@RequestParam("file") MultipartFile[] file) {
 		int count=0;
 		for(int i=0; i<file.length; i++) {
 		if (EmployeeHelper.checkExcelFormate(file[i])) {
-			int res=this.employeeNonTier1Service.employeeNonTier1ListSave(file[i]);
-			if(res==1) {
+			int res1=this.employeeNonTier1Service.employeeNonTier1ListSave(file[i]);
+			int res2=this.employeeDigiBeeService.employeeDigiBeeListSave(file[i]);
+			int res3=this.employeeCDACService.employeeCDACListSave(file[i]);
+			if(res1==1 && res2==1 && res3==1) {
 				count++;
 			}
 		}

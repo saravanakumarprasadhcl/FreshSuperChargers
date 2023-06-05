@@ -16,9 +16,11 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="master_state")
 public class State {
+	
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer uid;
+	
 	@Id
-	private String stateKey;
-	private String stateValue;
+	private String key;	
+	private String value;
 }

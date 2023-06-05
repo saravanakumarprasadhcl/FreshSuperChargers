@@ -2,6 +2,7 @@ package com.hcl.fsc.excel.vivo;
 
 import com.poiji.annotation.ExcelCellName;
 import com.poiji.annotation.ExcelSheet;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,8 +14,8 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@ExcelSheet("Non-Tier1")
-public class NonTier1 {
+@ExcelSheet("DigiBee")
+public class DigiBee {
 
 	@ExcelCellName("SAP")
 	private Long sapId;
@@ -36,6 +37,8 @@ public class NonTier1 {
 	private String highSchoolPassingYear;
 	@ExcelCellName("12th Passing Year")
 	private String intermediatePassingYear;
+	@ExcelCellName("12th Percentage")
+	private String intermediatePercentage;
 	@ExcelCellName("Graduation College")
 	private String graduationCollege;
 	@ExcelCellName("Graduation Specialization")
@@ -46,7 +49,9 @@ public class NonTier1 {
 	private String postGraduationDegree;
 	@ExcelCellName("Post Graduation Specialisation/Branch")
 	private String postGraduationSpecialisation;
-	@ExcelCellName("post Graduation Passing Year")
+	@ExcelCellName("Post Graduation Percentage")
+	private String postGraduationPercentage;
+	@ExcelCellName("Post Graduation Passing Year")
 	private String postGraduationPassingYear;
 	@ExcelCellName("PG College Name")
 	private String pgCollegeName;
@@ -90,8 +95,8 @@ public class NonTier1 {
 	private String internJoiningDate;
 	@ExcelCellName("Intern SAP ID")
 	private String internSapID;
-	@ExcelCellName("H1/H2")
-	private String h1OrH2;
+//	@ExcelCellName("H1/H2")
+//	private String H1OrH2;
 	@ExcelCellName("Pre OTP Status")
 	private String preOTPStatus;
 	@ExcelCellName("Tentative Joining Month")

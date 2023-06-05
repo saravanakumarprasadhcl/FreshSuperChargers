@@ -3,16 +3,21 @@ package com.hcl.fsc.services;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
 import com.hcl.fsc.entities.EmployeeDetails;
 import com.hcl.fsc.entities.EmployeeEducationalDetails;
 import com.hcl.fsc.entities.EmployeeOnboardingDetails;
 import com.hcl.fsc.entities.EmployeeRecruitmentDetails;
-import com.hcl.fsc.excel.vivo.NonTier1;
+import com.hcl.fsc.excel.vivo.DigiBee;
 import com.hcl.fsc.helpers.EmployeeHelper;
+import com.hcl.fsc.mastertables.Gender;
+import com.hcl.fsc.repositories.CollegeTieringRepository;
+import com.hcl.fsc.repositories.EmployeeDetailsRepository;
 import com.hcl.fsc.repositories.EmployeeEducationalDetailsRepository;
 import com.hcl.fsc.repositories.EmployeeOnboardingRepository;
 import com.hcl.fsc.repositories.EmployeeRecruitmentDetailsRepository;
@@ -29,39 +34,36 @@ import com.hcl.fsc.repositories.OfferedDesignationRepository;
 import com.hcl.fsc.repositories.OfferedSubBandRepository;
 import com.hcl.fsc.repositories.RegionRepository;
 import com.hcl.fsc.repositories.StateRepository;
-import com.hcl.fsc.repositories.UGDegreeRepository;
 import com.hcl.fsc.repositories.UGOrPGRepository;
-import com.hcl.fsc.repositories.CollegeTieringRepository;
-import com.hcl.fsc.repositories.EmployeeDetailsRepository;
+
 
 @Service
-public class EmployeeNonTier1ServiceImpl {
-
+public class EmployeeDigiBeeServiceImpl {
 	@Autowired
-	private EmployeeDetailsRepository employeeDetailsRepository;
-
-	@Autowired
-	private EmployeeEducationalDetailsRepository employeeEducationDetailsRepository;
-
-	@Autowired
-	private EmployeeOnboardingRepository employeeOnboardingRepository;
-
-	@Autowired
-	private EmployeeRecruitmentDetailsRepository employeeRecruitmentDetailsRepository;
-
-	@Autowired
-	private ModelMapper modelMapper;
-
-	@Autowired
-	private GenderRepository genderRepository;
-
-	@Autowired
-	private RegionRepository regionRepository;
-
-	@Autowired
-	private StateRepository stateRepository;
+    private EmployeeDetailsRepository employeeDetailsRepository;
     
-	@Autowired
+    @Autowired
+    private EmployeeEducationalDetailsRepository employeeEducationDetailsRepository;
+    
+    @Autowired
+    private EmployeeOnboardingRepository employeeOnboardingRepository;
+    
+    @Autowired
+    private EmployeeRecruitmentDetailsRepository employeeRecruitmentDetailsRepository;
+        
+    @Autowired
+	private ModelMapper modelMapper;
+    
+    @Autowired
+    private GenderRepository genderRepository;
+    
+    @Autowired
+    private RegionRepository regionRepository;
+    
+    @Autowired
+    private StateRepository stateRepository;
+    
+    @Autowired
 	private UGOrPGRepository ugOrPGRepository;
 	
 //	@Autowired
@@ -99,47 +101,51 @@ public class EmployeeNonTier1ServiceImpl {
     
 	@Autowired
 	private LocationRepository locationRepository;
-	
-	public int employeeNonTier1ListSave(MultipartFile file) {
-		int res = 0;
+    
+	public int employeeDigiBeeListSave(MultipartFile file) {
+		int res=0;
 		try {
-			List<NonTier1> employeeNonTier1List = EmployeeHelper.convertExcelToListOfNonTier1(file.getInputStream());
-			System.out.println(employeeNonTier1List);
-			List<EmployeeDetails> employeeDetailsList = new ArrayList<>();
-//getting the data from NonTier1 and mapping it to employee details entity after validating the data from related master tables
-			employeeNonTier1List.stream().forEach(e -> {
-				if (genderRepository.findByValue(e.getGender()) != null
-						&& regionRepository.findByValue(e.getRegion()) != null
-						&& stateRepository.findByValue(e.getState()) != null) {
-					EmployeeDetails employeeDetails = new EmployeeDetails();
-					employeeDetails = modelMapper.map(e, EmployeeDetails.class);
-					employeeDetails.setGender(genderRepository.findByValue(e.getGender()));
-					employeeDetails.setRegion(regionRepository.findByValue(e.getRegion()));
-					employeeDetails.setState(stateRepository.findByValue(e.getState()));
-					employeeDetailsList.add(employeeDetails);
+			List<DigiBee> employeeDigiBeeList = EmployeeHelper.convertExcelToListOfDigibee(file.getInputStream());
+			System.out.println(employeeDigiBeeList+"in digibee sheet");
 
+//			List<EmployeeDetails> employeeDetailsList=employeeDigiBeeList.stream()
+//					.map(employeeDetails-> modelMapper.map(employeeDetails,EmployeeDetails.class))
+//					.collect(Collectors.toList());
+			List<EmployeeDetails> employeeDetailsList=new ArrayList<>();
+			employeeDigiBeeList.stream().forEach(e->{
+				if(genderRepository.findByValue(e.getGender().toLowerCase())!=null 
+					&& regionRepository.findByValue(e.getRegion().toLowerCase())!=null 
+					&& stateRepository.findByValue(e.getState().toLowerCase())!=null ) {
+				EmployeeDetails	employeeDetails= new EmployeeDetails();
+				employeeDetails= modelMapper.map(e,EmployeeDetails.class);
+				employeeDetails.setGender(genderRepository.findByValue(e.getGender().toLowerCase()));
+				employeeDetails.setRegion(regionRepository.findByValue(e.getRegion().toLowerCase()));
+				employeeDetails.setState(stateRepository.findByValue(e.getState().toLowerCase()));
+				employeeDetailsList.add(employeeDetails);
 				}
-
 			});
-
-			//System.out.println(employeeDetailsList);
-			employeeDetailsRepository.saveAll(employeeDetailsList);
-		    List<EmployeeEducationalDetails> employeeEducationalDetailsList=new ArrayList<>();
-		    employeeNonTier1List.stream().forEach(e->{
-		    	if(ugOrPGRepository.findByValue(e.getUgOrPg()) != null 
-		    			&& graduationSpecializationRepository.findByValue(e.getGraduationSpecialization())!=null) {
+			
+			//System.out.println(employeeDetailsList);						
+            employeeDetailsRepository.saveAll(employeeDetailsList);
+            
+            //List<EmployeeEducationalDetails> employeeEducationalDetailsList=employeeDigiBeeList.stream().map(employeeEducationalDetails-> modelMapper.map(employeeEducationalDetails,EmployeeEducationalDetails.class)).collect(Collectors.toList());			    			
+            List<EmployeeEducationalDetails> employeeEducationalDetailsList=new ArrayList<>();
+            employeeDigiBeeList.stream().forEach(e->{
+            	System.out.println(ugOrPGRepository.findByValue(e.getUgOrPg())+"--"+graduationSpecializationRepository.findByValue(e.getGraduationSpecialization())+"getting degibee master table validation"+e.getGraduationSpecialization());
+		    	if(ugOrPGRepository.findByValue(e.getUgOrPg()) != null && graduationSpecializationRepository.findByValue(e.getGraduationSpecialization())!=null) {
 		    		EmployeeEducationalDetails employeeEducationalDetails=new EmployeeEducationalDetails();
 		    		employeeEducationalDetails=modelMapper.map(e,EmployeeEducationalDetails.class);
 		    		employeeEducationalDetails.setUgOrPg(ugOrPGRepository.findByValue(e.getUgOrPg()));
 		    		employeeEducationalDetails.setGraduationSpecialization(graduationSpecializationRepository.findByValue(e.getGraduationSpecialization()));
 		    		employeeEducationalDetailsList.add(employeeEducationalDetails);
 		    	}
-		    });		    			
-			//System.out.println(employeeEducationalDetailsList);
-			employeeEducationDetailsRepository.saveAll(employeeEducationalDetailsList);
-
-			List<EmployeeOnboardingDetails> employeeOnboardingDetailsList=new ArrayList<>();
-		    employeeNonTier1List.stream().forEach(e->{
+		    });
+            //System.out.println(employeeEducationalDetailsList);
+            employeeEducationDetailsRepository.saveAll(employeeEducationalDetailsList);
+            
+           // List<EmployeeOnboardingDetails> employeeOnboardingDetailsList =employeeDigiBeeList.stream().map(employeeOnboardingDetails-> modelMapper.map(employeeOnboardingDetails,EmployeeOnboardingDetails.class)).collect(Collectors.toList());			    			
+            List<EmployeeOnboardingDetails> employeeOnboardingDetailsList=new ArrayList<>();
+            employeeDigiBeeList.stream().forEach(e->{
 		    	System.out.println(e.getLocation()+"--"+e.getCollegeTiering()+"--"+e.getOfferedBand()+"--"+e.getOfferedSubBand()+"--"+e.getOfferedDesignation());
 		    	if(locationRepository.findByValue(e.getLocation()) != null 
 		    			&& collegeTieringRepository.findByValue(e.getCollegeTiering())!=null
@@ -157,15 +163,12 @@ public class EmployeeNonTier1ServiceImpl {
 		    		employeeOnboardingDetailsList.add(employeeOnboardingDetails);
 		    	}
 		    });
-////            System.out.println(employeeOnboardingDetailsList);
-			employeeOnboardingRepository.saveAll(employeeOnboardingDetailsList);
-
-//			List<EmployeeRecruitmentDetails> employeeRecruitmentDetailsList = employeeNonTier1List.stream()
-//					.map(employeeRecruitmentDetails -> modelMapper.map(employeeRecruitmentDetails,
-//							EmployeeRecruitmentDetails.class))
-//					.collect(Collectors.toList());
-			List<EmployeeRecruitmentDetails> employeeRecruitmentDetailsList=new ArrayList<>();
-			 employeeNonTier1List.stream().forEach(e->{
+            //System.out.println(employeeOnboardingDetailsList);
+            employeeOnboardingRepository.saveAll(employeeOnboardingDetailsList);
+            
+            //List<EmployeeRecruitmentDetails> employeeRecruitmentDetailsList =employeeDigiBeeList.stream().map(employeeRecruitmentDetails-> modelMapper.map(employeeRecruitmentDetails,EmployeeRecruitmentDetails.class)).collect(Collectors.toList());			    			
+            List<EmployeeRecruitmentDetails> employeeRecruitmentDetailsList=new ArrayList<>();
+            employeeDigiBeeList.stream().forEach(e->{
 		    	System.out.println(e.getL1()+"--"+e.getL2()+"--"+e.getL3()+"--"+e.getL4());
 		    	if( l1Repository.findByValue(e.getL1())!=null
 		    			&& l2Repository.findByValue(e.getL2())!=null
@@ -181,19 +184,24 @@ public class EmployeeNonTier1ServiceImpl {
 		    		employeeRecruitmentDetailsList.add(employeeRecruitmentDetails);
 		    	}
 		    });
-//            System.out.println(employeeRecruitmentDetailsList);
-			employeeRecruitmentDetailsRepository.saveAll(employeeRecruitmentDetailsList);
-
-			res = 1;
-		} catch (Exception e) {
+            // System.out.println(employeeRecruitmentDetailsList);
+            employeeRecruitmentDetailsRepository.saveAll(employeeRecruitmentDetailsList);
+            
+			res=1;		
+		}catch(Exception e) {
 			e.printStackTrace();
 //	 	System.out.println("some values are null calling from product service");
-		}
-		return res;
+		} return res;
 	}
 
-	public List<EmployeeDetails> getAllEmployees() {
+	public List<EmployeeDetails> getAllEmployees(){
 		return this.employeeDetailsRepository.findAll();
 	}
-
+	public List<Gender> getAllGender(){
+		return this.genderRepository.findAll();
+	}
+	public Gender addGender(Gender gender) {
+		return this.genderRepository.save(gender);
+		
+	}
 }

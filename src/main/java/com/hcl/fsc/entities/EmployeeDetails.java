@@ -4,6 +4,10 @@ package com.hcl.fsc.entities;
 
 
 import com.hcl.fsc.mastertables.Gender;
+import com.hcl.fsc.mastertables.Region;
+import com.hcl.fsc.mastertables.State;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -30,17 +34,22 @@ public class EmployeeDetails {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Integer id;
-	private Integer sapId;
+	private Long sapId;
 	private String name;
 	
 	@OneToOne
 	private Gender gender;
+	
 	private String email;
 	private Long contactNo;
 	private Long alternateContactNo;
 	private String address;
-	private String state;	
-	private String region;
+	
+	@OneToOne
+	private State state;	
+	
+	@OneToOne
+	private Region region;
 	
 	
 }
