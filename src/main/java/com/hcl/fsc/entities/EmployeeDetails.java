@@ -1,13 +1,20 @@
 package com.hcl.fsc.entities;
 
-import jakarta.persistence.AssociationOverride;
+
+import com.hcl.fsc.mastertables.Gender;
+import com.hcl.fsc.mastertables.Region;
+import com.hcl.fsc.mastertables.State;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
+
+
 
 @Data
 @Entity
@@ -24,8 +31,6 @@ public class EmployeeDetails {
 	@Column(name = "StudentName")
 	private String studentName;
 	
-	@Column(name = "Gender")
-	private String gender;
 	
 	@Column(name = "Email")
 	private String email;
@@ -42,7 +47,15 @@ public class EmployeeDetails {
 	@Column(name = "StateName")
 	private String stateName;
 	
-	@Column(name = "Region")
-	private String region;
+	
+	@OneToOne
+	private Gender gender;
+	
+	
+	@OneToOne
+	private State state;	
+	
+	@OneToOne
+	private Region region;
 	
 }
