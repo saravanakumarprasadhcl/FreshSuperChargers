@@ -32,5 +32,4 @@ public class L1 {
 			@Column(name="L1VALUE")
 			private String L1VALUE;
 
-
 }
