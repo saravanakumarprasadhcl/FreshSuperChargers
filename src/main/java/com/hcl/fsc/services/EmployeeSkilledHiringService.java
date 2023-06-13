@@ -23,7 +23,7 @@ import com.hcl.fsc.repositories.EmployeeRecruitmentDetailsRepository;
 
 @Service
 public class EmployeeSkilledHiringService {
-	
+
 
 	@Autowired
 	private EmployeeDetailsRepository employeeDetailsRepository;
@@ -45,7 +45,7 @@ public class EmployeeSkilledHiringService {
 			List<SkilledHiring> list = EmployeeHelper.convertExcelToSkilledHiring(file.getInputStream());
 			System.out.println(list.size());
 			modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-			
+
 			List<EmployeeDetails> employeeDetailsList = list.stream()
 					.map(employeeDetails -> modelMapper.map(employeeDetails, EmployeeDetails.class))
 					.collect(Collectors.toList());
@@ -66,7 +66,7 @@ public class EmployeeSkilledHiringService {
 					.map(employee -> modelMapper.map(employee, EmployeeRecruitmentDetails.class))
 					.collect(Collectors.toList());
 			employeeRecruitmentDetailsRepository.saveAll(recruitmentDetailsList);
-			 
+
 		} catch (Exception e) {
 			e.getStackTrace();
 		}

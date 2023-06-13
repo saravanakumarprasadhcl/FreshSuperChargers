@@ -24,7 +24,7 @@ import lombok.ToString;
 @Entity
 public class EmployeeEducationalDetails {
 
-	
+
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private Long id;
@@ -34,7 +34,7 @@ public class EmployeeEducationalDetails {
 	private String intermediatePercentage;
 	private String intermediatePassingYear;
 	private String graduationCollege;
-	//master table 
+	//master table
 	@OneToOne
 	private UgDegree ugDegree;
 	//master table
@@ -49,7 +49,7 @@ public class EmployeeEducationalDetails {
 	private String pgCollegeName;
 	//master table
 	@OneToOne
-	private UGOrPG ugOrPg;	
+	private UGOrPG ugOrPg;
 
 
 }

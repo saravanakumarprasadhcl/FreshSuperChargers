@@ -8,6 +8,7 @@ class FreshSuperChargersApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }

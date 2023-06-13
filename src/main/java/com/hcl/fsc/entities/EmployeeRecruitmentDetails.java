@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 public class EmployeeRecruitmentDetails {
-    
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Integer id;

@@ -41,9 +41,9 @@ public class EmployeeTier1Service {
 	public void save(MultipartFile file) {
 		try {
 			List<Tier1> list = EmployeeHelper.convertExcelToTier1(file.getInputStream());
-			
+
 			modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-			
+
 			List<EmployeeDetails> employeeDetailsList = list.stream()
 					.map(employeeDetails -> modelMapper.map(employeeDetails, EmployeeDetails.class))
 					.collect(Collectors.toList());

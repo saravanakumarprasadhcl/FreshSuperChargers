@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="Master_UGOrPG")
 public class UGOrPG {
-	
+
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer uid;
 	@Id

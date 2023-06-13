@@ -2,9 +2,7 @@ package com.hcl.fsc.excel.vivo;
 
 import com.poiji.annotation.ExcelCellName;
 import com.poiji.annotation.ExcelSheet;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -88,7 +86,7 @@ public class CDAC {
 
 //	@ExcelCellName("College Tiering")
 //	private String collegeTiering ;
-//	
+//
 //	@ExcelCellName("FPM SPOC")
 //	private String FPM_SPOC;
 //	@ExcelCellName("Location")
@@ -99,13 +97,13 @@ public class CDAC {
 //	private String internJoiningDate;
 //	@ExcelCellName("Intern SAP ID")
 //	private String internSapID;
-//	
+//
 //	@ExcelCellName("Pre OTP Status")
 //	private String preOTPStatus;
-//	
-//	
-//	
-//	
+//
+//
+//
+//
 //	@ExcelCellName("Final Status")
 //	private String finalStatus;
 

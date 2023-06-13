@@ -1,7 +1,5 @@
 package com.hcl.fsc.services;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -67,7 +65,7 @@ public class EmployeeMoUService {
 //				}
 //			}
 //			logs.add("Total row Issues : "+count);
-			
+
 			List<EmployeeDetails> employeeDetailsList = list.stream()
 					.map(employeeDetails -> modelMapper.map(employeeDetails, EmployeeDetails.class))
 					.collect(Collectors.toList());

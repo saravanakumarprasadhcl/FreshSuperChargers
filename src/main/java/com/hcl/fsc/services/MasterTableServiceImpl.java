@@ -24,8 +24,6 @@ import com.hcl.fsc.mastertables.OnboardingStatus;
 import com.hcl.fsc.mastertables.Region;
 import com.hcl.fsc.mastertables.State;
 import com.hcl.fsc.mastertables.UgDegree;
-import com.hcl.fsc.mastertables.UgPg;
-import com.hcl.fsc.mastertables.UgSpecialization;
 import com.hcl.fsc.repositories.CollegeTieringRepository;
 import com.hcl.fsc.repositories.EmployeeDetailsRepository;
 import com.hcl.fsc.repositories.GenderRepository;
@@ -42,8 +40,7 @@ import com.hcl.fsc.repositories.OnboardingStatusRepository;
 import com.hcl.fsc.repositories.RegionRepository;
 import com.hcl.fsc.repositories.StateRepository;
 import com.hcl.fsc.repositories.UgDegreeRepository;
-import com.hcl.fsc.repositories.UgPgRepository;
-import com.hcl.fsc.repositories.UgSpecializationRepository;
+
 
 @Service
 public class MasterTableServiceImpl {
@@ -87,12 +84,6 @@ public class MasterTableServiceImpl {
 
 	@Autowired
 	private UgDegreeRepository ugDegreeRepository;
-
-	@Autowired
-	private UgPgRepository ugPgRepository;
-
-	@Autowired
-	private UgSpecializationRepository ugSpecializationRepository;
 
 	@Autowired
 	private OnboardingStatusRepository onboardingStatusRepository;
@@ -149,13 +140,6 @@ public class MasterTableServiceImpl {
 			return this.ugDegreeRepository;
 		}
 
-		else if (mastertable.equals("ugpg")) {
-			return this.ugPgRepository;
-		}
-
-		else if (mastertable.equals("ugspecialization")) {
-			return this.ugSpecializationRepository;
-		}
 
 		else if (mastertable.equals("offeredband")) {
 			return this.offeredBandRepository;
@@ -181,9 +165,9 @@ public class MasterTableServiceImpl {
 
 //    public List createData(String mastertable, Iterable str) {
 //		return repo(mastertable).saveAll(str);
-//		
+//
 //    }
-//    
+//
 	public int createData(MasterTables master, String str) {
 		int res = 0;
 		str = str.toLowerCase();
@@ -241,15 +225,7 @@ public class MasterTableServiceImpl {
 			} else if (str.equals("ugdegree")) {
 
 				ugDegreeRepository.save(new UgDegree(0, master.getKey(), master.getValue()));
-			} else if (str.equals("ugpg")) {
-
-				ugPgRepository.save(new UgPg(0, master.getKey(), master.getValue()));
-
-			} else if (str.equals("ugspecialization")) {
-
-				ugSpecializationRepository.save(new UgSpecialization(0, master.getKey(), master.getValue()));
-
-			} else if (str.equals("offeredband")) {
+			}else if (str.equals("offeredband")) {
 
 				offeredBandRepository.save(new OfferedBand(0, master.getKey(), master.getValue()));
 
@@ -283,7 +259,7 @@ public class MasterTableServiceImpl {
 //	public List<Employee> getAllCandidates(){
 //		return this.candidateRepository.findAll();
 //	}
-//	
+//
 //	public List<Gender> getAllGender(){
 //		return this.genderRepository.findAll();
 //    }
@@ -295,9 +271,9 @@ public class MasterTableServiceImpl {
 //
 //    }
 
-//    
+//
 //	public void updateGender(String genderkey, Gender gender) {
-//		Gender g=genderRepository.getById(genderkey);		
+//		Gender g=genderRepository.getById(genderkey);
 //		g.setGENDERVALUE(gender.getGENDERVALUE());
 //		genderRepository.save(g);
 //
@@ -321,7 +297,7 @@ public class MasterTableServiceImpl {
 
 			else if (str.equals("lob")) {
 				Lob obj2 = lobRepository.getOne(key);
-				obj2.setLOBVALUE(master.getValue());
+			//	obj2.setLOBVALUE(master.getValue());
 				lobRepository.save(obj2);
 			}
 
@@ -365,16 +341,8 @@ public class MasterTableServiceImpl {
 				l4Repository.save(obj10);
 			} else if (str.equals("ugdegree")) {
 				UgDegree obj11 = ugDegreeRepository.getOne(key);
-				obj11.setUGDEGREEVALUE(master.getValue());
+			//	obj11.setUGDEGREEVALUE(master.getValue());
 				ugDegreeRepository.save(obj11);
-			} else if (str.equals("ugpg")) {
-				UgPg obj12 = ugPgRepository.getOne(key);
-				obj12.setUGPGVALUE(master.getValue());
-				ugPgRepository.save(obj12);
-			} else if (str.equals("specialization")) {
-				UgSpecialization obj13 = ugSpecializationRepository.getOne(key);
-				obj13.setUGSPECIALIZATIONVALUE(master.getValue());
-				ugSpecializationRepository.save(obj13);
 			} else if (str.equals("offeredband")) {
 				OfferedBand obj14 = offeredBandRepository.getOne(key);
 				obj14.setValue(master.getValue());
@@ -389,7 +357,7 @@ public class MasterTableServiceImpl {
 				offeredDesignationRepository.save(obj16);
 			} else if (str.equals("onboardingstatus")) {
 				OnboardingStatus obj17 = onboardingStatusRepository.getOne(key);
-				obj17.setONBOARDINGSTATUSVALUE(master.getValue());
+			//	obj17.setONBOARDINGSTATUSVALUE(master.getValue());
 				onboardingStatusRepository.save(obj17);
 			}
 			res++;
@@ -409,7 +377,7 @@ public class MasterTableServiceImpl {
 
 			else if (str.equals("lob")) {
 				Optional<Lob> obj2 = lobRepository.findById(key);
-				lobRepository.deleteById(obj2.get().getLOBKEY());
+		//		lobRepository.deleteById(obj2.get().getLOBKEY());
 			} else if (str.equals("location")) {
 				Optional<Location> obj3 = locationRepository.findById(key);
 				locationRepository.deleteById(obj3.get().getKey());
@@ -450,18 +418,9 @@ public class MasterTableServiceImpl {
 				l4Repository.deleteById(obj10.get().getKey());
 			} else if (str.equals("ugdegree")) {
 				Optional<UgDegree> obj11 = ugDegreeRepository.findById(key);
-				ugDegreeRepository.deleteById(obj11.get().getUGDEGREEKEY());
+			//	ugDegreeRepository.deleteById(obj11.get().getUGDEGREEKEY());
 			}
 
-			else if (str.equals("ugpg")) {
-				Optional<UgPg> obj12 = ugPgRepository.findById(key);
-				ugPgRepository.deleteById(obj12.get().getUGPGKEY());
-			}
-
-			else if (str.equals("specialization")) {
-				Optional<UgSpecialization> obj13 = ugSpecializationRepository.findById(key);
-				ugSpecializationRepository.deleteById(obj13.get().getUGSPECIALIZATIONKEY());
-			}
 
 			else if (str.equals("offeredband")) {
 				Optional<OfferedBand> obj14 = offeredBandRepository.findById(key);
@@ -476,7 +435,7 @@ public class MasterTableServiceImpl {
 				offeredDesignationRepository.deleteById(obj16.get().getKey());
 			} else if (str.equals("onboardingstatus")) {
 				Optional<OnboardingStatus> obj17 = onboardingStatusRepository.findById(key);
-				onboardingStatusRepository.deleteById(obj17.get().getONBOARDINGSTATUSKEY());
+			//	onboardingStatusRepository.deleteById(obj17.get().getONBOARDINGSTATUSKEY());
 			}
 		}
 	}

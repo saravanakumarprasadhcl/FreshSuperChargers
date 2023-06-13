@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class MasterTables {
-	
+
 	@NotEmpty
 	private String key;
 	@NotEmpty

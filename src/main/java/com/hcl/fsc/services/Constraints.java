@@ -5,15 +5,15 @@ import java.util.regex.Pattern;
 
 public class Constraints {
 
-//	String regx = 
-	
+//	String regx =
+
 	public static boolean nameValidate(String input) {
 		String str = "^[a-zA-Z\\s]*$";
 		Pattern pattern = Pattern.compile(str);
 		Matcher matcher = pattern.matcher(input);
 		return matcher.matches();
 	}
-	
+
 
 	public static boolean emialValidate(String input) {
 		String str = "^[_A-Za-z0-9\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
