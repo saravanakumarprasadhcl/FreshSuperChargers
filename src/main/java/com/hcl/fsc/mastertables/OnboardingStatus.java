@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "master_onboardingstatus")
+@Table(name = "master_onboarding_status")
 public class OnboardingStatus {
 
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)

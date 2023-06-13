@@ -21,7 +21,7 @@ import com.hcl.fsc.mastertables.MasterTables;
 import com.hcl.fsc.mastertables.OfferedBand;
 import com.hcl.fsc.mastertables.OfferedDesignation;
 import com.hcl.fsc.mastertables.OfferedSubBand;
-//import com.hcl.fsc.mastertables.OnboardingStatus;
+import com.hcl.fsc.mastertables.OnboardingStatus;
 import com.hcl.fsc.mastertables.Region;
 import com.hcl.fsc.mastertables.State;
 import com.hcl.fsc.mastertables.UGOrPG;
@@ -39,7 +39,7 @@ import com.hcl.fsc.repositories.LocationRepository;
 import com.hcl.fsc.repositories.OfferedBandRepository;
 import com.hcl.fsc.repositories.OfferedDesignationRepository;
 import com.hcl.fsc.repositories.OfferedSubBandRepository;
-//import com.hcl.fsc.repositories.OnboardingStatusRepository;
+import com.hcl.fsc.repositories.OnboardingStatusRepository;
 import com.hcl.fsc.repositories.RegionRepository;
 import com.hcl.fsc.repositories.StateRepository;
 import com.hcl.fsc.repositories.UGOrPGRepository;
@@ -47,11 +47,6 @@ import com.hcl.fsc.repositories.UgDegreeRepository;
 
 @Service
 public class MasterTableServiceImpl {
-
-//	public void deleteGender(String genderkey) {
-//		Gender gender=this.genderRepository.getByGenderKey(genderkey);
-//		this.genderRepository.delete(gender);
-//	}
 
 	private EmployeeDetailsRepository employeeDetailsRepository;
 
@@ -94,8 +89,8 @@ public class MasterTableServiceImpl {
 	@Autowired
 	private GraduationSpecializationRepository ugSpecializationRepository;
 
-//	@Autowired
-//	private OnboardingStatusRepository onboardingStatusRepository;
+	@Autowired
+	private OnboardingStatusRepository onboardingStatusRepository;
 
 	@Autowired
 	private OfferedBandRepository offeredBandRepository;
@@ -112,9 +107,8 @@ public class MasterTableServiceImpl {
 	}
 
 	public JpaRepository repo(String mastertable) {
-		// int res=0;
+
 		mastertable = mastertable.toLowerCase();
-		// if(mastertable!=null && mastertable!="") {
 
 		if (mastertable.equals("gender")) {
 			return this.genderRepository;
@@ -167,13 +161,13 @@ public class MasterTableServiceImpl {
 		else if (mastertable.equals("offereddesignation")) {
 			return this.offeredDesignationRepository;
 		} 
-//			else if (mastertable.equals("onboardingstatus")) {
-//			return this.onboardingStatusRepository;
-//		}
+			else if (mastertable.equals("onboardingstatus")) {
+			return this.onboardingStatusRepository;
+		}
 
 		return this.collegeTieringRepository;
 
-		// return res;
+		
 	}
 
 	public Optional getRecordbyKey(String mastertable, String key) {
@@ -181,23 +175,12 @@ public class MasterTableServiceImpl {
 
 	}
 
-//    public List createData(String mastertable, Iterable str) {
-//		return repo(mastertable).saveAll(str);
-//		
-//    }
-//    
+  
 	public int createData(MasterTables master, String str) {
 		int res = 0;
 		str = str.toLowerCase();
 		if (master.getKey() != null && master.getKey() != "") {
 			if (str.equals("gender")) {
-
-//		Gender obj1=new Gender();
-//		obj1.setGENDERKEY(master.getKey());
-//		obj1.setGENDERVALUE(master.getValue());
-//		genderRepository.save(obj1);
-//    	Gender obj = new Gender(master.getKey(), master.getValue());
-//   	genderRepository.save(new Gender(master.getKey(), master.getValue()));
 
 				genderRepository.save(new Gender(0, master.getKey(), master.getValue()));
 
@@ -264,51 +247,25 @@ public class MasterTableServiceImpl {
 				offeredDesignationRepository.save(new OfferedDesignation(0, master.getKey(), master.getValue()));
 
 			} 
-//			else if (str.equals("onboardingstatus")) {
-//
-//				onboardingStatusRepository.save(new OnboardingStatus(0, master.getKey(), master.getValue()));
-//
-//			}
+			else if (str.equals("onboardingstatus")) {
+
+				onboardingStatusRepository.save(new OnboardingStatus(0, master.getKey(), master.getValue()));
+
+			}
 			res++;
 		}
 		return res;
 
 	}
 
-	// static int rowTotal;
-//	List<Product> products;
+
 	public int save(MultipartFile file) {
 		int res = 0;
 
 		return res;
 	}
 
-//	public List<Employee> getAllCandidates(){
-//		return this.candidateRepository.findAll();
-//	}
-//	
-//	public List<Gender> getAllGender(){
-//		return this.genderRepository.findAll();
-//    }
-//	public List<Lob> getAllLob(){
-//		return this.lobRepository.findAll();
-//    }
-//    public Gender addGender(Gender gender) {
-//		return genderRepository.save(gender);
-//
-//    }
 
-//    
-//	public void updateGender(String genderkey, Gender gender) {
-//		Gender g=genderRepository.getById(genderkey);		
-//		g.setGENDERVALUE(gender.getGENDERVALUE());
-//		genderRepository.save(g);
-//
-//	}
-
-//	public void deleteGender(String genderkey) {
-//		genderRepository.deleteById(genderkey);
-//	}
 
 	public int updateRecord(String key, MasterTables master, String str) {
 		int res = 0;
@@ -391,11 +348,11 @@ public class MasterTableServiceImpl {
 				obj16.setValue(master.getValue());
 				offeredDesignationRepository.save(obj16);
 			} 
-//			else if (str.equals("onboardingstatus")) {
-//				OnboardingStatus obj17 = onboardingStatusRepository.getOne(key);
-//				obj17.setONBOARDINGSTATUSVALUE(master.getValue());
-//				onboardingStatusRepository.save(obj17);
-//			}
+			else if (str.equals("onboardingstatus")) {
+				OnboardingStatus obj17 = onboardingStatusRepository.getOne(key);
+				obj17.setValue(master.getValue());
+				onboardingStatusRepository.save(obj17);
+			}
 			res++;
 		}
 		return res;
@@ -479,10 +436,10 @@ public class MasterTableServiceImpl {
 				Optional<OfferedDesignation> obj16 = offeredDesignationRepository.findById(key);
 				offeredDesignationRepository.deleteById(obj16.get().getKey());
 			} 
-//			else if (str.equals("onboardingstatus")) {
-//				Optional<OnboardingStatus> obj17 = onboardingStatusRepository.findById(key);
-//				onboardingStatusRepository.deleteById(obj17.get().getONBOARDINGSTATUSKEY());
-//			}
+			else if (str.equals("onboardingstatus")) {
+				Optional<OnboardingStatus> obj17 = onboardingStatusRepository.findById(key);
+				onboardingStatusRepository.deleteById(obj17.get().getKey());
+			}
 		}
 	}
 

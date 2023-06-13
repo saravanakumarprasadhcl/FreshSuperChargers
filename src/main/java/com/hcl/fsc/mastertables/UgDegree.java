@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "master_ugdegree")
+@Table(name = "master_ug_degree")
 public class UgDegree {
 
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
