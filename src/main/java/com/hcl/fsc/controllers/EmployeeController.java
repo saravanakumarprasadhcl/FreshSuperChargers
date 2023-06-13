@@ -1,5 +1,6 @@
 package com.hcl.fsc.controllers;
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,7 +22,6 @@ import com.hcl.fsc.services.EmployeeCDACServiceImpl;
 import com.hcl.fsc.services.EmployeeDigiBeeServiceImpl;
 import com.hcl.fsc.services.EmployeeMoUService;
 import com.hcl.fsc.services.EmployeeNonTier1ServiceImpl;
-//import com.hcl.fsc.services.MasterTableServiceImpl;
 import com.hcl.fsc.services.EmployeeSkilledHiringService;
 import com.hcl.fsc.services.EmployeeTier1Service;
 
@@ -54,48 +54,65 @@ public class EmployeeController {
 
 			if (EmployeeHelper.checkExcelFormate(file[i])) {
 				responseList = new ResponseList();
-				ResponseList responseList1 = this.employeeNonTier1Service.employeeNonTier1ListSave(file[i]);
-				ResponseList responseList2 = (this.employeeDigiBeeService.employeeDigiBeeListSave(file[i]));
-				ResponseList responseList3 = (this.employeeCDACService.employeeCDACListSave(file[i]));
-				ResponseList responseList4 = this.employeeTier1Service.employeeTier1ListSave(file[i]);
-				ResponseList responseList5 = this.employeeSkilledHiringService.employeeSkilledHiringListSave(file[i]);
+				//
+				//ResponseList responseList1 = this.employeeNonTier1Service.employeeNonTier1ListSave(file[i]);
+				//ResponseList responseList2 = (this.employeeDigiBeeService.employeeDigiBeeListSave(file[i]));
+//				ResponseList responseList3 = (this.employeeCDACService.employeeCDACListSave(file[i]));
+//				ResponseList responseList4 = this.employeeTier1Service.employeeTier1ListSave(file[i]);
+//				ResponseList responseList5 = this.employeeSkilledHiringService.employeeSkilledHiringListSave(file[i]);
 				ResponseList responseList6 = this.employeeMoUService.employeeMoUListSave(file[i]);
+				System.out.println(responseList6);
 
 				responseList
-						.setTotal_No_Records(responseList1.getTotal_No_Records() + responseList2.getTotal_No_Records()
-								+ responseList3.getTotal_No_Records() + responseList4.getTotal_No_Records()
-								+ responseList5.getTotal_No_Records() + responseList6.getTotal_No_Records());
+						.setTotal_No_Records(
+								//responseList1.getTotal_No_Records() +
+							//	responseList2.getTotal_No_Records() +
+//								responseList3.getTotal_No_Records() + 
+//								responseList4.getTotal_No_Records() +
+//								responseList5.getTotal_No_Records() + 
+								responseList6.getTotal_No_Records());
 
 				responseList.setSucessful_Records(
-						responseList1.getSucessful_Records() + responseList2.getSucessful_Records()
-								+ responseList3.getSucessful_Records() + responseList4.getSucessful_Records()
-								+ responseList5.getSucessful_Records() + responseList6.getSucessful_Records());
+					//	responseList1.getSucessful_Records() +
+						//responseList2.getSucessful_Records() +
+//								responseList3.getSucessful_Records() +
+//								responseList4.getSucessful_Records()+
+//								responseList5.getSucessful_Records() + 
+								responseList6.getSucessful_Records());
 
-				responseList.setFailed_Records(responseList1.getFailed_Records() + responseList2.getFailed_Records()
-						+ responseList3.getFailed_Records() + responseList4.getFailed_Records()
-						+ responseList5.getFailed_Records() + responseList6.getFailed_Records());
+				responseList.setFailed_Records(
+						//responseList1.getFailed_Records() +
+						//responseList2.getFailed_Records()
+//						+ responseList3.getFailed_Records() + 
+//						
+//						responseList4.getFailed_Records()
+//						+ responseList5.getFailed_Records() + 
+						responseList6.getFailed_Records());
 
 				responseList.setDuplicate_Records(
-						responseList1.getDuplicate_Records() + responseList2.getDuplicate_Records()
-								+ responseList3.getDuplicate_Records() + responseList4.getDuplicate_Records()
-								+ responseList5.getDuplicate_Records() + responseList6.getDuplicate_Records());
+						//responseList1.getDuplicate_Records() +
+						//responseList2.getDuplicate_Records()
+//								+ responseList3.getDuplicate_Records() + 
+//								responseList4.getDuplicate_Records()
+//								+ responseList5.getDuplicate_Records() + 
+								responseList6.getDuplicate_Records());
 
 				List<String> duplicate_Sap_List = new ArrayList<>();
 				
-				duplicate_Sap_List.addAll(responseList1.getDuplicate_Sap_List());
-				duplicate_Sap_List.addAll(responseList2.getDuplicate_Sap_List());
-				duplicate_Sap_List.addAll(responseList3.getDuplicate_Sap_List());
-				duplicate_Sap_List.addAll(responseList4.getDuplicate_Sap_List());
-				duplicate_Sap_List.addAll(responseList5.getDuplicate_Sap_List());
+				//duplicate_Sap_List.addAll(responseList1.getDuplicate_Sap_List());
+				//duplicate_Sap_List.addAll(responseList2.getDuplicate_Sap_List());
+//				duplicate_Sap_List.addAll(responseList3.getDuplicate_Sap_List());
+//				duplicate_Sap_List.addAll(responseList4.getDuplicate_Sap_List());
+//				duplicate_Sap_List.addAll(responseList5.getDuplicate_Sap_List());
 				duplicate_Sap_List.addAll(responseList6.getDuplicate_Sap_List());
 				responseList.setDuplicate_Sap_List(duplicate_Sap_List);
 
 				Map<String, List<String>> failed_Record_List = new HashMap<>();
-				failed_Record_List.putAll(responseList1.getFailed_Records_List());
-				failed_Record_List.putAll(responseList2.getFailed_Records_List());
-				failed_Record_List.putAll(responseList3.getFailed_Records_List());
-				failed_Record_List.putAll(responseList4.getFailed_Records_List());
-				failed_Record_List.putAll(responseList5.getFailed_Records_List());
+				//failed_Record_List.putAll(responseList1.getFailed_Records_List());
+				//failed_Record_List.putAll(responseList2.getFailed_Records_List());
+//				failed_Record_List.putAll(responseList3.getFailed_Records_List());
+//				failed_Record_List.putAll(responseList4.getFailed_Records_List());
+//				failed_Record_List.putAll(responseList5.getFailed_Records_List());
 				failed_Record_List.putAll(responseList6.getFailed_Records_List());
 				responseList.setFailed_Records_List(failed_Record_List);
 
@@ -105,10 +122,9 @@ public class EmployeeController {
 		}
 		if (count == file.length) {
 			return ResponseEntity.status(HttpStatus.OK).body(responseList);
-		} else
-			return ResponseEntity
-					.ok(Map.of("message", file.length - count + "File is not uploaded maybe some values are null"));
-
+		}
+		else
+			return ResponseEntity.ok(Map.of("message", file.length - count + "File is not uploaded maybe some values are null"));
 	}
 
 	@GetMapping("/employeesList")

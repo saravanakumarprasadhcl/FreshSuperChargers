@@ -83,6 +83,7 @@ public class MasterTableServiceImpl {
 	@Autowired
 	private UgDegreeRepository ugDegreeRepository;
 
+
 	@Autowired
 	private UGOrPGRepository ugOrPgRepository;
 
@@ -226,6 +227,7 @@ public class MasterTableServiceImpl {
 			} else if (str.equals("ugdegree")) {
 
 				ugDegreeRepository.save(new UgDegree(0, master.getKey(), master.getValue()));
+
 			} else if (str.equals("ugpg")) {
 
 				ugOrPgRepository.save(new UGOrPG(0, master.getKey(), master.getValue()));
@@ -234,7 +236,7 @@ public class MasterTableServiceImpl {
 
 				ugSpecializationRepository.save(new GraduationSpecialization(0, master.getKey(), master.getValue()));
 
-			} else if (str.equals("offeredband")) {
+			}  else if (str.equals("offeredband")) {
 
 				offeredBandRepository.save(new OfferedBand(0, master.getKey(), master.getValue()));
 
@@ -335,7 +337,7 @@ public class MasterTableServiceImpl {
 				GraduationSpecialization obj13 = ugSpecializationRepository.getOne(key);
 				obj13.setValue(master.getValue());
 				ugSpecializationRepository.save(obj13);
-			} else if (str.equals("offeredband")) {
+			}  else if (str.equals("offeredband")) {
 				OfferedBand obj14 = offeredBandRepository.getOne(key);
 				obj14.setValue(master.getValue());
 				offeredBandRepository.save(obj14);
@@ -423,6 +425,7 @@ public class MasterTableServiceImpl {
 				Optional<GraduationSpecialization> obj13 = ugSpecializationRepository.findById(key);
 				ugSpecializationRepository.deleteById(obj13.get().getKey());
 			}
+
 
 			else if (str.equals("offeredband")) {
 				Optional<OfferedBand> obj14 = offeredBandRepository.findById(key);

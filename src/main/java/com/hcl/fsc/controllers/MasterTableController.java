@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hcl.fsc.mastertables.CustomerName;
+import com.hcl.fsc.mastertables.Gender;
 import com.hcl.fsc.mastertables.MasterTables;
 import com.hcl.fsc.repositories.CollegeTieringRepository;
 import com.hcl.fsc.repositories.GenderRepository;
@@ -26,18 +28,21 @@ import com.hcl.fsc.repositories.LocationRepository;
 import com.hcl.fsc.repositories.OfferedBandRepository;
 import com.hcl.fsc.repositories.OfferedDesignationRepository;
 import com.hcl.fsc.repositories.OfferedSubBandRepository;
+import com.hcl.fsc.repositories.OnboardingStatusRepository;
 //import com.hcl.fsc.repositories.OnboardingStatusRepository;
 import com.hcl.fsc.repositories.RegionRepository;
 import com.hcl.fsc.repositories.StateRepository;
 import com.hcl.fsc.repositories.UGOrPGRepository;
 import com.hcl.fsc.repositories.UgDegreeRepository;
 import com.hcl.fsc.services.MasterTableServiceImpl;
+import com.hcl.fsc.services.master.MasterTableService;
 
 @RestController
 public class MasterTableController {
 
-	@Autowired
-	private MasterTableServiceImpl employeeService;
+
+//	@Autowired
+//	private MasterTableServiceImpl employeeService;
 
 	@Autowired
 	private GenderRepository genderrepository;
@@ -78,8 +83,8 @@ public class MasterTableController {
 	@Autowired
 	private GraduationSpecializationRepository ugSpecializationRepository;
 
-//	@Autowired
-//	private OnboardingStatusRepository onboardingStatusRepository;
+	@Autowired
+	private OnboardingStatusRepository onboardingStatusRepository;
 
 	@Autowired
 	private OfferedBandRepository offeredBandRepository;
@@ -112,45 +117,85 @@ public class MasterTableController {
 //		return "gender deleted";
 //	}
 
+//	@GetMapping("master/{mastertable}")
+//	public List getTable(@PathVariable String mastertable) {
+//
+//		return employeeService.getRecord(mastertable);
+//
+//	}
+
+//	@GetMapping("master/{mastertable}/{key}")
+	// public List getRecordbyKey(@PathVariable String mastertable, @PathVariable
+	// String key)
+//	public ResponseEntity<?> getRecordbykey(@PathVariable String mastertable, @PathVariable String key) {
+////		return employeeService.getRecordbyKey(mastertable,key);
+//
+//		return new ResponseEntity<>(employeeService.getRecordbyKey(mastertable, key), HttpStatus.OK);
+
+//
+//	@Autowired
+//	private MasterTableServiceImpl masterTableService;
+	
+	@Autowired
+	private MasterTableService masterTable;
+
 	@GetMapping("master/{mastertable}")
 	public List getTable(@PathVariable String mastertable) {
-
-		return employeeService.getRecord(mastertable);
-
+		return masterTableService.getRecord(mastertable);
 	}
 
 	@GetMapping("master/{mastertable}/{key}")
-	// public List getRecordbyKey(@PathVariable String mastertable, @PathVariable
-	// String key)
 	public ResponseEntity<?> getRecordbykey(@PathVariable String mastertable, @PathVariable String key) {
-//		return employeeService.getRecordbyKey(mastertable,key);
-
-		return new ResponseEntity<>(employeeService.getRecordbyKey(mastertable, key), HttpStatus.OK);
-
+		return new ResponseEntity<>(masterTableService.getRecordbyKey(mastertable, key), HttpStatus.OK);
 	}
 
-//	@PostMapping("master/gender")
-//	public Gender addGender(@RequestBody Gender gender) {
-//	    return employeeService.addGender(gender);
-//    }
 
 	@PostMapping("/master/{str}")
 	public ResponseEntity<String> CreateRecord(@RequestBody MasterTables master, @PathVariable String str) {
 
-		int res = employeeService.createData(master, str);
+
+
+		int res = masterTableService.createData(master, str);
+
 		if (res == 1)
 			return ResponseEntity.ok("Data saved successfully!");
 		else
 			return ResponseEntity.ok("KEY is null or empty");
 
+
 	}
+
+//	@PutMapping("master/{str}/{key}")
+//	public ResponseEntity<String> updateRecord(@PathVariable String key, @PathVariable String str,
+//			@RequestBody MasterTables master) {
+//		// employeeService.updateRecord(key.toUpperCase(),master, str);
+//
+//		int res = employeeService.updateRecord(key, master, str);
+//		if (res == 1)
+//			return ResponseEntity.ok("Data Updated successfully!");
+//		else
+//			return ResponseEntity.ok("VALUE is null or empty");
+//
+//	}
+//
+//	@DeleteMapping("master/{str}/{key}")
+//	public ResponseEntity<String> deleteRecord(@PathVariable String key, @PathVariable String str) {
+//		employeeService.deleteRecord(key, str);
+//		return ResponseEntity.ok("Data Deleted successfully!");
+//	}
+
+//	@DeleteMapping("master/gender/{genderkey}")
+//	public void deleteMapping(@PathVariable String genderkey) {
+//		employeeService.deleteGender(genderkey);
+//	}
+
+
+//	}
 
 	@PutMapping("master/{str}/{key}")
 	public ResponseEntity<String> updateRecord(@PathVariable String key, @PathVariable String str,
 			@RequestBody MasterTables master) {
-		// employeeService.updateRecord(key.toUpperCase(),master, str);
-
-		int res = employeeService.updateRecord(key, master, str);
+		int res = masterTableService.updateRecord(key, master, str);
 		if (res == 1)
 			return ResponseEntity.ok("Data Updated successfully!");
 		else
@@ -160,13 +205,13 @@ public class MasterTableController {
 
 	@DeleteMapping("master/{str}/{key}")
 	public ResponseEntity<String> deleteRecord(@PathVariable String key, @PathVariable String str) {
-		employeeService.deleteRecord(key, str);
+		masterTableService.deleteRecord(key, str);
 		return ResponseEntity.ok("Data Deleted successfully!");
 	}
-
-//	@DeleteMapping("master/gender/{genderkey}")
-//	public void deleteMapping(@PathVariable String genderkey) {
-//		employeeService.deleteGender(genderkey);
-//	}
+	
+	@GetMapping("master/customerName")
+	public List<CustomerName> getAllCustomerName(){
+		return this.masterTable.getAllCustomerName();
+	}
 
 }

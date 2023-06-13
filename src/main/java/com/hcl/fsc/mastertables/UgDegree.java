@@ -9,13 +9,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@Entity
+
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "master_ug_degree")
+@Data
+@Entity
+@Table(name="Master_UG_Degree")
 public class UgDegree {
-
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer uid;
 	@Id

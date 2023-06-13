@@ -115,7 +115,7 @@ public class EmployeeMoUService {
 		List<String> duplicateSapIdList = new ArrayList<>();
 		try {
 			List<MoU> employeeMoUList = EmployeeHelper.convertExcelToListOfMoU(file.getInputStream());
-			//System.out.println(employeeMoUList);
+			System.out.println(employeeMoUList.size());
 			modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 
 			List<EmployeeDetails> employeeDetailsList = new ArrayList<>();
@@ -144,8 +144,8 @@ public class EmployeeMoUService {
 //			}
 //			logs.add("Total row Issues : "+count);
 
-//			rowNumber = 2;
-//			duplicateRow = 0;
+			rowNumber = 2;
+			duplicateRow = 0;
 			employeeMoUList.stream().forEach(e -> {
 
 				boolean flag = true;
@@ -308,8 +308,9 @@ public class EmployeeMoUService {
 			employeeOnboardingDetailsRepository.saveAll(employeeOnboardingDetailsList);
 			// System.out.println(employeeRecruitmentDetailsList);
 			employeeRecruitmentDetailsRepository.saveAll(employeeRecruitmentDetailsList);
-
+            
 			responseList.setTotal_No_Records(employeeMoUList.size());
+			System.out.println(responseList.getTotal_No_Records()+"total no records");
 			responseList.setSucessful_Records(employeeDetailsList.size());
 			responseList.setFailed_Records(employeeMoUList.size() - employeeDetailsList.size());
 			responseList.setDuplicate_Records(duplicateRow);
