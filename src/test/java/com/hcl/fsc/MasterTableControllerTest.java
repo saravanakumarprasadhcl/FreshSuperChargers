@@ -69,7 +69,7 @@ public class MasterTableControllerTest {
         // mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
     }
 
-    // @Test
+     @Test
     public void getRecordAllTables() throws Exception {
 
         List<String> tablesList = Arrays.asList("gender", "lob", "location", "region", "collegeTiering", "state", "l1",
@@ -95,7 +95,7 @@ public class MasterTableControllerTest {
                 "L2", "L3", "L4", "UgDegree", "OfferedBand", "OfferedSubBand", "OfferedDesignation",
                 "OnboardingStatus");
 
-        List<String> errorMessages = new ArrayList<>(); // Danh sách lưu trữ các thông báo lỗi
+        List<String> errorMessages = new ArrayList<>(); 
 
         for (String tableName : tablesList) {
             String className = "com.hcl.fsc.mastertables." + tableName;
