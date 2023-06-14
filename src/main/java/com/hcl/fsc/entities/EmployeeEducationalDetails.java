@@ -38,6 +38,7 @@ public class EmployeeEducationalDetails {
 	// master table
 	@OneToOne
 	private UGOrPG ugOrPg;
+
 	// master table
 	@OneToOne
 	private UgDegree ugDegree;

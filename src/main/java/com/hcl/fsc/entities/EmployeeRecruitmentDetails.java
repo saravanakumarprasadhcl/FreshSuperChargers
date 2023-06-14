@@ -47,7 +47,6 @@ public class EmployeeRecruitmentDetails {
 	private String remappedLocation;
 	private String srNumber;
 	private String remarks;
-	
 	private String sheetCode;
 
 }

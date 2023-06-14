@@ -126,8 +126,8 @@ public class EmployeeCDACServiceImpl {
 			List<EmployeeOnboardingDetails> employeeOnboardingDetailsList = new ArrayList<>();
 			List<EmployeeRecruitmentDetails> employeeRecruitmentDetailsList = new ArrayList<>();
 
-//			rowNumber = 2;
-//			duplicateRow = 0;
+			rowNumber = 2;
+			duplicateRow = 0;
 			
 			
 			employeeCDACList.stream().forEach(e -> {

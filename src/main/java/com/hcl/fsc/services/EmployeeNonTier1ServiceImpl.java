@@ -119,8 +119,8 @@ public class EmployeeNonTier1ServiceImpl {
 			List<EmployeeRecruitmentDetails> employeeRecruitmentDetailsList = new ArrayList<>();
 
 //getting the data from NonTier1 and mapping it to employee details entity after validating the data from related master tables
-//			rowNumber = 2;
-//			duplicateRow = 0;
+			rowNumber = 2;
+			duplicateRow = 0;
 			employeeNonTier1List.stream().forEach(e -> {
 				boolean flag = true;
 				if (e.getSapId() != null) {

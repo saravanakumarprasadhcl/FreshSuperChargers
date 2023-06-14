@@ -22,6 +22,7 @@ public class EmployeeDetails {
 
 	private String email;
 
+
 	private String contactNo;
 
 	private String alternateContactNo;
