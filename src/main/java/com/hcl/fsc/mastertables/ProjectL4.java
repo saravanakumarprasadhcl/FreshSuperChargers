@@ -11,15 +11,20 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="customer_name_master")
-public class CustomerName {
+@Table(name="project_l4_master")
+public class ProjectL4 {
 	
 	@Id
 	private Integer uid;
 	
-	private String customerName;
+	@Column(name="project_l4_code")
+	private String projectL4Code;
+	
+	@Column(name="Project_l4_name")
+	private String projectL4Name;
 	
 	private LocalDateTime createdDate;
 	
 	private LocalDateTime updatedDate;
+	
 }

@@ -40,6 +40,7 @@ public class EmployeeOnboardingDetails {
 	private Long id;
 	private Long sapId;
 	private String onbaordingDetails;
+//	Master
 	private String onboardingStatus;
 	private String driveCollege;
 	private String driveDate;

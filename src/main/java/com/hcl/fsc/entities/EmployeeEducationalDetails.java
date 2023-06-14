@@ -1,6 +1,5 @@
 package com.hcl.fsc.entities;
 
-
 import com.hcl.fsc.mastertables.GraduationSpecialization;
 import com.hcl.fsc.mastertables.UGOrPG;
 import com.hcl.fsc.mastertables.UgDegree;
@@ -24,22 +23,15 @@ import lombok.ToString;
 @Entity
 public class EmployeeEducationalDetails {
 
-	
-    @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE)
-    private Long id;
-    private Long sapId;
-    private String batch;
-    private String highSchoolPassingYear;
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private Long id;
+	private Long sapId;
+	private String batch;
+	private String highSchoolPassingYear;
 	private String intermediatePercentage;
 	private String intermediatePassingYear;
 	private String graduationCollege;
-	//master table 
-	@OneToOne
-	private UgDegree ugDegree;
-	//master table
-	@OneToOne
-	private GraduationSpecialization graduationSpecialization;
 	private String graduationPassingYear;
 	private Long universityRegistrationId;
 	private String postGraduationDegree;
@@ -47,9 +39,12 @@ public class EmployeeEducationalDetails {
 	private String postGraduationPassingYear;
 	private String postGraduationPercentage;
 	private String pgCollegeName;
-	//master table
+	// master table
 	@OneToOne
-	private UGOrPG ugOrPg;	
-
+	private UGOrPG ugOrPg;
+	@OneToOne
+	private UgDegree ugDegree;
+	@OneToOne
+	private GraduationSpecialization graduationSpecialization;
 
 }

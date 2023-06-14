@@ -3,23 +3,32 @@ package com.hcl.fsc.mastertables;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name="customer_name_master")
-public class CustomerName {
-	
+@Table(name = "project_code_master")
+public class ProjectCode {
+
 	@Id
 	private Integer uid;
-	
-	private String customerName;
-	
+
+	private String projectCode;
+
+	private String projectName;
+
 	private LocalDateTime createdDate;
-	
+
 	private LocalDateTime updatedDate;
+
+
 }
