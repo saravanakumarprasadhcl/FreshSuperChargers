@@ -129,8 +129,8 @@ public class EmployeeSkilledHiringService {
 			// getting the data from skilled-hiring and mapping it to employee details
 			// entity after
 			// validating the data from related master tables
-//			rowNumber = 2;
-//			duplicateCount = 0;
+			rowNumber = 2;
+			duplicateCount = 0;
 			employeeSkilledHiringList.stream().forEach(e -> {
 
 				boolean flag = true;

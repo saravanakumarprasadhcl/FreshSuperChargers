@@ -120,8 +120,8 @@ public class EmployeeDigiBeeServiceImpl {
 			//System.out.println(employeeDigiBeeList + "in digibee sheet");
 
 
-//			rowNumber = 2;
-//			duplicateRow = 0;
+			rowNumber = 2;
+			duplicateRow = 0;
 			List<EmployeeDetails> employeeDetailsList = new ArrayList<>();
 			List<EmployeeEducationalDetails> employeeEducationalDetailsList = new ArrayList<>();
 			List<EmployeeOnboardingDetails> employeeOnboardingDetailsList = new ArrayList<>();
