@@ -9,13 +9,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Entity
 @Table(name="Master_LOB")
 public class Lob {
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer uid;
 	@Id
 	private String key;

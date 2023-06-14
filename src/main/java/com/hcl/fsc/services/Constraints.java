@@ -15,7 +15,7 @@ public class Constraints {
 	}
 	
 
-	public static boolean emialValidate(String input) {
+	public static boolean emailValidate(String input) {
 		String str = "^[_A-Za-z0-9\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 		Pattern pattern = Pattern.compile(str);
 		Matcher matcher = pattern.matcher(input);
