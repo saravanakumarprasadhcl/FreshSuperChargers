@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.hcl.fsc.mastertables.CollegeTiering;
 import com.hcl.fsc.mastertables.Gender;
+import com.hcl.fsc.mastertables.GraduationSpecialization;
 import com.hcl.fsc.mastertables.L1;
 import com.hcl.fsc.mastertables.L2;
 import com.hcl.fsc.mastertables.L3;
@@ -23,10 +24,12 @@ import com.hcl.fsc.mastertables.OfferedSubBand;
 import com.hcl.fsc.mastertables.OnboardingStatus;
 import com.hcl.fsc.mastertables.Region;
 import com.hcl.fsc.mastertables.State;
+import com.hcl.fsc.mastertables.UGOrPG;
 import com.hcl.fsc.mastertables.UgDegree;
 import com.hcl.fsc.repositories.CollegeTieringRepository;
 import com.hcl.fsc.repositories.EmployeeDetailsRepository;
 import com.hcl.fsc.repositories.GenderRepository;
+import com.hcl.fsc.repositories.GraduationSpecializationRepository;
 import com.hcl.fsc.repositories.L1Repository;
 import com.hcl.fsc.repositories.L2Repository;
 import com.hcl.fsc.repositories.L3Repository;
@@ -39,15 +42,11 @@ import com.hcl.fsc.repositories.OfferedSubBandRepository;
 import com.hcl.fsc.repositories.OnboardingStatusRepository;
 import com.hcl.fsc.repositories.RegionRepository;
 import com.hcl.fsc.repositories.StateRepository;
+import com.hcl.fsc.repositories.UGOrPGRepository;
 import com.hcl.fsc.repositories.UgDegreeRepository;
 
 @Service
 public class MasterTableServiceImpl {
-
-//	public void deleteGender(String genderkey) {
-//		Gender gender=this.genderRepository.getByGenderKey(genderkey);
-//		this.genderRepository.delete(gender);
-//	}
 
 	private EmployeeDetailsRepository employeeDetailsRepository;
 
@@ -86,6 +85,12 @@ public class MasterTableServiceImpl {
 
 
 	@Autowired
+	private UGOrPGRepository ugOrPgRepository;
+
+	@Autowired
+	private GraduationSpecializationRepository ugSpecializationRepository;
+
+	@Autowired
 	private OnboardingStatusRepository onboardingStatusRepository;
 
 	@Autowired
@@ -103,9 +108,8 @@ public class MasterTableServiceImpl {
 	}
 
 	public JpaRepository repo(String mastertable) {
-		// int res=0;
+
 		mastertable = mastertable.toLowerCase();
-		// if(mastertable!=null && mastertable!="") {
 
 		if (mastertable.equals("gender")) {
 			return this.genderRepository;
@@ -140,6 +144,15 @@ public class MasterTableServiceImpl {
 			return this.ugDegreeRepository;
 		}
 
+		else if (mastertable.equals("ugpg")) {
+			return this.ugOrPgRepository;
+
+		}
+
+		else if (mastertable.equals("ugspecialization")) {
+			return this.ugSpecializationRepository;
+		}
+
 		else if (mastertable.equals("offeredband")) {
 			return this.offeredBandRepository;
 		} else if (mastertable.equals("offeredsubband")) {
@@ -148,13 +161,14 @@ public class MasterTableServiceImpl {
 
 		else if (mastertable.equals("offereddesignation")) {
 			return this.offeredDesignationRepository;
-		} else if (mastertable.equals("onboardingstatus")) {
+		} 
+			else if (mastertable.equals("onboardingstatus")) {
 			return this.onboardingStatusRepository;
 		}
 
 		return this.collegeTieringRepository;
 
-		// return res;
+		
 	}
 
 	public Optional getRecordbyKey(String mastertable, String key) {
@@ -162,23 +176,12 @@ public class MasterTableServiceImpl {
 
 	}
 
-//    public List createData(String mastertable, Iterable str) {
-//		return repo(mastertable).saveAll(str);
-//		
-//    }
-//    
+  
 	public int createData(MasterTables master, String str) {
 		int res = 0;
 		str = str.toLowerCase();
 		if (master.getKey() != null && master.getKey() != "") {
 			if (str.equals("gender")) {
-
-//		Gender obj1=new Gender();
-//		obj1.setGENDERKEY(master.getKey());
-//		obj1.setGENDERVALUE(master.getValue());
-//		genderRepository.save(obj1);
-//    	Gender obj = new Gender(master.getKey(), master.getValue());
-//   	genderRepository.save(new Gender(master.getKey(), master.getValue()));
 
 				genderRepository.save(new Gender(0, master.getKey(), master.getValue()));
 
@@ -224,6 +227,15 @@ public class MasterTableServiceImpl {
 			} else if (str.equals("ugdegree")) {
 
 				ugDegreeRepository.save(new UgDegree(0, master.getKey(), master.getValue()));
+
+			} else if (str.equals("ugpg")) {
+
+				ugOrPgRepository.save(new UGOrPG(0, master.getKey(), master.getValue()));
+
+			} else if (str.equals("ugspecialization")) {
+
+				ugSpecializationRepository.save(new GraduationSpecialization(0, master.getKey(), master.getValue()));
+
 			}  else if (str.equals("offeredband")) {
 
 				offeredBandRepository.save(new OfferedBand(0, master.getKey(), master.getValue()));
@@ -236,7 +248,8 @@ public class MasterTableServiceImpl {
 
 				offeredDesignationRepository.save(new OfferedDesignation(0, master.getKey(), master.getValue()));
 
-			} else if (str.equals("onboardingstatus")) {
+			} 
+			else if (str.equals("onboardingstatus")) {
 
 				onboardingStatusRepository.save(new OnboardingStatus(0, master.getKey(), master.getValue()));
 
@@ -247,40 +260,14 @@ public class MasterTableServiceImpl {
 
 	}
 
-	// static int rowTotal;
-//	List<Product> products;
+
 	public int save(MultipartFile file) {
 		int res = 0;
 
 		return res;
 	}
 
-//	public List<Employee> getAllCandidates(){
-//		return this.candidateRepository.findAll();
-//	}
-//	
-//	public List<Gender> getAllGender(){
-//		return this.genderRepository.findAll();
-//    }
-//	public List<Lob> getAllLob(){
-//		return this.lobRepository.findAll();
-//    }
-//    public Gender addGender(Gender gender) {
-//		return genderRepository.save(gender);
-//
-//    }
 
-//    
-//	public void updateGender(String genderkey, Gender gender) {
-//		Gender g=genderRepository.getById(genderkey);		
-//		g.setGENDERVALUE(gender.getGENDERVALUE());
-//		genderRepository.save(g);
-//
-//	}
-
-//	public void deleteGender(String genderkey) {
-//		genderRepository.deleteById(genderkey);
-//	}
 
 	public int updateRecord(String key, MasterTables master, String str) {
 		int res = 0;
@@ -342,6 +329,14 @@ public class MasterTableServiceImpl {
 				UgDegree obj11 = ugDegreeRepository.getOne(key);
 				obj11.setValue(master.getValue());
 				ugDegreeRepository.save(obj11);
+			} else if (str.equals("ugpg")) {
+				UGOrPG obj12 = ugOrPgRepository.getOne(key);
+				obj12.setValue(master.getValue());
+				ugOrPgRepository.save(obj12);
+			} else if (str.equals("specialization")) {
+				GraduationSpecialization obj13 = ugSpecializationRepository.getOne(key);
+				obj13.setValue(master.getValue());
+				ugSpecializationRepository.save(obj13);
 			}  else if (str.equals("offeredband")) {
 				OfferedBand obj14 = offeredBandRepository.getOne(key);
 				obj14.setValue(master.getValue());
@@ -354,7 +349,8 @@ public class MasterTableServiceImpl {
 				OfferedDesignation obj16 = offeredDesignationRepository.getOne(key);
 				obj16.setValue(master.getValue());
 				offeredDesignationRepository.save(obj16);
-			} else if (str.equals("onboardingstatus")) {
+			} 
+			else if (str.equals("onboardingstatus")) {
 				OnboardingStatus obj17 = onboardingStatusRepository.getOne(key);
 				obj17.setValue(master.getValue());
 				onboardingStatusRepository.save(obj17);
@@ -420,7 +416,16 @@ public class MasterTableServiceImpl {
 				ugDegreeRepository.deleteById(obj11.get().getKey());
 			}
 
-			
+			else if (str.equals("ugpg")) {
+				Optional<UGOrPG> obj12 = ugOrPgRepository.findById(key);
+				ugOrPgRepository.deleteById(obj12.get().getKey());
+			}
+
+			else if (str.equals("specialization")) {
+				Optional<GraduationSpecialization> obj13 = ugSpecializationRepository.findById(key);
+				ugSpecializationRepository.deleteById(obj13.get().getKey());
+			}
+
 
 			else if (str.equals("offeredband")) {
 				Optional<OfferedBand> obj14 = offeredBandRepository.findById(key);
@@ -433,7 +438,8 @@ public class MasterTableServiceImpl {
 			else if (str.equals("offereddesignation")) {
 				Optional<OfferedDesignation> obj16 = offeredDesignationRepository.findById(key);
 				offeredDesignationRepository.deleteById(obj16.get().getKey());
-			} else if (str.equals("onboardingstatus")) {
+			} 
+			else if (str.equals("onboardingstatus")) {
 				Optional<OnboardingStatus> obj17 = onboardingStatusRepository.findById(key);
 				onboardingStatusRepository.deleteById(obj17.get().getKey());
 			}

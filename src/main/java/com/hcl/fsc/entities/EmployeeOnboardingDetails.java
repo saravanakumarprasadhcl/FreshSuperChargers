@@ -1,63 +1,47 @@
 package com.hcl.fsc.entities;
 
-
 import com.hcl.fsc.mastertables.CollegeTiering;
 import com.hcl.fsc.mastertables.Location;
 import com.hcl.fsc.mastertables.OfferedBand;
 import com.hcl.fsc.mastertables.OfferedDesignation;
 import com.hcl.fsc.mastertables.OfferedSubBand;
+import com.hcl.fsc.mastertables.OnboardingStatus;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-
-import java.time.LocalDate;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
 public class EmployeeOnboardingDetails {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-	private Long id;
 	private Long sapId;
 	private String onbaordingDetails;
-//	Master
-	private String onboardingStatus;
+	// master table
+	@OneToOne
+	private OnboardingStatus onboardingStatus;
 	private String driveCollege;
 	private String driveDate;
-	//master table
+	// master table
 	@OneToOne
 	private OfferedDesignation offeredDesignation;
-	//master table
+	// master table
 	@OneToOne
-	private  OfferedBand offeredBand; 
-	//master table
+	private OfferedBand offeredBand;
+	// master table
 	@OneToOne
 	private OfferedSubBand offeredSubBand;
-	//master table
+	// master table
 	@OneToOne
-	private CollegeTiering collegeTiering ;
+	private CollegeTiering collegeTiering;
 	private String FPM_SPOC;
-	//master table
+	// master table
 	@OneToOne
 	private Location location;
 	private String internJoiningStatus;
@@ -75,15 +59,15 @@ public class EmployeeOnboardingDetails {
 	private String joiningStatus;
 	private String tpPanel;
 	private String tpSap;
-	//private String finalStatus;
-	//private String ownership;
-		
+	
+	private String sheetCode;
+	// private String finalStatus;
+	// private String ownership;
+
 //	@Column(name="DriveDate")
 //	@JsonFormat(pattern="dd-MM-yyyy")
 //	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 //	@JsonFormat(pattern = "dd/mm/yyyy")
 //	private LocalDate driveDate;
-	
-
 
 }

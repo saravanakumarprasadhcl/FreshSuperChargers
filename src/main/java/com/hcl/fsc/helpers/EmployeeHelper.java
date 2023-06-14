@@ -1,26 +1,18 @@
 package com.hcl.fsc.helpers;
 
 import java.io.InputStream;
-
-import java.util.ArrayList;
-
 import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
 import com.hcl.fsc.excel.vivo.CDAC;
 import com.hcl.fsc.excel.vivo.DigiBee;
-import com.hcl.fsc.excel.vivo.NonTier1;
-import com.poiji.bind.Poiji;
-import com.poiji.exception.PoijiExcelType;
-
 import com.hcl.fsc.excel.vivo.MoU;
+import com.hcl.fsc.excel.vivo.NonTier1;
 import com.hcl.fsc.excel.vivo.SkilledHiring;
 import com.hcl.fsc.excel.vivo.Tier1;
 import com.poiji.bind.Poiji;
 import com.poiji.exception.PoijiExcelType;
-import com.poiji.option.PoijiOptions;
-import com.poiji.option.PoijiOptions.PoijiOptionsBuilder;
 
 public class EmployeeHelper {
 
@@ -34,47 +26,40 @@ public class EmployeeHelper {
 
 	public static List<NonTier1> convertExcelToListOfNonTier1(InputStream inputStream) {
 
-		List<NonTier1> employeeNonTier1List = new ArrayList<>();
-		PoijiExcelType excelType = PoijiExcelType.XLSX;
-		employeeNonTier1List = Poiji.fromExcel(inputStream, excelType, NonTier1.class);
-
+		List<NonTier1> employeeNonTier1List = Poiji.fromExcel(inputStream, PoijiExcelType.XLSX, NonTier1.class);
 		return employeeNonTier1List;
 
 	}
 
 	public static List<DigiBee> convertExcelToListOfDigibee(InputStream inputStream) {
 
-		List<DigiBee> employeeDigibeeList = new ArrayList<>();
-		PoijiExcelType excelType = PoijiExcelType.XLSX;
-		employeeDigibeeList = Poiji.fromExcel(inputStream, excelType, DigiBee.class);
+		List<DigiBee> employeeDigibeeList = Poiji.fromExcel(inputStream, PoijiExcelType.XLSX, DigiBee.class);
 		return employeeDigibeeList;
 
 	}
 
 	public static List<CDAC> convertExcelToListOfCDAC(InputStream inputStream) {
 
-		List<CDAC> employeeCDACList = new ArrayList<>();
-		PoijiExcelType excelType = PoijiExcelType.XLSX;
-		employeeCDACList = Poiji.fromExcel(inputStream, excelType, CDAC.class);
+		List<CDAC> employeeCDACList = Poiji.fromExcel(inputStream, PoijiExcelType.XLSX, CDAC.class);
 		return employeeCDACList;
 
 	}
 
-	public static List<Tier1> convertExcelToTier1(InputStream is) {
-		PoijiOptions options = PoijiOptionsBuilder.settings().preferNullOverDefault(true).build();
-		List<Tier1> list = Poiji.fromExcel(is, PoijiExcelType.XLSX, Tier1.class, options);
+	public static List<Tier1> convertExcelToListOfTier1(InputStream inputStream) {
+
+		List<Tier1> list = Poiji.fromExcel(inputStream, PoijiExcelType.XLSX, Tier1.class);
 		return list;
 	}
 
-	public static List<SkilledHiring> convertExcelToSkilledHiring(InputStream is) {
-		PoijiOptions options = PoijiOptionsBuilder.settings().preferNullOverDefault(true).build();
-		List<SkilledHiring> list = Poiji.fromExcel(is, PoijiExcelType.XLSX, SkilledHiring.class);
+	public static List<SkilledHiring> convertExcelToListOfSkilledHiring(InputStream inputStream) {
+
+		List<SkilledHiring> list = Poiji.fromExcel(inputStream, PoijiExcelType.XLSX, SkilledHiring.class);
 		return list;
 	}
 
-	public static List<MoU> convertExcelToMoU(InputStream is) {
-		PoijiOptions options = PoijiOptionsBuilder.settings().preferNullOverDefault(true).build();
-		List<MoU> list = Poiji.fromExcel(is, PoijiExcelType.XLSX, MoU.class);
+	public static List<MoU> convertExcelToListOfMoU(InputStream inputStream) {
+
+		List<MoU> list = Poiji.fromExcel(inputStream, PoijiExcelType.XLSX, MoU.class);
 		return list;
 	}
 }
