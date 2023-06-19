@@ -132,7 +132,7 @@ public class TaskServiceImpl {
 			  n=tr.getId();
 			}
 		}
-		Task t1=tr.getById(n);
+		Task t1=tr.findById(n).get();
 		System.out.println(task.getStatus());
 		t1.setStatus(task.getStatus());
 		System.out.println("Approver Name "+task.getApprover());

@@ -5,7 +5,16 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Builder
 @Table(name="Modules")
 public class Modules {
 	
