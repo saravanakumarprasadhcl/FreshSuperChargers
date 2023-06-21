@@ -3,11 +3,11 @@ package com.hcl.fsc.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.hcl.fsc.mastertables.UgDegree;
+import com.hcl.fsc.mastertables.UGDegree;
 
 @Repository
-public interface UgDegreeRepository extends JpaRepository<UgDegree, String> {
-	public UgDegree getByKey(String key);
+public interface UGDegreeRepository extends JpaRepository<UGDegree, String> {
 
-	public UgDegree findByValue(String value);
+	public UGDegree getByKey(String key);
+	public UGDegree findByValue(String value);
 }

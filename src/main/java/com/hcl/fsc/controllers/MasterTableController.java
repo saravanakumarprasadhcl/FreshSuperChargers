@@ -21,7 +21,7 @@ import com.hcl.fsc.repositories.L1Repository;
 import com.hcl.fsc.repositories.L2Repository;
 import com.hcl.fsc.repositories.L3Repository;
 import com.hcl.fsc.repositories.L4Repository;
-import com.hcl.fsc.repositories.LobRepository;
+import com.hcl.fsc.repositories.LOBRepository;
 import com.hcl.fsc.repositories.LocationRepository;
 import com.hcl.fsc.repositories.OfferedBandRepository;
 import com.hcl.fsc.repositories.OfferedDesignationRepository;
@@ -32,7 +32,7 @@ import com.hcl.fsc.repositories.OfferedSubBandRepository;
 import com.hcl.fsc.repositories.RegionRepository;
 import com.hcl.fsc.repositories.StateRepository;
 import com.hcl.fsc.repositories.UGOrPGRepository;
-import com.hcl.fsc.repositories.UgDegreeRepository;
+import com.hcl.fsc.repositories.UGDegreeRepository;
 import com.hcl.fsc.services.MasterTableServiceImpl;
 
 @RestController
@@ -48,7 +48,7 @@ public class MasterTableController {
 
 	@Autowired
 
-	private LobRepository lobrepository;
+	private LOBRepository lobrepository;
 
 	@Autowired
 
@@ -84,7 +84,7 @@ public class MasterTableController {
 
 	@Autowired
 
-	private UgDegreeRepository ugDegreeRepository;
+	private UGDegreeRepository ugDegreeRepository;
 
 	@Autowired
 

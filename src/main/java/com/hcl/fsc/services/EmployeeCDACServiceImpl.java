@@ -1,7 +1,5 @@
 package com.hcl.fsc.services;
 
-
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,430 +26,364 @@ import com.hcl.fsc.repositories.L1Repository;
 import com.hcl.fsc.repositories.L2Repository;
 import com.hcl.fsc.repositories.L3Repository;
 import com.hcl.fsc.repositories.L4Repository;
-import com.hcl.fsc.repositories.LobRepository;
+import com.hcl.fsc.repositories.LOBRepository;
 import com.hcl.fsc.repositories.LocationRepository;
 import com.hcl.fsc.repositories.OfferedBandRepository;
 import com.hcl.fsc.repositories.OfferedDesignationRepository;
 import com.hcl.fsc.repositories.OfferedSubBandRepository;
 import com.hcl.fsc.repositories.RegionRepository;
 import com.hcl.fsc.repositories.StateRepository;
+import com.hcl.fsc.repositories.UGDegreeRepository;
 import com.hcl.fsc.repositories.UGOrPGRepository;
-import com.hcl.fsc.repositories.UgDegreeRepository;
-
-
 
 @Service
 
 public class EmployeeCDACServiceImpl {
 
-@Autowired
+	@Autowired
 
-private EmployeeDetailsRepository employeeDetailsRepository;
+	private EmployeeDetailsRepository employeeDetailsRepository;
 
+	@Autowired
 
+	private EmployeeEducationalDetailsRepository employeeEducationDetailsRepository;
 
-@Autowired
+	@Autowired
 
-private EmployeeEducationalDetailsRepository employeeEducationDetailsRepository;
+	private EmployeeOnboardingDetailsRepository employeeOnboardingRepository;
 
+	@Autowired
 
+	private EmployeeRecruitmentDetailsRepository employeeRecruitmentDetailsRepository;
 
-@Autowired
+	@Autowired
 
-private EmployeeOnboardingDetailsRepository employeeOnboardingRepository;
+	private ModelMapper modelMapper;
 
+	@Autowired
 
+	private GenderRepository genderRepository;
 
-@Autowired
+	@Autowired
 
-private EmployeeRecruitmentDetailsRepository employeeRecruitmentDetailsRepository;
+	private RegionRepository regionRepository;
 
+	@Autowired
 
+	private StateRepository stateRepository;
 
-@Autowired
+	@Autowired
 
-private ModelMapper modelMapper;
+	private UGOrPGRepository ugOrPGRepository;
 
+	@Autowired
 
+	private UGDegreeRepository ugDegreeRepository;
 
-@Autowired
+	@Autowired
 
-private GenderRepository genderRepository;
+	private GraduationSpecializationRepository graduationSpecializationRepository;
 
+	@Autowired
 
+	private CollegeTieringRepository collegeTieringRepository;
 
-@Autowired
+	@Autowired
 
-private RegionRepository regionRepository;
+	private L1Repository l1Repository;
 
+	@Autowired
 
+	private L2Repository l2Repository;
 
-@Autowired
+	@Autowired
 
-private StateRepository stateRepository;
+	private L3Repository l3Repository;
 
+	@Autowired
 
+	private L4Repository l4Repository;
 
-@Autowired
+	@Autowired
 
-private UGOrPGRepository ugOrPGRepository;
+	private LOBRepository lobRepository;
 
+	@Autowired
 
+	private OfferedDesignationRepository offeredDesignationRepository;
 
-@Autowired
+	@Autowired
 
-private UgDegreeRepository ugDegreeRepository;
+	private OfferedBandRepository offeredBandRepository;
 
+	@Autowired
 
+	private OfferedSubBandRepository offeredSubBandRepository;
 
-@Autowired
+	@Autowired
 
-private GraduationSpecializationRepository graduationSpecializationRepository;
+	private LocationRepository locationRepository;
 
+	int count = 2;
 
-
-@Autowired
-
-private CollegeTieringRepository collegeTieringRepository;
-
-
-
-@Autowired
-
-private L1Repository l1Repository;
-
-
-
-@Autowired
-
-private L2Repository l2Repository;
-
-
-
-@Autowired
-
-private L3Repository l3Repository;
-
-
-
-@Autowired
-
-private L4Repository l4Repository;
-
-
-
-@Autowired
-
-private LobRepository lobRepository;
-
-
-
-@Autowired
-
-private OfferedDesignationRepository offeredDesignationRepository;
-
-
-
-@Autowired
-
-private OfferedBandRepository offeredBandRepository;
-
-
-
-@Autowired
-
-private OfferedSubBandRepository offeredSubBandRepository;
-
-
-
-@Autowired
-
-private LocationRepository locationRepository;
-
-
-
-int count = 2;
-
-
-
-public List<String> employeeCDACListSave(MultipartFile file) {
+	public List<String> employeeCDACListSave(MultipartFile file) {
 
 // int res=0;
 
-List<String> errorsList = new ArrayList<>();
+		List<String> errorsList = new ArrayList<>();
 
-try {
+		try {
 
-List<CDAC> employeeCDACList = EmployeeHelper.convertExcelToListOfCDAC(file.getInputStream());
+			List<CDAC> employeeCDACList = EmployeeHelper.convertExcelToListOfCDAC(file.getInputStream());
 
-System.out.println(employeeCDACList + " in CDAC Shhet");
+			System.out.println(employeeCDACList + " in CDAC Shhet");
 
+			List<EmployeeDetails> employeeDetailsList = new ArrayList<>();
 
+			count = 2;
 
-List<EmployeeDetails> employeeDetailsList = new ArrayList<>();
+			employeeCDACList.stream().forEach(e -> {
 
-count = 2;
+				boolean flag = true;
 
-employeeCDACList.stream().forEach(e -> {
+				if (genderRepository.findByValue(e.getGender().toLowerCase()) == null) {
 
-boolean flag = true;
+					errorsList.add("values are null in row " + count + " in gender column of CDAC excel sheet");
 
-if (genderRepository.findByValue(e.getGender().toLowerCase()) == null) {
+					flag = false;
 
-errorsList.add("values are null in row " + count + " in gender column of CDAC excel sheet");
+				}
 
-flag = false;
+				if (regionRepository.findByValue(e.getRegion().toLowerCase()) == null) {
 
-}
+					errorsList.add("values are null in row " + count + " in region column of CDAC excel sheet");
 
-if (regionRepository.findByValue(e.getRegion().toLowerCase()) == null) {
+					flag = false;
 
-errorsList.add("values are null in row " + count + " in region column of CDAC excel sheet");
+				}
 
-flag = false;
+				if (stateRepository.findByValue(e.getState().toLowerCase()) == null) {
 
-}
+					errorsList.add("values are null in row " + count + " in state column of CDAC excel sheet");
 
-if (stateRepository.findByValue(e.getState().toLowerCase()) == null) {
+					flag = false;
 
-errorsList.add("values are null in row " + count + " in state column of CDAC excel sheet");
+				}
 
-flag = false;
+				if (flag) {
 
-}
+					EmployeeDetails employeeDetails = new EmployeeDetails();
 
-if (flag) {
+					employeeDetails = modelMapper.map(e, EmployeeDetails.class);
 
-EmployeeDetails employeeDetails = new EmployeeDetails();
+					employeeDetails.setGender(genderRepository.findByValue(e.getGender().toLowerCase()));
 
-employeeDetails = modelMapper.map(e, EmployeeDetails.class);
+					employeeDetails.setRegion(regionRepository.findByValue(e.getRegion().toLowerCase()));
 
-employeeDetails.setGender(genderRepository.findByValue(e.getGender().toLowerCase()));
+					employeeDetails.setState(stateRepository.findByValue(e.getState().toLowerCase()));
 
-employeeDetails.setRegion(regionRepository.findByValue(e.getRegion().toLowerCase()));
+					employeeDetailsList.add(employeeDetails);
 
-employeeDetails.setState(stateRepository.findByValue(e.getState().toLowerCase()));
+				}
 
-employeeDetailsList.add(employeeDetails);
+				count++;
 
-}
+			});
 
-count++;
+			System.out.println(employeeDetailsList);
 
-});
+			employeeDetailsRepository.saveAll(employeeDetailsList);
 
+			List<EmployeeEducationalDetails> employeeEducationalDetailsList = new ArrayList<>();
 
+			count = 2;
 
-System.out.println(employeeDetailsList);
+			employeeCDACList.stream().forEach(e -> {
 
-employeeDetailsRepository.saveAll(employeeDetailsList);
-
-
-
-List<EmployeeEducationalDetails> employeeEducationalDetailsList = new ArrayList<>();
-
-count = 2;
-
-employeeCDACList.stream().forEach(e -> {
-
-boolean flag = true;
+				boolean flag = true;
 
 // System.out.println(e.getUgDegree()+"---"+ugDegreeRepository.findByValue(e.getUgDegree()));
 
-if (ugDegreeRepository.findByValue(e.getUgDegree()) == null) {
+				if (ugDegreeRepository.findByValue(e.getUgDegree()) == null) {
 
-errorsList.add("values are null in row " + count + " in ug-degree column of CDAC excel sheet");
+					errorsList.add("values are null in row " + count + " in ug-degree column of CDAC excel sheet");
 
-flag = false;
+					flag = false;
 
-}
+				}
 
-if (flag) {
+				if (flag) {
 
-EmployeeEducationalDetails employeeEducationalDetails = new EmployeeEducationalDetails();
+					EmployeeEducationalDetails employeeEducationalDetails = new EmployeeEducationalDetails();
 
-employeeEducationalDetails = modelMapper.map(e, EmployeeEducationalDetails.class);
+					employeeEducationalDetails = modelMapper.map(e, EmployeeEducationalDetails.class);
 
 // employeeEducationalDetails.setUgOrPG(ugOrPGRepository.findByValue(e.getUGOrPG()));
 
 // employeeEducationalDetails.setGraduationSpecialization(graduationSpecializationRepository.findByValue(e.getGraduationSpecialization()));
 
-employeeEducationalDetails.setUgDegree(ugDegreeRepository.findByValue(e.getUgDegree()));
+					employeeEducationalDetails.setUgDegree(ugDegreeRepository.findByValue(e.getUgDegree()));
 
-employeeEducationalDetailsList.add(employeeEducationalDetails);
+					employeeEducationalDetailsList.add(employeeEducationalDetails);
 
-}
+				}
 
-count++;
+				count++;
 
-});
+			});
 
-System.out.println(employeeEducationalDetailsList);
+			System.out.println(employeeEducationalDetailsList);
 
-employeeEducationDetailsRepository.saveAll(employeeEducationalDetailsList);
+			employeeEducationDetailsRepository.saveAll(employeeEducationalDetailsList);
 
+			List<EmployeeOnboardingDetails> employeeOnboardingDetailsList = new ArrayList<>();
 
+			count = 2;
 
-List<EmployeeOnboardingDetails> employeeOnboardingDetailsList = new ArrayList<>();
+			employeeCDACList.stream().forEach(e -> {
 
-count = 2;
-
-employeeCDACList.stream().forEach(e -> {
-
-boolean flag = true;
+				boolean flag = true;
 
 // System.out.println(e.getLocation()+"--"+e.getCollegeTiering()+"--"+e.getOfferedBand()+"--"+e.getOfferedSubBand()+"--"+e.getOfferedDesignation());
 
-if (offeredDesignationRepository.findByValue(e.getOfferedDesignation()) == null) {
+				if (offeredDesignationRepository.findByValue(e.getOfferedDesignation()) == null) {
 
-errorsList.add(
+					errorsList.add(
 
-"values are null in row " + count + " in offered-designation column of CDAC excel sheet");
+							"values are null in row " + count + " in offered-designation column of CDAC excel sheet");
 
-flag = false;
+					flag = false;
 
-}
+				}
 
-if (offeredBandRepository.findByValue(e.getOfferedBand()) == null) {
+				if (offeredBandRepository.findByValue(e.getOfferedBand()) == null) {
 
-errorsList.add("values are null in row " + count + " in offered-band column of CDAC excel sheet");
+					errorsList.add("values are null in row " + count + " in offered-band column of CDAC excel sheet");
 
-flag = false;
+					flag = false;
 
-}
+				}
 
-if (offeredSubBandRepository.findByValue(e.getOfferedSubBand()) == null) {
+				if (offeredSubBandRepository.findByValue(e.getOfferedSubBand()) == null) {
 
-errorsList
+					errorsList
 
-.add("values are null in row " + count + " in offered-sub-band column of CDAC excel sheet");
+							.add("values are null in row " + count + " in offered-sub-band column of CDAC excel sheet");
 
-flag = false;
+					flag = false;
 
-}
+				}
 
-if (flag) {
+				if (flag) {
 
-EmployeeOnboardingDetails employeeOnboardingDetails = new EmployeeOnboardingDetails();
+					EmployeeOnboardingDetails employeeOnboardingDetails = new EmployeeOnboardingDetails();
 
-employeeOnboardingDetails = modelMapper.map(e, EmployeeOnboardingDetails.class);
+					employeeOnboardingDetails = modelMapper.map(e, EmployeeOnboardingDetails.class);
 
 //		    		employeeOnboardingDetails.setCollegeTiering(collegeTieringRepository.findByValue(e.getCollegeTiering()));
 
 //		    		employeeOnboardingDetails.setLocation(locationRepository.findByValue(e.getLocation()));
 
-employeeOnboardingDetails
+					employeeOnboardingDetails
 
-.setOfferedDesignation(offeredDesignationRepository.findByValue(e.getOfferedDesignation()));
+							.setOfferedDesignation(offeredDesignationRepository.findByValue(e.getOfferedDesignation()));
 
-employeeOnboardingDetails.setOfferedBand(offeredBandRepository.findByValue(e.getOfferedBand()));
+					employeeOnboardingDetails.setOfferedBand(offeredBandRepository.findByValue(e.getOfferedBand()));
 
-employeeOnboardingDetails
+					employeeOnboardingDetails
 
-.setOfferedSubBand(offeredSubBandRepository.findByValue(e.getOfferedSubBand()));
+							.setOfferedSubBand(offeredSubBandRepository.findByValue(e.getOfferedSubBand()));
 
-employeeOnboardingDetailsList.add(employeeOnboardingDetails);
+					employeeOnboardingDetailsList.add(employeeOnboardingDetails);
 
-}
+				}
 
-count++;
+				count++;
 
-});
+			});
 
-System.out.println(employeeOnboardingDetailsList);
+			System.out.println(employeeOnboardingDetailsList);
 
-employeeOnboardingRepository.saveAll(employeeOnboardingDetailsList);
+			employeeOnboardingRepository.saveAll(employeeOnboardingDetailsList);
 
+			List<EmployeeRecruitmentDetails> employeeRecruitmentDetailsList = new ArrayList<>();
 
+			count = 2;
 
-List<EmployeeRecruitmentDetails> employeeRecruitmentDetailsList = new ArrayList<>();
+			employeeCDACList.stream().forEach(e -> {
 
-count = 2;
+				boolean flag = true;
 
-employeeCDACList.stream().forEach(e -> {
+				System.out.println(e.getLob() + "--" + e.getL2());
 
-boolean flag = true;
+				if (lobRepository.findByValue(e.getLob()) == null) {
 
-System.out.println(e.getLob() + "--" + e.getL2());
+					errorsList.add("values are null in row " + count + " in lob column of CDAC excel sheet");
 
-if (lobRepository.findByValue(e.getLob()) == null) {
+					flag = false;
 
-errorsList.add("values are null in row " + count + " in lob column of CDAC excel sheet");
+				}
 
-flag = false;
+				if (l2Repository.findByValue(e.getL2()) == null) {
 
-}
+					errorsList.add("values are null in row " + count + " in L2 column of CDAC excel sheet");
 
-if (l2Repository.findByValue(e.getL2()) == null) {
+					flag = false;
 
-errorsList.add("values are null in row " + count + " in L2 column of CDAC excel sheet");
+				}
 
-flag = false;
+				if (flag) {
 
-}
+					EmployeeRecruitmentDetails employeeRecruitmentDetails = new EmployeeRecruitmentDetails();
 
-if (flag) {
+					employeeRecruitmentDetails = modelMapper.map(e, EmployeeRecruitmentDetails.class);
 
-EmployeeRecruitmentDetails employeeRecruitmentDetails = new EmployeeRecruitmentDetails();
+					employeeRecruitmentDetails.setLob(lobRepository.findByValue(e.getLob()));
 
-employeeRecruitmentDetails = modelMapper.map(e, EmployeeRecruitmentDetails.class);
+					employeeRecruitmentDetails.setL2(l2Repository.findByValue(e.getL2()));
 
-employeeRecruitmentDetails.setLob(lobRepository.findByValue(e.getLob()));
+					employeeRecruitmentDetailsList.add(employeeRecruitmentDetails);
 
-employeeRecruitmentDetails.setL2(l2Repository.findByValue(e.getL2()));
+				}
 
-employeeRecruitmentDetailsList.add(employeeRecruitmentDetails);
+				count++;
 
-}
+			});
 
-count++;
+			System.out.println(employeeRecruitmentDetailsList);
 
-});
-
-System.out.println(employeeRecruitmentDetailsList);
-
-employeeRecruitmentDetailsRepository.saveAll(employeeRecruitmentDetailsList);
-
-
+			employeeRecruitmentDetailsRepository.saveAll(employeeRecruitmentDetailsList);
 
 // res=1;
 
-} catch (Exception e) {
+		} catch (Exception e) {
 
-e.printStackTrace();
+			e.printStackTrace();
 
 //	 	System.out.println("some values are null calling from product service");
 
-}
+		}
 
-return errorsList;
+		return errorsList;
 
-}
+	}
 
+	public List<EmployeeDetails> getAllEmployees() {
 
+		return this.employeeDetailsRepository.findAll();
 
-public List<EmployeeDetails> getAllEmployees() {
+	}
 
-return this.employeeDetailsRepository.findAll();
+	public List<Gender> getAllGender() {
 
-}
+		return this.genderRepository.findAll();
 
+	}
 
+	public Gender addGender(Gender gender) {
 
-public List<Gender> getAllGender() {
+		return this.genderRepository.save(gender);
 
-return this.genderRepository.findAll();
-
-}
-
-
-
-public Gender addGender(Gender gender) {
-
-return this.genderRepository.save(gender);
-
-
-
-}
+	}
 
 }

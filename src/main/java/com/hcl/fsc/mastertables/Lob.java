@@ -9,17 +9,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-@Data
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-//@SequenceGenerator(name="GENDER_SEQUENCE_GENERATOR", sequenceName="GENDER_SEQUENCE", initialValue=521, allocationSize=1)
-@Table(name = "Master_lob")
-public class Lob {
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+@Data
+@Entity
+@Table(name="Master_LOB")
+public class LOB {
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Integer uid;
 	@Id
 	private String key;
 	private String value;
-	}
+}

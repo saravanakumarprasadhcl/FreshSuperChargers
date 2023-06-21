@@ -1,9 +1,8 @@
 package com.hcl.fsc.entities;
 
-
 import com.hcl.fsc.mastertables.GraduationSpecialization;
 import com.hcl.fsc.mastertables.UGOrPG;
-import com.hcl.fsc.mastertables.UgDegree;
+import com.hcl.fsc.mastertables.UGDegree;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -36,7 +35,7 @@ public class EmployeeEducationalDetails {
 	private String graduationCollege;
 	//master table
 	@OneToOne
-	private UgDegree ugDegree;
+	private UGDegree ugDegree;
 	//master table
 	@OneToOne
 	private GraduationSpecialization graduationSpecialization;

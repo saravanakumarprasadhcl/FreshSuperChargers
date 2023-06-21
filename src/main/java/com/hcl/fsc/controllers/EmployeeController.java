@@ -45,15 +45,15 @@ public class EmployeeController {
 
 		List<String> errorsList = new ArrayList<>();
 
-		for (int i = 0; i < file.length; i++) {
+		for (MultipartFile element : file) {
 
-			if (EmployeeHelper.checkExcelFormate(file[i])) {
+			if (EmployeeHelper.checkExcelFormate(element)) {
 
-				errorsList.addAll(this.employeeNonTier1Service.employeeNonTier1ListSave(file[i]));
+				errorsList.addAll(this.employeeNonTier1Service.employeeNonTier1ListSave(element));
 
-				errorsList.addAll(this.employeeDigiBeeService.employeeDigiBeeListSave(file[i]));
+				errorsList.addAll(this.employeeDigiBeeService.employeeDigiBeeListSave(element));
 
-				errorsList.addAll(this.employeeCDACService.employeeCDACListSave(file[i]));
+				errorsList.addAll(this.employeeCDACService.employeeCDACListSave(element));
 
 				count++;
 

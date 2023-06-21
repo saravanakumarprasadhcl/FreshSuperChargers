@@ -14,7 +14,7 @@ import com.hcl.fsc.mastertables.L1;
 import com.hcl.fsc.mastertables.L2;
 import com.hcl.fsc.mastertables.L3;
 import com.hcl.fsc.mastertables.L4;
-import com.hcl.fsc.mastertables.Lob;
+import com.hcl.fsc.mastertables.LOB;
 import com.hcl.fsc.mastertables.Location;
 import com.hcl.fsc.mastertables.MasterTables;
 import com.hcl.fsc.mastertables.OfferedBand;
@@ -23,7 +23,7 @@ import com.hcl.fsc.mastertables.OfferedSubBand;
 import com.hcl.fsc.mastertables.OnboardingStatus;
 import com.hcl.fsc.mastertables.Region;
 import com.hcl.fsc.mastertables.State;
-import com.hcl.fsc.mastertables.UgDegree;
+import com.hcl.fsc.mastertables.UGDegree;
 import com.hcl.fsc.repositories.CollegeTieringRepository;
 import com.hcl.fsc.repositories.EmployeeDetailsRepository;
 import com.hcl.fsc.repositories.GenderRepository;
@@ -31,7 +31,7 @@ import com.hcl.fsc.repositories.L1Repository;
 import com.hcl.fsc.repositories.L2Repository;
 import com.hcl.fsc.repositories.L3Repository;
 import com.hcl.fsc.repositories.L4Repository;
-import com.hcl.fsc.repositories.LobRepository;
+import com.hcl.fsc.repositories.LOBRepository;
 import com.hcl.fsc.repositories.LocationRepository;
 import com.hcl.fsc.repositories.OfferedBandRepository;
 import com.hcl.fsc.repositories.OfferedDesignationRepository;
@@ -39,7 +39,7 @@ import com.hcl.fsc.repositories.OfferedSubBandRepository;
 import com.hcl.fsc.repositories.OnboardingStatusRepository;
 import com.hcl.fsc.repositories.RegionRepository;
 import com.hcl.fsc.repositories.StateRepository;
-import com.hcl.fsc.repositories.UgDegreeRepository;
+import com.hcl.fsc.repositories.UGDegreeRepository;
 
 
 @Service
@@ -56,7 +56,7 @@ public class MasterTableServiceImpl {
 	private GenderRepository genderRepository;
 
 	@Autowired
-	private LobRepository lobRepository;
+	private LOBRepository lobRepository;
 
 	@Autowired
 	private LocationRepository locationRepository;
@@ -83,7 +83,7 @@ public class MasterTableServiceImpl {
 	private L4Repository l4Repository;
 
 	@Autowired
-	private UgDegreeRepository ugDegreeRepository;
+	private UGDegreeRepository ugDegreeRepository;
 
 	@Autowired
 	private OnboardingStatusRepository onboardingStatusRepository;
@@ -187,7 +187,7 @@ public class MasterTableServiceImpl {
 
 			else if (str.equals("lob")) {
 
-				lobRepository.save(new Lob(0, master.getKey(), master.getValue()));
+				lobRepository.save(new LOB(0, master.getKey(), master.getValue()));
 
 			}
 
@@ -224,7 +224,7 @@ public class MasterTableServiceImpl {
 
 			} else if (str.equals("ugdegree")) {
 
-				ugDegreeRepository.save(new UgDegree(0, master.getKey(), master.getValue()));
+				ugDegreeRepository.save(new UGDegree(0, master.getKey(), master.getValue()));
 			}else if (str.equals("offeredband")) {
 
 				offeredBandRepository.save(new OfferedBand(0, master.getKey(), master.getValue()));
@@ -293,12 +293,14 @@ public class MasterTableServiceImpl {
 				Gender obj1 = genderRepository.getOne(key);
 				obj1.setValue(master.getValue());
 				genderRepository.save(obj1);
+				
 			}
 
 			else if (str.equals("lob")) {
-				Lob obj2 = lobRepository.getOne(key);
-			//	obj2.setLOBVALUE(master.getValue());
+				LOB obj2 = lobRepository.getOne(key);
+				obj2.setValue(master.getValue());
 				lobRepository.save(obj2);
+				
 			}
 
 			else if (str.equals("location")) {
@@ -340,7 +342,7 @@ public class MasterTableServiceImpl {
 				obj10.setValue(master.getValue());
 				l4Repository.save(obj10);
 			} else if (str.equals("ugdegree")) {
-				UgDegree obj11 = ugDegreeRepository.getOne(key);
+				UGDegree obj11 = ugDegreeRepository.getOne(key);
 			//	obj11.setUGDEGREEVALUE(master.getValue());
 				ugDegreeRepository.save(obj11);
 			} else if (str.equals("offeredband")) {
@@ -373,11 +375,12 @@ public class MasterTableServiceImpl {
 //			Gender obj1=genderRepository.deleteById(str);
 				Optional<Gender> obj1 = genderRepository.findById(key);
 				genderRepository.deleteById(obj1.get().getKey());
+				
 			}
 
 			else if (str.equals("lob")) {
-				Optional<Lob> obj2 = lobRepository.findById(key);
-		//		lobRepository.deleteById(obj2.get().getLOBKEY());
+				Optional<LOB> obj2 = lobRepository.findById(key);
+				lobRepository.deleteById(obj2.get().getKey());
 			} else if (str.equals("location")) {
 				Optional<Location> obj3 = locationRepository.findById(key);
 				locationRepository.deleteById(obj3.get().getKey());
@@ -417,8 +420,8 @@ public class MasterTableServiceImpl {
 				Optional<L4> obj10 = l4Repository.findById(key);
 				l4Repository.deleteById(obj10.get().getKey());
 			} else if (str.equals("ugdegree")) {
-				Optional<UgDegree> obj11 = ugDegreeRepository.findById(key);
-			//	ugDegreeRepository.deleteById(obj11.get().getUGDEGREEKEY());
+				Optional<UGDegree> obj11 = ugDegreeRepository.findById(key);
+				ugDegreeRepository.deleteById(obj11.get().getKey());
 			}
 
 
@@ -435,7 +438,7 @@ public class MasterTableServiceImpl {
 				offeredDesignationRepository.deleteById(obj16.get().getKey());
 			} else if (str.equals("onboardingstatus")) {
 				Optional<OnboardingStatus> obj17 = onboardingStatusRepository.findById(key);
-			//	onboardingStatusRepository.deleteById(obj17.get().getONBOARDINGSTATUSKEY());
+				onboardingStatusRepository.deleteById(obj17.get().getKey());
 			}
 		}
 	}

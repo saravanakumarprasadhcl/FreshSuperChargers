@@ -26,7 +26,7 @@ import com.hcl.fsc.repositories.L1Repository;
 import com.hcl.fsc.repositories.L2Repository;
 import com.hcl.fsc.repositories.L3Repository;
 import com.hcl.fsc.repositories.L4Repository;
-import com.hcl.fsc.repositories.LobRepository;
+import com.hcl.fsc.repositories.LOBRepository;
 import com.hcl.fsc.repositories.LocationRepository;
 import com.hcl.fsc.repositories.OfferedBandRepository;
 import com.hcl.fsc.repositories.OfferedDesignationRepository;
@@ -105,7 +105,7 @@ public class EmployeeNonTier1ServiceImpl {
 
 	@Autowired
 
-	private LobRepository lobRepository;
+	private LOBRepository lobRepository;
 
 	@Autowired
 
