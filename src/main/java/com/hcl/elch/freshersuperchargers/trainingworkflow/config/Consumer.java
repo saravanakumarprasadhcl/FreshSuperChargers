@@ -13,7 +13,6 @@ import com.hcl.elch.freshersuperchargers.trainingworkflow.entity.Task;
 import com.hcl.elch.freshersuperchargers.trainingworkflow.exceptions.CamundaException;
 
 
-
 @Service
 public class Consumer {
 	

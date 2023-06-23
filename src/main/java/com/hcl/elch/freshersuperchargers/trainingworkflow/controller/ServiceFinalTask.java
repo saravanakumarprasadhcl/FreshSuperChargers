@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.hcl.elch.freshersuperchargers.trainingworkflow.entity.Task;
+import com.hcl.elch.freshersuperchargers.trainingworkflow.entity.User;
 import com.hcl.elch.freshersuperchargers.trainingworkflow.entity.Category;
 import com.hcl.elch.freshersuperchargers.trainingworkflow.exceptions.CamundaException;
 import com.hcl.elch.freshersuperchargers.trainingworkflow.repo.CategoryRepo;
@@ -71,10 +72,14 @@ public class ServiceFinalTask implements JavaDelegate{
     try
     {
     	System.out.println(task.getUserId());
-    	Category c=cr.findById(task.getUserId()).get();
+    	User u=ur.findBysapId(task.getUserId());
+    	System.out.println(u.toString()+" "+u.getCategory().getCategory());
+    	Category c=cr.findById(u.getCategory().getUserId()).get();
     	System.out.println(c.getCategory()+" "+c.getUserId());
-        Task st = ts.getStatus(task,c);
+        //Task st=ts.getStatus(task,c);
+    	Task st=ts.getStatus(task,c);
         ts.setComplete(task);
+        System.out.println(st.getTask());
         ts.save(st);
     }
     catch(Exception e)

@@ -6,4 +6,8 @@ import com.hcl.elch.freshersuperchargers.trainingworkflow.entity.User;
 
 public interface UserRepo extends JpaRepository<User, Long>{
 
+	//User findBysapId(long l);
+
+	User findBysapId(long userId);
+
 }

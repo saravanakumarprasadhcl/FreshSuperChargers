@@ -1,5 +1,6 @@
 package com.hcl.elch.freshersuperchargers.trainingworkflow.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.camunda.bpm.engine.RuntimeService;
@@ -74,7 +75,9 @@ public class EmailForUnSuccess implements JavaDelegate {
   		String Task=(String) execution.getVariable("task");
   		String s=mailSending(Email,Task.toUpperCase());
   		Task s1=(com.hcl.elch.freshersuperchargers.trainingworkflow.entity.Task) execution.getVariable("mainid");
-  		//System.out.println(s1);
+  		System.out.println("Due date : "+s1.getDuedate());
+  		LocalDate datePlus1 = s1.getDuedate().plusDays(2); 
+ 		s1.setDuedate(datePlus1);
   		s1.setStatus("InProgress");
   		tr.save(s1);
   		System.out.println(s1.getStatus());

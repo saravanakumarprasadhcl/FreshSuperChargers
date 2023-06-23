@@ -9,24 +9,14 @@ import java.util.List;
 import java.util.*;
 import com.hcl.elch.freshersuperchargers.trainingworkflow.entity.Category;
 global com.hcl.elch.freshersuperchargers.trainingworkflow.entity.Task t1;
-global  java.util.Map tasks;
+
+global com.hcl.elch.freshersuperchargers.trainingworkflow.entity.Modules m;
+import com.hcl.elch.freshersuperchargers.trainingworkflow.entity.Modules;
 global String A;
 global String last;
 global String compare;
 dialect "mvel"
 
-
-
-rule "Adding Values to the Map"
-    when
-    then
-    System.out.println("==========Adding==================");
-    tasks.put("group1",Arrays.asList("NEW_HIRE","FUNDAMENTALS","DATABASE", "DB_EXAM", "JAVA"));
-    tasks.put("group2",Arrays.asList("FUNDAMENTALS","DATABASE", "DB_EXAM", "JAVA","SPRINGBOOT","JAVA_EXAM"));
-    tasks.put("group3",Arrays.asList("DATABASE", "DB_EXAM", "JAVA","SPRINGBOOT","JAVA_EXAM","JENKINS","AWS"));
-    tasks.put("group4",Arrays.asList("DATABASE", "DB_EXAM", "JAVA","SPRINGBOOT","JAVA_EXAM","JENKINS","AWS","SPLUNK"));
-    System.out.println(tasks);
-end
 
 
 rule "Checking catagory and tasks values are not null"
@@ -44,6 +34,7 @@ rule "Checking the next task value is not null and updating to the next task"
        $task :Task();
      then 
         t1.setTask(A);
+        System.out.println("Value of a :-"+A+" task is  :-"+$task.getDuedate()+"  Duration:- "+m.getDuration());
           
 end
 
@@ -59,6 +50,6 @@ rule "updating values"
      		$task.setStatus("Completed");
      		$task.setApprover($task.getApprover());
      		t1.setStatus("InProgress");  
-     		LocalDate datePlus1 = $task.getDuedate().plusDays(10); 
+     		LocalDate datePlus1 = $task.getDuedate().plusDays(m.getDuration()); 
      		t1.setDuedate(datePlus1);
 end

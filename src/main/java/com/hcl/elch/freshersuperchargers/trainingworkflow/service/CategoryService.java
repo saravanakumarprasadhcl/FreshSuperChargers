@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hcl.elch.freshersuperchargers.trainingworkflow.entity.Task;
+import com.hcl.elch.freshersuperchargers.trainingworkflow.entity.User;
 import com.hcl.elch.freshersuperchargers.trainingworkflow.entity.Category;
 import com.hcl.elch.freshersuperchargers.trainingworkflow.repo.CategoryRepo;
 import com.hcl.elch.freshersuperchargers.trainingworkflow.repo.TaskRepo;
@@ -18,10 +19,11 @@ public class CategoryService {
 	@Autowired
 	private TaskRepo tr;
 	
-	public Category get(long userid,long id) throws Exception
+	public Category get(long user,long id) throws Exception
 	{
 		try {
-			Category c=cr.findById(userid).get();
+			
+			Category c=cr.findById(user).get();
 				return c;
 		} 
 		catch(Exception e)

@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +15,14 @@ import org.springframework.stereotype.Service;
 
 import com.hcl.elch.freshersuperchargers.trainingworkflow.controller.TaskController;
 import com.hcl.elch.freshersuperchargers.trainingworkflow.entity.Task;
+import com.hcl.elch.freshersuperchargers.trainingworkflow.entity.workflow;
 import com.hcl.elch.freshersuperchargers.trainingworkflow.entity.Category;
+import com.hcl.elch.freshersuperchargers.trainingworkflow.entity.Modules;
 import com.hcl.elch.freshersuperchargers.trainingworkflow.exceptions.DroolsEngineException;
+import com.hcl.elch.freshersuperchargers.trainingworkflow.repo.CategoryRepo;
+import com.hcl.elch.freshersuperchargers.trainingworkflow.repo.ModuleRepo;
 import com.hcl.elch.freshersuperchargers.trainingworkflow.repo.TaskRepo;
+import com.hcl.elch.freshersuperchargers.trainingworkflow.repo.WorkflowRepo;
 
 
 @Service
@@ -27,56 +34,54 @@ public class TaskServiceImpl {
 	 @Autowired
 	 private TaskRepo tr;
 	 
+	 @Autowired
+	 private CategoryRepo cr;
+	 
+	 @Autowired
+	 private ModuleRepo mr;
+	 
+	 @Autowired
+	 private WorkflowRepo wr;
+	 
 	 String status="Completed";
 	 
 
 	public Task getStatus(Task task,Category category) throws DroolsEngineException{
+		
 	try {
-		Map<String,List<String>> tasks=new HashMap<>();
-		tasks.put("group1",Arrays.asList("NEW_HIRE","FUNDAMENTALS","DATABASE", "DB_EXAM", "JAVA"));
-	    tasks.put("group2",Arrays.asList("FUNDAMENTALS","DATABASE", "DB_EXAM", "JAVA","SPRINGBOOT","JAVA_EXAM"));
-	    tasks.put("group3",Arrays.asList("DATABASE", "DB_EXAM", "JAVA","SPRINGBOOT","JAVA_EXAM","JENKINS","AWS"));
-	    tasks.put("group4",Arrays.asList("DATABASE", "DB_EXAM", "JAVA","SPRINGBOOT","JAVA_EXAM","JENKINS","AWS","SPLUNK"));
-	    List<String> a=new ArrayList<>();
-	    String s="null";
-	    String last="null";
-	    
-	    System.out.println(tasks);
-	    for(Map.Entry<String,List<String>> key : tasks.entrySet())
-	    {
-	    	if(key.getKey().equals(category.getCategory()))
-	    	{
-	    		a=key.getValue();
-	    		System.out.println("Arraylist size:"+a.size());
-	    		for(int i=0;i<a.size();i++)
-	    		{
-	    			if(i<a.size()-1 && a.get(i).equals(task.getTask()))
-	    			{
-	    			   s=a.get(i+1);
-	    			}
-	    		}
-	    		if(s=="null")
-	    		{
-	    			s=a.get(a.size()-1);
-	    		}
-	    		if(task.getTaskId()==a.size())
-	    		{
-                   last="last";
-	    		}
-	    	}
-	    }
-	    System.out.println(last);
-		System.out.println(category.getCategory()+" "+category.getUserId());
+		String s="null";
+		String last="null";
+		long l=category.getUserId();
+		List<workflow> m=wr.findBycategory(l);
+		System.out.println(m.toString());
+		try {
+		for(int i=0;i<m.size();i++)
+		{
+			if(m.get(i).getTaskId()==task.getTaskId() && i<=m.size()) 
+			{
+				System.out.println("M Value "+m.get(i).getName()+ " Task Value "+task.getTask());
+				s=m.get(i+1).getName();
+			}
+		}}
+		catch(IndexOutOfBoundsException e) {
+			last="last";
+		}
+		System.out.println(category.getCategory()+" category "+category.getUserId());
 		if(last!="last") {
 		KieSession kieSession =kieContainer.newKieSession();
 		Task t1=new Task();
+		
+		System.out.println("Modules form database is :- "+mr.getBymoduleName(task.getTask()).toString());
+		Modules m1=mr.getBymoduleName(s);
+		kieSession.setGlobal("m",m1);
+		
 		kieSession.setGlobal("t1",t1);
-		kieSession.setGlobal("tasks",tasks);
 		kieSession.setGlobal("A",s);
 		kieSession.insert(task);
 		kieSession.insert(category);
 		kieSession.fireAllRules();
 		kieSession.dispose();
+		System.out.println("New value :-"+t1.toString()); 
 		return t1;
 		}
 		else {
@@ -111,14 +116,6 @@ public class TaskServiceImpl {
 	  }
 	}
 
-
-	/*public  void add(Task t)
-	{
-		
-		System.out.println(t.getStatus()+" "+t.getId());
-		t.setStatus("InProgress");
-		tr.save(t);
-	}*/
 	
 	
 	//to update status of current task 
@@ -132,7 +129,7 @@ public class TaskServiceImpl {
 			  n=tr.getId();
 			}
 		}
-		Task t1=tr.findById(n).get();
+		Task t1=tr.getById(n);
 		System.out.println(task.getStatus());
 		t1.setStatus(task.getStatus());
 		System.out.println("Approver Name "+task.getApprover());

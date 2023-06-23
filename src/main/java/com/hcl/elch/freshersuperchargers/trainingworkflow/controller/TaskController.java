@@ -92,12 +92,11 @@ public class TaskController implements JavaDelegate {
 			 }
 		 }
 	
-	    
+	  
 	    private String camundaTask(Task t) throws UserTaskException
 	    {
 	    	try {
-	    		Category c=cr.get(t.getUserId(),t.getId());
-	    		User u=ur.findById(t.getUserId()).get();
+	    		User u=ur.findBysapId(t.getUserId());
 	    		System.out.println(" EMAIL "+u.getEmail());
 	    		return u.getEmail();
 	    	}
@@ -145,6 +144,8 @@ public class TaskController implements JavaDelegate {
 			execution.setVariable("mainid", glob);
 			execution.setVariable("test", m.getExam());
 			execution.setVariable("groupId",m.getGroupId());
+			execution.setVariable("moduleId",m.getModuleId());
+			execution.setVariable("poc", m.getPOC());
 			execution.setVariable("task", glob.getTask().toUpperCase());
 			execution.setVariable("TaskId", Long.toString(glob.getTaskId()));
 			execution.setVariable("userId", Long.toString(glob.getUserId()));
