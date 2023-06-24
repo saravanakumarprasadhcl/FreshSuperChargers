@@ -1,0 +1,1000 @@
+[2023-06-24 12:36:53,217] - [com.hcl.elch.freshersuperchargers.trainingworkflowproducer.KafkaApplication] [logStarting] -> (INFO) [Starting KafkaApplication using Java 17.0.4.1 on LP-5CG0471VCD with PID 24096 (C:\Users\tausif.ahmad\Documents\FreshSuperCharge\TrainingWorkflowProducer\target\classes started by tausif.ahmad in C:\Users\tausif.ahmad\Documents\FreshSuperCharge\TrainingWorkflowProducer)] 
+[2023-06-24 12:36:53,256] - [com.hcl.elch.freshersuperchargers.trainingworkflowproducer.KafkaApplication] [logStartupProfileInfo] -> (INFO) [No active profile set, falling back to 1 default profile: "default"] 
+[2023-06-24 12:36:54,212] - [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [registerRepositoriesIn] -> (INFO) [Bootstrapping Spring Data JPA repositories in DEFAULT mode.] 
+[2023-06-24 12:36:54,292] - [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [registerRepositoriesIn] -> (INFO) [Finished Spring Data repository scanning in 64 ms. Found 1 JPA repository interfaces.] 
+[2023-06-24 12:36:55,046] - [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [initialize] -> (INFO) [Tomcat initialized with port(s): 9001 (http)] 
+[2023-06-24 12:36:55,068] - [org.apache.coyote.http11.Http11NioProtocol] [log] -> (INFO) [Initializing ProtocolHandler ["http-nio-9001"]] 
+[2023-06-24 12:36:55,069] - [org.apache.catalina.core.StandardService] [log] -> (INFO) [Starting service [Tomcat]] 
+[2023-06-24 12:36:55,070] - [org.apache.catalina.core.StandardEngine] [log] -> (INFO) [Starting Servlet engine: [Apache Tomcat/9.0.75]] 
+[2023-06-24 12:36:55,320] - [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [log] -> (INFO) [Initializing Spring embedded WebApplicationContext] 
+[2023-06-24 12:36:55,321] - [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [prepareWebApplicationContext] -> (INFO) [Root WebApplicationContext: initialization completed in 2001 ms] 
+[2023-06-24 12:36:55,553] - [org.hibernate.jpa.internal.util.LogHelper] [logPersistenceUnitInformation] -> (INFO) [HHH000204: Processing PersistenceUnitInfo [name: default]] 
+[2023-06-24 12:36:55,620] - [org.hibernate.Version] [logVersion] -> (INFO) [HHH000412: Hibernate ORM core version 5.6.15.Final] 
+[2023-06-24 12:36:55,891] - [org.hibernate.annotations.common.Version] [<clinit>] -> (INFO) [HCANN000001: Hibernate Commons Annotations {5.1.2.Final}] 
+[2023-06-24 12:36:56,075] - [com.zaxxer.hikari.HikariDataSource] [getConnection] -> (INFO) [HikariPool-1 - Starting...] 
+[2023-06-24 12:36:56,791] - [com.zaxxer.hikari.HikariDataSource] [getConnection] -> (INFO) [HikariPool-1 - Start completed.] 
+[2023-06-24 12:36:56,814] - [org.hibernate.dialect.Dialect] [<init>] -> (INFO) [HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect] 
+[2023-06-24 12:36:57,858] - [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator] [initiateService] -> (INFO) [HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]] 
+[2023-06-24 12:36:57,878] - [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] [buildNativeEntityManagerFactory] -> (INFO) [Initialized JPA EntityManagerFactory for persistence unit 'default'] 
+[2023-06-24 12:36:58,629] - [org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration] [openEntityManagerInViewInterceptor] -> (WARN) [spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning] 
+[2023-06-24 12:36:59,279] - [org.apache.kafka.clients.admin.AdminClientConfig] [logAll] -> (INFO) [AdminClientConfig values: 
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+] 
+[2023-06-24 12:36:59,419] - [org.apache.kafka.common.utils.AppInfoParser] [<init>] -> (INFO) [Kafka version: 3.1.2] 
+[2023-06-24 12:36:59,419] - [org.apache.kafka.common.utils.AppInfoParser] [<init>] -> (INFO) [Kafka commitId: f8c67dc3ae0a3265] 
+[2023-06-24 12:36:59,420] - [org.apache.kafka.common.utils.AppInfoParser] [<init>] -> (INFO) [Kafka startTimeMs: 1687590419416] 
+[2023-06-24 12:36:59,454] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:36:59,459] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:36:59,571] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:36:59,572] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:36:59,791] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:36:59,791] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:00,104] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:00,104] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:00,614] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:00,614] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:01,579] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:01,579] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:02,464] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:02,464] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:03,337] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:03,338] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:04,534] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:04,534] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:05,511] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:05,512] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:06,496] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:06,497] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:07,377] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:07,378] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:08,647] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:08,648] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:09,618] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:09,618] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:10,679] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:10,679] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:11,844] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:11,845] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:12,786] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:12,787] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:13,992] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:13,993] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:15,194] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:15,194] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:16,282] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:16,283] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:17,487] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:17,487] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:18,699] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:18,699] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:19,694] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:19,694] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:20,781] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:20,781] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:21,882] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:21,882] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:22,897] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:22,899] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:24,105] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:24,106] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:25,059] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:25,060] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:26,061] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:26,062] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:27,176] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:27,176] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:28,279] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:28,280] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:29,277] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:29,278] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:29,424] - [org.apache.kafka.clients.admin.internals.AdminMetadataManager] [updateFailed] -> (INFO) [[AdminClient clientId=adminclient-1] Metadata update failed] 
+org.apache.kafka.common.errors.TimeoutException: Timed out waiting for a node assignment. Call: fetchMetadata
+[2023-06-24 12:37:29,434] - [org.springframework.kafka.core.KafkaAdmin] [error] -> (ERROR) [Could not configure topics] 
+org.springframework.kafka.KafkaException: Timed out waiting to get existing topics; nested exception is java.util.concurrent.TimeoutException
+	at org.springframework.kafka.core.KafkaAdmin.lambda$checkPartitions$10(KafkaAdmin.java:423) ~[spring-kafka-2.8.11.jar:2.8.11]
+	at java.util.HashMap.forEach(HashMap.java:1421) ~[?:?]
+	at org.springframework.kafka.core.KafkaAdmin.checkPartitions(KafkaAdmin.java:402) ~[spring-kafka-2.8.11.jar:2.8.11]
+	at org.springframework.kafka.core.KafkaAdmin.addOrModifyTopicsIfNeeded(KafkaAdmin.java:298) ~[spring-kafka-2.8.11.jar:2.8.11]
+	at org.springframework.kafka.core.KafkaAdmin.initialize(KafkaAdmin.java:201) ~[spring-kafka-2.8.11.jar:2.8.11]
+	at org.springframework.kafka.core.KafkaAdmin.afterSingletonsInstantiated(KafkaAdmin.java:171) ~[spring-kafka-2.8.11.jar:2.8.11]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:974) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:920) ~[spring-context-5.3.27.jar:5.3.27]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.27.jar:5.3.27]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.12.jar:2.7.12]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.12.jar:2.7.12]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.12.jar:2.7.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.12.jar:2.7.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.12.jar:2.7.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.12.jar:2.7.12]
+	at com.hcl.elch.freshersuperchargers.trainingworkflowproducer.KafkaApplication.main(KafkaApplication.java:12) ~[classes/:?]
+Caused by: java.util.concurrent.TimeoutException
+	at java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960) ~[?:?]
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095) ~[?:?]
+	at org.apache.kafka.common.internals.KafkaFutureImpl.get(KafkaFutureImpl.java:180) ~[kafka-clients-3.1.2.jar:?]
+	at org.springframework.kafka.core.KafkaAdmin.lambda$checkPartitions$10(KafkaAdmin.java:405) ~[spring-kafka-2.8.11.jar:2.8.11]
+	... 15 more
+[2023-06-24 12:37:30,182] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:30,183] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:31,068] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:31,068] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:32,362] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:32,362] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:33,346] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:33,347] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:34,334] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:34,335] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:35,317] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:35,318] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:36,228] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:36,228] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:37,209] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:37,209] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:38,424] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[AdminClient clientId=adminclient-1] Node -1 disconnected.] 
+[2023-06-24 12:37:38,424] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:39,442] - [org.apache.kafka.clients.admin.KafkaAdminClient] [threadShouldExit] -> (INFO) [[AdminClient clientId=adminclient-1] Forcing a hard I/O thread shutdown. Requests in progress will be aborted.] 
+[2023-06-24 12:37:39,443] - [org.apache.kafka.common.utils.AppInfoParser] [unregisterAppInfo] -> (INFO) [App info kafka.admin.client for adminclient-1 unregistered] 
+[2023-06-24 12:37:39,444] - [org.apache.kafka.clients.admin.internals.AdminMetadataManager] [updateFailed] -> (INFO) [[AdminClient clientId=adminclient-1] Metadata update failed] 
+org.apache.kafka.common.errors.TimeoutException: The AdminClient thread has exited. Call: fetchMetadata
+[2023-06-24 12:37:39,444] - [org.apache.kafka.clients.admin.KafkaAdminClient] [run] -> (INFO) [[AdminClient clientId=adminclient-1] Timed out 2 remaining operation(s) during close.] 
+[2023-06-24 12:37:39,450] - [org.apache.kafka.common.metrics.Metrics] [close] -> (INFO) [Metrics scheduler closed] 
+[2023-06-24 12:37:39,450] - [org.apache.kafka.common.metrics.Metrics] [close] -> (INFO) [Closing reporter org.apache.kafka.common.metrics.JmxReporter] 
+[2023-06-24 12:37:39,451] - [org.apache.kafka.common.metrics.Metrics] [close] -> (INFO) [Metrics reporters closed] 
+[2023-06-24 12:37:39,481] - [org.apache.kafka.clients.consumer.ConsumerConfig] [logAll] -> (INFO) [ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-myGroup1-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = myGroup1
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+] 
+[2023-06-24 12:37:39,573] - [org.apache.kafka.common.utils.AppInfoParser] [<init>] -> (INFO) [Kafka version: 3.1.2] 
+[2023-06-24 12:37:39,573] - [org.apache.kafka.common.utils.AppInfoParser] [<init>] -> (INFO) [Kafka commitId: f8c67dc3ae0a3265] 
+[2023-06-24 12:37:39,574] - [org.apache.kafka.common.utils.AppInfoParser] [<init>] -> (INFO) [Kafka startTimeMs: 1687590459573] 
+[2023-06-24 12:37:39,576] - [org.apache.kafka.clients.consumer.KafkaConsumer] [subscribe] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Subscribed to topic(s): newTask] 
+[2023-06-24 12:37:39,587] - [org.apache.coyote.http11.Http11NioProtocol] [log] -> (INFO) [Starting ProtocolHandler ["http-nio-9001"]] 
+[2023-06-24 12:37:39,622] - [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [start] -> (INFO) [Tomcat started on port(s): 9001 (http) with context path ''] 
+[2023-06-24 12:37:39,638] - [com.hcl.elch.freshersuperchargers.trainingworkflowproducer.KafkaApplication] [logStarted] -> (INFO) [Started KafkaApplication in 46.907 seconds (JVM running for 49.774)] 
+[2023-06-24 12:37:39,889] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Node -1 disconnected.] 
+[2023-06-24 12:37:39,890] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:39,890] - [org.apache.kafka.clients.NetworkClient] [handleServerDisconnect] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected] 
+[2023-06-24 12:37:40,005] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Node -1 disconnected.] 
+[2023-06-24 12:37:40,006] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:40,009] - [org.apache.kafka.clients.NetworkClient] [handleServerDisconnect] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected] 
+[2023-06-24 12:37:40,125] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Node -1 disconnected.] 
+[2023-06-24 12:37:40,126] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:40,126] - [org.apache.kafka.clients.NetworkClient] [handleServerDisconnect] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected] 
+[2023-06-24 12:37:40,358] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Node -1 disconnected.] 
+[2023-06-24 12:37:40,359] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:40,359] - [org.apache.kafka.clients.NetworkClient] [handleServerDisconnect] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected] 
+[2023-06-24 12:37:40,819] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Node -1 disconnected.] 
+[2023-06-24 12:37:40,819] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:40,819] - [org.apache.kafka.clients.NetworkClient] [handleServerDisconnect] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected] 
+[2023-06-24 12:37:41,622] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Node -1 disconnected.] 
+[2023-06-24 12:37:41,622] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:41,623] - [org.apache.kafka.clients.NetworkClient] [handleServerDisconnect] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected] 
+[2023-06-24 12:37:42,612] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Node -1 disconnected.] 
+[2023-06-24 12:37:42,612] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:42,613] - [org.apache.kafka.clients.NetworkClient] [handleServerDisconnect] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected] 
+[2023-06-24 12:37:43,483] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Node -1 disconnected.] 
+[2023-06-24 12:37:43,484] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:43,484] - [org.apache.kafka.clients.NetworkClient] [handleServerDisconnect] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected] 
+[2023-06-24 12:37:44,664] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Node -1 disconnected.] 
+[2023-06-24 12:37:44,665] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:44,665] - [org.apache.kafka.clients.NetworkClient] [handleServerDisconnect] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected] 
+[2023-06-24 12:37:45,718] - [org.apache.kafka.clients.NetworkClient] [handleDisconnections] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Node -1 disconnected.] 
+[2023-06-24 12:37:45,718] - [org.apache.kafka.clients.NetworkClient] [processDisconnection] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.] 
+[2023-06-24 12:37:45,718] - [org.apache.kafka.clients.NetworkClient] [handleServerDisconnect] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected] 
+[2023-06-24 12:37:45,975] - [org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] [shutdown] -> (INFO) [Application shutdown requested.] 
+[2023-06-24 12:37:46,010] - [org.apache.coyote.http11.Http11NioProtocol] [log] -> (INFO) [Pausing ProtocolHandler ["http-nio-9001"]] 
+[2023-06-24 12:37:46,010] - [org.apache.catalina.core.StandardService] [log] -> (INFO) [Stopping service [Tomcat]] 
+[2023-06-24 12:37:46,018] - [org.apache.coyote.http11.Http11NioProtocol] [log] -> (INFO) [Stopping ProtocolHandler ["http-nio-9001"]] 
+[2023-06-24 12:37:46,021] - [org.apache.coyote.http11.Http11NioProtocol] [log] -> (INFO) [Destroying ProtocolHandler ["http-nio-9001"]] 
+[2023-06-24 12:37:46,025] - [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator] [resetStateAndGeneration] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Resetting generation due to: consumer pro-actively leaving the group] 
+[2023-06-24 12:37:46,026] - [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator] [requestRejoin] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Request joining group due to: consumer pro-actively leaving the group] 
+[2023-06-24 12:37:46,026] - [org.apache.kafka.clients.consumer.KafkaConsumer] [unsubscribe] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Unsubscribed all topics or patterns and assigned partitions] 
+[2023-06-24 12:37:46,027] - [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator] [resetStateAndGeneration] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Resetting generation due to: consumer pro-actively leaving the group] 
+[2023-06-24 12:37:46,028] - [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator] [requestRejoin] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Request joining group due to: consumer pro-actively leaving the group] 
+[2023-06-24 12:37:46,029] - [org.apache.kafka.common.metrics.Metrics] [close] -> (INFO) [Metrics scheduler closed] 
+[2023-06-24 12:37:46,029] - [org.apache.kafka.common.metrics.Metrics] [close] -> (INFO) [Closing reporter org.apache.kafka.common.metrics.JmxReporter] 
+[2023-06-24 12:37:46,030] - [org.apache.kafka.common.metrics.Metrics] [close] -> (INFO) [Metrics reporters closed] 
+[2023-06-24 12:37:46,033] - [org.apache.kafka.common.utils.AppInfoParser] [unregisterAppInfo] -> (INFO) [App info kafka.consumer for consumer-myGroup1-1 unregistered] 
+[2023-06-24 12:37:46,034] - [org.springframework.kafka.listener.KafkaMessageListenerContainer] [info] -> (INFO) [myGroup1: Consumer stopped] 
+[2023-06-24 12:37:46,040] - [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] [destroy] -> (INFO) [Closing JPA EntityManagerFactory for persistence unit 'default'] 
+[2023-06-24 12:37:46,044] - [com.zaxxer.hikari.HikariDataSource] [close] -> (INFO) [HikariPool-1 - Shutdown initiated...] 
+[2023-06-24 12:37:46,073] - [com.zaxxer.hikari.HikariDataSource] [close] -> (INFO) [HikariPool-1 - Shutdown completed.] 
+[2023-06-24 12:37:58,935] - [com.hcl.elch.freshersuperchargers.trainingworkflowproducer.KafkaApplication] [logStarting] -> (INFO) [Starting KafkaApplication using Java 17.0.4.1 on LP-5CG0471VCD with PID 6624 (C:\Users\tausif.ahmad\Documents\FreshSuperCharge\TrainingWorkflowProducer\target\classes started by tausif.ahmad in C:\Users\tausif.ahmad\Documents\FreshSuperCharge\TrainingWorkflowProducer)] 
+[2023-06-24 12:37:58,948] - [com.hcl.elch.freshersuperchargers.trainingworkflowproducer.KafkaApplication] [logStartupProfileInfo] -> (INFO) [No active profile set, falling back to 1 default profile: "default"] 
+[2023-06-24 12:37:59,775] - [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [registerRepositoriesIn] -> (INFO) [Bootstrapping Spring Data JPA repositories in DEFAULT mode.] 
+[2023-06-24 12:37:59,859] - [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [registerRepositoriesIn] -> (INFO) [Finished Spring Data repository scanning in 68 ms. Found 1 JPA repository interfaces.] 
+[2023-06-24 12:38:00,625] - [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [initialize] -> (INFO) [Tomcat initialized with port(s): 9001 (http)] 
+[2023-06-24 12:38:00,647] - [org.apache.coyote.http11.Http11NioProtocol] [log] -> (INFO) [Initializing ProtocolHandler ["http-nio-9001"]] 
+[2023-06-24 12:38:00,648] - [org.apache.catalina.core.StandardService] [log] -> (INFO) [Starting service [Tomcat]] 
+[2023-06-24 12:38:00,649] - [org.apache.catalina.core.StandardEngine] [log] -> (INFO) [Starting Servlet engine: [Apache Tomcat/9.0.75]] 
+[2023-06-24 12:38:00,918] - [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [log] -> (INFO) [Initializing Spring embedded WebApplicationContext] 
+[2023-06-24 12:38:00,918] - [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [prepareWebApplicationContext] -> (INFO) [Root WebApplicationContext: initialization completed in 1906 ms] 
+[2023-06-24 12:38:01,143] - [org.hibernate.jpa.internal.util.LogHelper] [logPersistenceUnitInformation] -> (INFO) [HHH000204: Processing PersistenceUnitInfo [name: default]] 
+[2023-06-24 12:38:01,228] - [org.hibernate.Version] [logVersion] -> (INFO) [HHH000412: Hibernate ORM core version 5.6.15.Final] 
+[2023-06-24 12:38:01,440] - [org.hibernate.annotations.common.Version] [<clinit>] -> (INFO) [HCANN000001: Hibernate Commons Annotations {5.1.2.Final}] 
+[2023-06-24 12:38:01,595] - [com.zaxxer.hikari.HikariDataSource] [getConnection] -> (INFO) [HikariPool-1 - Starting...] 
+[2023-06-24 12:38:02,077] - [com.zaxxer.hikari.HikariDataSource] [getConnection] -> (INFO) [HikariPool-1 - Start completed.] 
+[2023-06-24 12:38:02,101] - [org.hibernate.dialect.Dialect] [<init>] -> (INFO) [HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect] 
+[2023-06-24 12:38:03,041] - [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator] [initiateService] -> (INFO) [HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]] 
+[2023-06-24 12:38:03,060] - [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] [buildNativeEntityManagerFactory] -> (INFO) [Initialized JPA EntityManagerFactory for persistence unit 'default'] 
+[2023-06-24 12:38:03,755] - [org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration] [openEntityManagerInViewInterceptor] -> (WARN) [spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning] 
+[2023-06-24 12:38:04,345] - [org.apache.kafka.clients.admin.AdminClientConfig] [logAll] -> (INFO) [AdminClientConfig values: 
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+] 
+[2023-06-24 12:38:04,470] - [org.apache.kafka.common.utils.AppInfoParser] [<init>] -> (INFO) [Kafka version: 3.1.2] 
+[2023-06-24 12:38:04,470] - [org.apache.kafka.common.utils.AppInfoParser] [<init>] -> (INFO) [Kafka commitId: f8c67dc3ae0a3265] 
+[2023-06-24 12:38:04,471] - [org.apache.kafka.common.utils.AppInfoParser] [<init>] -> (INFO) [Kafka startTimeMs: 1687590484468] 
+[2023-06-24 12:38:04,997] - [org.apache.kafka.common.utils.AppInfoParser] [unregisterAppInfo] -> (INFO) [App info kafka.admin.client for adminclient-1 unregistered] 
+[2023-06-24 12:38:05,006] - [org.apache.kafka.common.metrics.Metrics] [close] -> (INFO) [Metrics scheduler closed] 
+[2023-06-24 12:38:05,007] - [org.apache.kafka.common.metrics.Metrics] [close] -> (INFO) [Closing reporter org.apache.kafka.common.metrics.JmxReporter] 
+[2023-06-24 12:38:05,008] - [org.apache.kafka.common.metrics.Metrics] [close] -> (INFO) [Metrics reporters closed] 
+[2023-06-24 12:38:05,063] - [org.apache.kafka.clients.consumer.ConsumerConfig] [logAll] -> (INFO) [ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-myGroup1-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = myGroup1
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+] 
+[2023-06-24 12:38:05,151] - [org.apache.kafka.common.utils.AppInfoParser] [<init>] -> (INFO) [Kafka version: 3.1.2] 
+[2023-06-24 12:38:05,152] - [org.apache.kafka.common.utils.AppInfoParser] [<init>] -> (INFO) [Kafka commitId: f8c67dc3ae0a3265] 
+[2023-06-24 12:38:05,153] - [org.apache.kafka.common.utils.AppInfoParser] [<init>] -> (INFO) [Kafka startTimeMs: 1687590485151] 
+[2023-06-24 12:38:05,159] - [org.apache.kafka.clients.consumer.KafkaConsumer] [subscribe] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Subscribed to topic(s): newTask] 
+[2023-06-24 12:38:05,172] - [org.apache.coyote.http11.Http11NioProtocol] [log] -> (INFO) [Starting ProtocolHandler ["http-nio-9001"]] 
+[2023-06-24 12:38:05,214] - [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [start] -> (INFO) [Tomcat started on port(s): 9001 (http) with context path ''] 
+[2023-06-24 12:38:05,221] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 2 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:05,224] - [org.apache.kafka.clients.Metadata] [update] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Cluster ID: MoqT4x_OTdqUzcdxYrsqJA] 
+[2023-06-24 12:38:05,236] - [com.hcl.elch.freshersuperchargers.trainingworkflowproducer.KafkaApplication] [logStarted] -> (INFO) [Started KafkaApplication in 6.781 seconds (JVM running for 9.561)] 
+[2023-06-24 12:38:05,340] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 4 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:05,448] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 6 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:05,556] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 8 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:05,666] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 10 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:05,778] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 12 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:05,895] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 14 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:06,006] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 16 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:06,114] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 18 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:06,224] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 20 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:06,336] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 22 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:06,457] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 24 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:06,567] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 26 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:06,676] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 28 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:06,799] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 30 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:06,911] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 32 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:07,021] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 34 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:07,130] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 36 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:07,242] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 38 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:07,351] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 40 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:07,477] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 42 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:07,586] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 44 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:07,697] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 46 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:07,821] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 48 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:07,935] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 50 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:08,057] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 52 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:08,167] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 54 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:08,289] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 56 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:08,400] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 58 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:08,523] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 60 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:08,633] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 62 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:08,743] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 64 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:08,851] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 66 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:08,959] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 68 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:09,070] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 70 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:09,178] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 72 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:09,289] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 74 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:09,412] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 76 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:09,524] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 78 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:09,646] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 80 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:09,754] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 82 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:09,865] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 84 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:09,984] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 86 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:10,099] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 88 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:10,208] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 91 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:10,317] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 93 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:10,427] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 95 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:10,535] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 97 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:10,644] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 99 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:10,752] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 101 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:10,865] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 103 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:10,976] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 105 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:11,083] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 107 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:11,191] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 109 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:11,300] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 111 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:11,411] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 113 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:11,522] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 115 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:11,641] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 117 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:11,752] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 119 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:11,861] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 121 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:11,982] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 123 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:12,093] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 125 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:12,201] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 127 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:12,313] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 129 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:12,421] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 131 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:12,529] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 133 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:12,640] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 135 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:12,746] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 137 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:12,859] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 139 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:12,971] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 141 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:13,079] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 143 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:13,186] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 145 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:13,295] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 147 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:13,403] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 149 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:13,513] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 151 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:13,623] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 153 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:13,745] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 155 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:13,851] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 157 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:13,958] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 159 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:14,066] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 161 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:14,175] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 163 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:14,282] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 165 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:14,391] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 167 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:14,499] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 169 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:14,610] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 171 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:14,721] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 173 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:14,830] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 175 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:14,952] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 177 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:15,060] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 179 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:15,169] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 181 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:15,278] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 184 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:15,388] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 186 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:15,497] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 188 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:15,606] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 190 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:15,714] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 192 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:15,823] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 194 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:15,930] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 196 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:16,038] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 198 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:16,135] - [org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] [shutdown] -> (INFO) [Application shutdown requested.] 
+[2023-06-24 12:38:16,147] - [org.apache.kafka.clients.NetworkClient] [handleSuccessfulResponse] -> (WARN) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Error while fetching metadata with correlation id 200 : {newTask=LEADER_NOT_AVAILABLE}] 
+[2023-06-24 12:38:16,171] - [org.apache.coyote.http11.Http11NioProtocol] [log] -> (INFO) [Pausing ProtocolHandler ["http-nio-9001"]] 
+[2023-06-24 12:38:16,172] - [org.apache.catalina.core.StandardService] [log] -> (INFO) [Stopping service [Tomcat]] 
+[2023-06-24 12:38:16,180] - [org.apache.coyote.http11.Http11NioProtocol] [log] -> (INFO) [Stopping ProtocolHandler ["http-nio-9001"]] 
+[2023-06-24 12:38:16,183] - [org.apache.coyote.http11.Http11NioProtocol] [log] -> (INFO) [Destroying ProtocolHandler ["http-nio-9001"]] 
+[2023-06-24 12:38:16,187] - [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator] [resetStateAndGeneration] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Resetting generation due to: consumer pro-actively leaving the group] 
+[2023-06-24 12:38:16,187] - [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator] [requestRejoin] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Request joining group due to: consumer pro-actively leaving the group] 
+[2023-06-24 12:38:16,188] - [org.apache.kafka.clients.consumer.KafkaConsumer] [unsubscribe] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Unsubscribed all topics or patterns and assigned partitions] 
+[2023-06-24 12:38:16,188] - [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator] [resetStateAndGeneration] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Resetting generation due to: consumer pro-actively leaving the group] 
+[2023-06-24 12:38:16,189] - [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator] [requestRejoin] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Request joining group due to: consumer pro-actively leaving the group] 
+[2023-06-24 12:38:16,189] - [org.apache.kafka.common.metrics.Metrics] [close] -> (INFO) [Metrics scheduler closed] 
+[2023-06-24 12:38:16,190] - [org.apache.kafka.common.metrics.Metrics] [close] -> (INFO) [Closing reporter org.apache.kafka.common.metrics.JmxReporter] 
+[2023-06-24 12:38:16,190] - [org.apache.kafka.common.metrics.Metrics] [close] -> (INFO) [Metrics reporters closed] 
+[2023-06-24 12:38:16,194] - [org.apache.kafka.common.utils.AppInfoParser] [unregisterAppInfo] -> (INFO) [App info kafka.consumer for consumer-myGroup1-1 unregistered] 
+[2023-06-24 12:38:16,195] - [org.springframework.kafka.listener.KafkaMessageListenerContainer] [info] -> (INFO) [myGroup1: Consumer stopped] 
+[2023-06-24 12:38:16,200] - [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] [destroy] -> (INFO) [Closing JPA EntityManagerFactory for persistence unit 'default'] 
+[2023-06-24 12:38:16,203] - [com.zaxxer.hikari.HikariDataSource] [close] -> (INFO) [HikariPool-1 - Shutdown initiated...] 
+[2023-06-24 12:38:16,227] - [com.zaxxer.hikari.HikariDataSource] [close] -> (INFO) [HikariPool-1 - Shutdown completed.] 
+[2023-06-24 12:38:58,644] - [com.hcl.elch.freshersuperchargers.trainingworkflowproducer.KafkaApplication] [logStarting] -> (INFO) [Starting KafkaApplication using Java 17.0.4.1 on LP-5CG0471VCD with PID 10084 (C:\Users\tausif.ahmad\Documents\FreshSuperCharge\TrainingWorkflowProducer\target\classes started by tausif.ahmad in C:\Users\tausif.ahmad\Documents\FreshSuperCharge\TrainingWorkflowProducer)] 
+[2023-06-24 12:38:58,660] - [com.hcl.elch.freshersuperchargers.trainingworkflowproducer.KafkaApplication] [logStartupProfileInfo] -> (INFO) [No active profile set, falling back to 1 default profile: "default"] 
+[2023-06-24 12:38:59,472] - [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [registerRepositoriesIn] -> (INFO) [Bootstrapping Spring Data JPA repositories in DEFAULT mode.] 
+[2023-06-24 12:38:59,548] - [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [registerRepositoriesIn] -> (INFO) [Finished Spring Data repository scanning in 61 ms. Found 1 JPA repository interfaces.] 
+[2023-06-24 12:39:00,288] - [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [initialize] -> (INFO) [Tomcat initialized with port(s): 9001 (http)] 
+[2023-06-24 12:39:00,314] - [org.apache.coyote.http11.Http11NioProtocol] [log] -> (INFO) [Initializing ProtocolHandler ["http-nio-9001"]] 
+[2023-06-24 12:39:00,315] - [org.apache.catalina.core.StandardService] [log] -> (INFO) [Starting service [Tomcat]] 
+[2023-06-24 12:39:00,316] - [org.apache.catalina.core.StandardEngine] [log] -> (INFO) [Starting Servlet engine: [Apache Tomcat/9.0.75]] 
+[2023-06-24 12:39:00,582] - [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [log] -> (INFO) [Initializing Spring embedded WebApplicationContext] 
+[2023-06-24 12:39:00,582] - [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [prepareWebApplicationContext] -> (INFO) [Root WebApplicationContext: initialization completed in 1860 ms] 
+[2023-06-24 12:39:00,794] - [org.hibernate.jpa.internal.util.LogHelper] [logPersistenceUnitInformation] -> (INFO) [HHH000204: Processing PersistenceUnitInfo [name: default]] 
+[2023-06-24 12:39:00,861] - [org.hibernate.Version] [logVersion] -> (INFO) [HHH000412: Hibernate ORM core version 5.6.15.Final] 
+[2023-06-24 12:39:01,089] - [org.hibernate.annotations.common.Version] [<clinit>] -> (INFO) [HCANN000001: Hibernate Commons Annotations {5.1.2.Final}] 
+[2023-06-24 12:39:01,235] - [com.zaxxer.hikari.HikariDataSource] [getConnection] -> (INFO) [HikariPool-1 - Starting...] 
+[2023-06-24 12:39:01,690] - [com.zaxxer.hikari.HikariDataSource] [getConnection] -> (INFO) [HikariPool-1 - Start completed.] 
+[2023-06-24 12:39:01,711] - [org.hibernate.dialect.Dialect] [<init>] -> (INFO) [HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect] 
+[2023-06-24 12:39:02,587] - [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator] [initiateService] -> (INFO) [HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]] 
+[2023-06-24 12:39:02,605] - [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] [buildNativeEntityManagerFactory] -> (INFO) [Initialized JPA EntityManagerFactory for persistence unit 'default'] 
+[2023-06-24 12:39:03,216] - [org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration] [openEntityManagerInViewInterceptor] -> (WARN) [spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning] 
+[2023-06-24 12:39:03,795] - [org.apache.kafka.clients.admin.AdminClientConfig] [logAll] -> (INFO) [AdminClientConfig values: 
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+] 
+[2023-06-24 12:39:03,906] - [org.apache.kafka.common.utils.AppInfoParser] [<init>] -> (INFO) [Kafka version: 3.1.2] 
+[2023-06-24 12:39:03,906] - [org.apache.kafka.common.utils.AppInfoParser] [<init>] -> (INFO) [Kafka commitId: f8c67dc3ae0a3265] 
+[2023-06-24 12:39:03,907] - [org.apache.kafka.common.utils.AppInfoParser] [<init>] -> (INFO) [Kafka startTimeMs: 1687590543903] 
+[2023-06-24 12:39:04,468] - [org.apache.kafka.common.utils.AppInfoParser] [unregisterAppInfo] -> (INFO) [App info kafka.admin.client for adminclient-1 unregistered] 
+[2023-06-24 12:39:04,478] - [org.apache.kafka.common.metrics.Metrics] [close] -> (INFO) [Metrics scheduler closed] 
+[2023-06-24 12:39:04,478] - [org.apache.kafka.common.metrics.Metrics] [close] -> (INFO) [Closing reporter org.apache.kafka.common.metrics.JmxReporter] 
+[2023-06-24 12:39:04,479] - [org.apache.kafka.common.metrics.Metrics] [close] -> (INFO) [Metrics reporters closed] 
+[2023-06-24 12:39:04,530] - [org.apache.kafka.clients.consumer.ConsumerConfig] [logAll] -> (INFO) [ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-myGroup1-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = myGroup1
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+] 
+[2023-06-24 12:39:04,630] - [org.apache.kafka.common.utils.AppInfoParser] [<init>] -> (INFO) [Kafka version: 3.1.2] 
+[2023-06-24 12:39:04,630] - [org.apache.kafka.common.utils.AppInfoParser] [<init>] -> (INFO) [Kafka commitId: f8c67dc3ae0a3265] 
+[2023-06-24 12:39:04,631] - [org.apache.kafka.common.utils.AppInfoParser] [<init>] -> (INFO) [Kafka startTimeMs: 1687590544629] 
+[2023-06-24 12:39:04,636] - [org.apache.kafka.clients.consumer.KafkaConsumer] [subscribe] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Subscribed to topic(s): newTask] 
+[2023-06-24 12:39:04,660] - [org.apache.coyote.http11.Http11NioProtocol] [log] -> (INFO) [Starting ProtocolHandler ["http-nio-9001"]] 
+[2023-06-24 12:39:04,712] - [org.apache.kafka.clients.Metadata] [updateLatestMetadata] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Resetting the last seen epoch of partition newTask-0 to 0 since the associated topicId changed from null to 7sBZZb1nTvmezautQDd7BQ] 
+[2023-06-24 12:39:04,716] - [org.apache.kafka.clients.Metadata] [update] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Cluster ID: MoqT4x_OTdqUzcdxYrsqJA] 
+[2023-06-24 12:39:04,719] - [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator] [onSuccess] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Discovered group coordinator LP-5CG0471VCD.HCLT.CORP.HCL.IN:9092 (id: 2147483647 rack: null)] 
+[2023-06-24 12:39:04,727] - [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [start] -> (INFO) [Tomcat started on port(s): 9001 (http) with context path ''] 
+[2023-06-24 12:39:04,731] - [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator] [sendJoinGroupRequest] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] (Re-)joining group] 
+[2023-06-24 12:39:04,751] - [com.hcl.elch.freshersuperchargers.trainingworkflowproducer.KafkaApplication] [logStarted] -> (INFO) [Started KafkaApplication in 6.598 seconds (JVM running for 9.381)] 
+[2023-06-24 12:39:04,883] - [org.apache.kafka.clients.producer.ProducerConfig] [logAll] -> (INFO) [ProducerConfig values: 
+	acks = -1
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+] 
+[2023-06-24 12:39:04,911] - [org.apache.kafka.clients.producer.KafkaProducer] [configureTransactionState] -> (INFO) [[Producer clientId=producer-1] Instantiated an idempotent producer.] 
+[2023-06-24 12:39:04,946] - [org.apache.kafka.common.utils.AppInfoParser] [<init>] -> (INFO) [Kafka version: 3.1.2] 
+[2023-06-24 12:39:04,947] - [org.apache.kafka.common.utils.AppInfoParser] [<init>] -> (INFO) [Kafka commitId: f8c67dc3ae0a3265] 
+[2023-06-24 12:39:04,947] - [org.apache.kafka.common.utils.AppInfoParser] [<init>] -> (INFO) [Kafka startTimeMs: 1687590544946] 
+[2023-06-24 12:39:04,966] - [org.apache.kafka.clients.Metadata] [updateLatestMetadata] -> (INFO) [[Producer clientId=producer-1] Resetting the last seen epoch of partition newTask-0 to 0 since the associated topicId changed from null to 7sBZZb1nTvmezautQDd7BQ] 
+[2023-06-24 12:39:04,966] - [org.apache.kafka.clients.Metadata] [update] -> (INFO) [[Producer clientId=producer-1] Cluster ID: MoqT4x_OTdqUzcdxYrsqJA] 
+[2023-06-24 12:39:05,016] - [org.apache.kafka.clients.producer.internals.TransactionManager] [setProducerIdAndEpoch] -> (INFO) [[Producer clientId=producer-1] ProducerId set to 1000 with epoch 0] 
+[2023-06-24 12:39:07,275] - [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator] [requestRejoin] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Request joining group due to: need to re-join with the given member-id] 
+[2023-06-24 12:39:07,276] - [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator] [sendJoinGroupRequest] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] (Re-)joining group] 
+[2023-06-24 12:39:27,665] - [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator] [handle] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Successfully joined group with generation Generation{generationId=2, memberId='consumer-myGroup1-1-be2231ff-60db-472d-a9c3-6f5e9e9db2b8', protocol='range'}] 
+[2023-06-24 12:39:27,670] - [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator] [performAssignment] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Finished assignment for group at generation 2: {consumer-myGroup1-1-be2231ff-60db-472d-a9c3-6f5e9e9db2b8=Assignment(partitions=[newTask-0])}] 
+[2023-06-24 12:39:27,707] - [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator] [handle] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Successfully synced group in generation Generation{generationId=2, memberId='consumer-myGroup1-1-be2231ff-60db-472d-a9c3-6f5e9e9db2b8', protocol='range'}] 
+[2023-06-24 12:39:27,708] - [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator] [invokeOnAssignment] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Notifying assignor about the new Assignment(partitions=[newTask-0])] 
+[2023-06-24 12:39:27,714] - [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator] [invokePartitionsAssigned] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Adding newly assigned partitions: newTask-0] 
+[2023-06-24 12:39:27,737] - [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator] [refreshCommittedOffsetsIfNeeded] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Setting offset for partition newTask-0 to the committed offset FetchPosition{offset=2, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[LP-5CG0471VCD.HCLT.CORP.HCL.IN:9092 (id: 0 rack: null)], epoch=0}}] 
+[2023-06-24 12:39:27,738] - [org.springframework.kafka.listener.KafkaMessageListenerContainer] [info] -> (INFO) [myGroup1: partitions assigned: [newTask-0]] 
+[2023-06-24 12:39:27,910] - [com.hcl.elch.freshersuperchargers.trainingworkflowproducer.service.KafkaProducerService] [receiveFomKafka] -> (INFO) [Message from kafka topic is :- Task(id=2, taskId=20, userId=2, task=DATABASE, Status=InProgress, duedate=2023-06-11, approver=null)] 
+[2023-06-24 12:39:27,910] - [com.hcl.elch.freshersuperchargers.trainingworkflowproducer.service.KafkaProducerService] [receiveFomKafka] -> (INFO) [Message from kafka topic is :- Task(id=6, taskId=31, userId=3, task=SPRINGBOOT, Status=InProgress, duedate=2023-06-14, approver=Tausif)] 
+[2023-06-24 12:39:53,897] - [org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin] [shutdown] -> (INFO) [Application shutdown requested.] 
+[2023-06-24 12:39:53,927] - [org.apache.coyote.http11.Http11NioProtocol] [log] -> (INFO) [Pausing ProtocolHandler ["http-nio-9001"]] 
+[2023-06-24 12:39:53,928] - [org.apache.catalina.core.StandardService] [log] -> (INFO) [Stopping service [Tomcat]] 
+[2023-06-24 12:39:53,934] - [org.apache.coyote.http11.Http11NioProtocol] [log] -> (INFO) [Stopping ProtocolHandler ["http-nio-9001"]] 
+[2023-06-24 12:39:53,937] - [org.apache.coyote.http11.Http11NioProtocol] [log] -> (INFO) [Destroying ProtocolHandler ["http-nio-9001"]] 
+[2023-06-24 12:39:53,941] - [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator] [invokePartitionsRevoked] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Revoke previously assigned partitions newTask-0] 
+[2023-06-24 12:39:53,943] - [org.springframework.kafka.listener.KafkaMessageListenerContainer] [info] -> (INFO) [myGroup1: partitions revoked: [newTask-0]] 
+[2023-06-24 12:39:53,944] - [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator] [maybeLeaveGroup] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Member consumer-myGroup1-1-be2231ff-60db-472d-a9c3-6f5e9e9db2b8 sending LeaveGroup request to coordinator LP-5CG0471VCD.HCLT.CORP.HCL.IN:9092 (id: 2147483647 rack: null) due to the consumer unsubscribed from all topics] 
+[2023-06-24 12:39:53,945] - [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator] [resetStateAndGeneration] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Resetting generation due to: consumer pro-actively leaving the group] 
+[2023-06-24 12:39:53,945] - [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator] [requestRejoin] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Request joining group due to: consumer pro-actively leaving the group] 
+[2023-06-24 12:39:53,945] - [org.apache.kafka.clients.consumer.KafkaConsumer] [unsubscribe] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Unsubscribed all topics or patterns and assigned partitions] 
+[2023-06-24 12:39:53,946] - [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator] [resetStateAndGeneration] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Resetting generation due to: consumer pro-actively leaving the group] 
+[2023-06-24 12:39:53,946] - [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator] [requestRejoin] -> (INFO) [[Consumer clientId=consumer-myGroup1-1, groupId=myGroup1] Request joining group due to: consumer pro-actively leaving the group] 
+[2023-06-24 12:39:53,959] - [org.apache.kafka.common.metrics.Metrics] [close] -> (INFO) [Metrics scheduler closed] 
+[2023-06-24 12:39:53,959] - [org.apache.kafka.common.metrics.Metrics] [close] -> (INFO) [Closing reporter org.apache.kafka.common.metrics.JmxReporter] 
+[2023-06-24 12:39:53,960] - [org.apache.kafka.common.metrics.Metrics] [close] -> (INFO) [Metrics reporters closed] 
+[2023-06-24 12:39:53,962] - [org.apache.kafka.common.utils.AppInfoParser] [unregisterAppInfo] -> (INFO) [App info kafka.consumer for consumer-myGroup1-1 unregistered] 
+[2023-06-24 12:39:53,963] - [org.springframework.kafka.listener.KafkaMessageListenerContainer] [info] -> (INFO) [myGroup1: Consumer stopped] 
+[2023-06-24 12:39:53,968] - [org.apache.kafka.clients.producer.KafkaProducer] [close] -> (INFO) [[Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.] 
+[2023-06-24 12:39:53,973] - [org.apache.kafka.common.metrics.Metrics] [close] -> (INFO) [Metrics scheduler closed] 
+[2023-06-24 12:39:53,974] - [org.apache.kafka.common.metrics.Metrics] [close] -> (INFO) [Closing reporter org.apache.kafka.common.metrics.JmxReporter] 
+[2023-06-24 12:39:53,974] - [org.apache.kafka.common.metrics.Metrics] [close] -> (INFO) [Metrics reporters closed] 
+[2023-06-24 12:39:53,975] - [org.apache.kafka.common.utils.AppInfoParser] [unregisterAppInfo] -> (INFO) [App info kafka.producer for producer-1 unregistered] 
+[2023-06-24 12:39:53,977] - [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] [destroy] -> (INFO) [Closing JPA EntityManagerFactory for persistence unit 'default'] 
+[2023-06-24 12:39:53,980] - [com.zaxxer.hikari.HikariDataSource] [close] -> (INFO) [HikariPool-1 - Shutdown initiated...] 
+[2023-06-24 12:39:54,000] - [com.zaxxer.hikari.HikariDataSource] [close] -> (INFO) [HikariPool-1 - Shutdown completed.] 
