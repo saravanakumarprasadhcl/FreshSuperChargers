@@ -6,19 +6,17 @@ import java.util.List;
 
 import java.util.Map;
 
+import com.hcl.fsc.entities.EmployeeOnboardingDetails;
+import com.hcl.fsc.repositories.EmployeeOnboardingDetailsRepository;
+import jakarta.servlet.http.HttpServletRequest;
+import org.apache.commons.collections4.MultiValuedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
 
 import org.springframework.http.ResponseEntity;
 
-import org.springframework.web.bind.annotation.GetMapping;
-
-import org.springframework.web.bind.annotation.PostMapping;
-
-import org.springframework.web.bind.annotation.RequestParam;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -38,75 +36,91 @@ import com.hcl.fsc.services.EmployeeNonTier1ServiceImpl;
 
 public class EmployeeController {
 
-	@Autowired
+    @Autowired
 
-	private EmployeeNonTier1ServiceImpl employeeNonTier1Service;
+    private EmployeeNonTier1ServiceImpl employeeNonTier1Service;
 
-	@Autowired
+    @Autowired
 
-	private EmployeeCDACServiceImpl employeeCDACService;
+    private EmployeeCDACServiceImpl employeeCDACService;
 
-	@Autowired
+    @Autowired
 
-	private EmployeeDigiBeeServiceImpl employeeDigiBeeService;
+    private EmployeeDigiBeeServiceImpl employeeDigiBeeService;
 
-	@PostMapping("fsc/upload")
+    @Autowired
+    private EmployeeOnboardingDetailsRepository employeeOnboardingDetailsRepository;
 
-	public ResponseEntity<?> employeeNonTier1Uplaod(@RequestParam("file") MultipartFile[] file) {
+    @PostMapping("fsc/upload")
 
-		int count = 0;
+    public ResponseEntity<?> employeeNonTier1Uplaod(@RequestParam("file") MultipartFile[] file) {
 
-		List<String> errorsList = new ArrayList<>();
+        int count = 0;
 
-		for (int i = 0; i < file.length; i++) {
+        List<String> errorsList = new ArrayList<>();
 
-			if (EmployeeHelper.checkExcelFormate(file[i])) {
+        for (int i = 0; i < file.length; i++) {
 
-				errorsList.addAll(this.employeeNonTier1Service.employeeNonTier1ListSave(file[i]));
+            if (EmployeeHelper.checkExcelFormate(file[i])) {
 
-				errorsList.addAll(this.employeeDigiBeeService.employeeDigiBeeListSave(file[i]));
+                errorsList.addAll(this.employeeNonTier1Service.employeeNonTier1ListSave(file[i]));
 
-				errorsList.addAll(this.employeeCDACService.employeeCDACListSave(file[i]));
+                errorsList.addAll(this.employeeDigiBeeService.employeeDigiBeeListSave(file[i]));
 
-				count++;
+                errorsList.addAll(this.employeeCDACService.employeeCDACListSave(file[i]));
 
-			} else
+                count++;
 
-				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Please upload Excel sheet Only");
+            } else
 
-		}
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Please upload Excel sheet Only");
 
-		if (count == file.length) {
+        }
 
-			if (errorsList.size() == 0)
+        if (count == file.length) {
 
-				return ResponseEntity.ok(Map.of("message", "All files are uploaded"));
+            if (errorsList.size() == 0)
 
-			else {
+                return ResponseEntity.ok(Map.of("message", "All files are uploaded"));
 
-				errorsList.add(0, "All files are uploaded partially, all the errors are listed below :");
+            else {
 
-				errorsList.add("Total count of errors is " + (errorsList.size() - 1));
+                errorsList.add(0, "All files are uploaded partially, all the errors are listed below :");
 
-				return ResponseEntity.status(HttpStatus.OK).body(errorsList);
+                errorsList.add("Total count of errors is " + (errorsList.size() - 1));
 
-			}
+                return ResponseEntity.status(HttpStatus.OK).body(errorsList);
 
-		} else
+            }
 
-			return ResponseEntity
+        } else
 
-					.ok(Map.of("message", file.length - count + "File is not uploaded maybe some values are null"));
+            return ResponseEntity
 
-	}
+                    .ok(Map.of("message", file.length - count + "File is not uploaded maybe some values are null"));
 
-	@GetMapping("/employeesList")
+    }
 
-	public List<EmployeeDetails> getAllEmployeesDetails() {
+    @GetMapping("/employeesList")
 
-		return this.employeeNonTier1Service.getAllEmployees();
+    public List<EmployeeDetails> getAllEmployeesDetails() {
 
-	}
+        return this.employeeNonTier1Service.getAllEmployees();
+
+    }
+
+    @GetMapping("/employees/{keyword}/{value}")
+    public List<EmployeeOnboardingDetails> getAllEmployeeWithFilter(@PathVariable String keyword, @PathVariable String value) {
+
+        System.out.println(employeeOnboardingDetailsRepository.findAll());
+        if (keyword.equals("location")) {
+            return employeeOnboardingDetailsRepository.getEmployeeOnboardingDetailsByLocation(value);
+        } else if (keyword.equals("collegeTier")) {
+            return employeeOnboardingDetailsRepository.getEmployeeOnboardingDetailsByCollegeTiering(value);
+        } else if (keyword.equals("graduation")) {
+            return employeeOnboardingDetailsRepository.getEmployeeOnboardingDetailsByUg(value);
+        } else return employeeOnboardingDetailsRepository.findAll();
+    }
 
 //	else if(res==-1) { 
 

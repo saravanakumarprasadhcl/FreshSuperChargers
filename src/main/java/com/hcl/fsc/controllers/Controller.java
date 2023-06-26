@@ -19,32 +19,27 @@ import java.util.List;
 @CrossOrigin("*")
 public class Controller {
 
-	@Autowired
-	private EmployeeTier1Service tier_1Service;
+    @Autowired
+    private EmployeeTier1Service tier_1Service;
 
-	@Autowired
-	private EmployeeSkilledHiringService skilledHiringService;
+    @Autowired
+    private EmployeeSkilledHiringService skilledHiringService;
 
-	@Autowired
-	private EmployeeMoUService mouService;
+    @Autowired
+    private EmployeeMoUService mouService;
 
-	@Autowired
-	private EmployeeRecruitmentDetailsRepository employeeRecruitmentDetailsRepository;
+    @Autowired
+    private EmployeeRecruitmentDetailsRepository employeeRecruitmentDetailsRepository;
 
-	@PostMapping("fsc/uploads")
-	public ResponseEntity<?> upload(@RequestParam("file") MultipartFile file) {
-		if (EmployeeHelper.checkExcelFormate(file)) {
-			this.tier_1Service.save(file);
-			this.skilledHiringService.save(file);
-			this.mouService.save(file);
-			return ResponseEntity.status(HttpStatus.OK).body("Upload");
-		}
-		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Please upload Excel sheet Only");
-	}
-
-	@GetMapping("/employees")
-	public List<EmployeeRecruitmentDetails> getAllEmployeesUnassigned(){
-		return employeeRecruitmentDetailsRepository.findAll();
-	}
+    @PostMapping("fsc/uploads")
+    public ResponseEntity<?> upload(@RequestParam("file") MultipartFile file) {
+        if (EmployeeHelper.checkExcelFormate(file)) {
+            this.tier_1Service.save(file);
+            this.skilledHiringService.save(file);
+            this.mouService.save(file);
+            return ResponseEntity.status(HttpStatus.OK).body("Upload");
+        }
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Please upload Excel sheet Only");
+    }
 
 }
