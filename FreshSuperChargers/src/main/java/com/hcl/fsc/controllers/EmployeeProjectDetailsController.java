@@ -52,7 +52,7 @@ public class EmployeeProjectDetailsController {
             } else {
                 LocalDate currentDate = LocalDate.now();
                 ProjectAssignmentHistory projectAssignmentHistory = new ProjectAssignmentHistory();
-                EmployeeProjectDetails assignedDetailsOld = employeeProjectDetailsRepository.getById(employeeProjectDetails.getEmpSAPID());
+                EmployeeProjectDetails assignedDetailsOld = employeeProjectDetailsRepository.getReferenceById(employeeProjectDetails.getEmpSAPID());
                 projectAssignmentHistory.setProject_code(assignedDetailsOld.getProjID());
                 projectAssignmentHistory.setAssignment_start_date(assignedDetailsOld.getAssignmentStartDate());
                 projectAssignmentHistory.setAssignement_end_date(assignedDetailsOld.getAssignmentEndDate());
@@ -63,11 +63,9 @@ public class EmployeeProjectDetailsController {
                 projectAssignmentHistory.setEmployeeProjectDetails(assignedDetailsOld);
 
                 List<ProjectAssignmentHistory> listHistory = new ArrayList<>();
-                listHistory.add(projectAssignmentHistory);
-                //employeeProjectDetailsService.add(projectAssignmentHistory);
                 employeeProjectDetails.setProjectAssignmentHistory(listHistory);
-// employeeDetailsProject display = employeeDetailsProjectRepository.getemployeeDetailsProjectByEmployeeCode(employeeDetails.getEmpSAPID());
-// System.out.println(display.getEmployeeProjectAssignHistory());
+                
+                listHistory.add(projectAssignmentHistory);
 
                 employeeProjectDetailsService.add(employeeProjectDetails);
 

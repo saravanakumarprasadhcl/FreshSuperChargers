@@ -44,5 +44,6 @@ public class ProjectAssignmentHistory {
     @ManyToOne
     @JoinColumn(name = "employee_code")
     @JsonBackReference
+    @ToString.Exclude
     private EmployeeProjectDetails employeeProjectDetails;
 }

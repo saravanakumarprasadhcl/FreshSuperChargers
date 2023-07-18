@@ -13,5 +13,7 @@ import com.hcl.fsc.entities.EmployeeProjectDetails;
 
 public interface EmployeeProjectDetailsRepository extends JpaRepository<EmployeeProjectDetails, Integer> {
 
+    public EmployeeProjectDetails findByEmpSAPID(int id);
+
 
 }
